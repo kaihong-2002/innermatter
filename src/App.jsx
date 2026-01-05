@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Philosophy from './pages/Philosophy';
 import HealthClub from './pages/HealthClub';
@@ -21,7 +21,7 @@ function App() {
   return (
     <AuthProvider>
       <CartProvider>
-        <Router basename={import.meta.env.BASE_URL}>
+        <Router>
           <ScrollToTop />
           <CartDrawer />
           <Routes>
