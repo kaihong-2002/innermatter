@@ -151,7 +151,20 @@
     border-radius: 0;
 }
 
-transform: translateY(-2px);
+@media (max-width: 768px) {
+    .btn-order {
+        display: none;
+        /* Hide on mobile to reduce clutter */
+    }
+
+    .navbar-actions {
+        gap: 12px;
+        /* Tighter gap on mobile */
+    }
+}
+
+.btn-order:hover {
+    transform: translateY(-2px);
 }
 
 /* Mobile Menu Toggle Button (Hamburger) */

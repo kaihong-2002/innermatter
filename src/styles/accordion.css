@@ -9,11 +9,21 @@
     flex-direction: column;
 }
 
-.accordion-container {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    flex-direction: row;
+width: 100%;
+height: 100%;
+flex-direction: row;
+}
+
+/* Mobile: Reset container height to auto */
+@media (max-width: 768px) {
+    .series-section {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .accordion-container {
+        height: auto;
+    }
 }
 
 .accordion-item {
@@ -168,6 +178,7 @@
 }
 
 /* Mobile: Stack vertically */
+/* Mobile: Stack vertically with natural height expansion */
 @media (max-width: 768px) {
     .accordion-container {
         flex-direction: column;
@@ -175,13 +186,26 @@
 
     .accordion-item {
         width: 100%;
+        height: 120px;
+        /* Fixed collapsed height */
+        flex: none;
+        /* Disable flex-grow */
         border-right: none;
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     }
 
+    /* Expand naturally on interactions */
     .accordion-item:hover,
     .accordion-item.active {
-        flex: 2;
-        /* Less expansion on mobile */
+        height: auto;
+        /* Grow to fit content */
+        flex: none;
+        min-height: 500px;
+        /* Ensure enough space for content */
+    }
+
+    .accordion-title {
+        font-size: 1.25rem;
+        /* Slightly smaller on mobile */
     }
 }
