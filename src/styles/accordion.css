@@ -9,9 +9,11 @@
     flex-direction: column;
 }
 
-width: 100%;
-height: 100%;
-flex-direction: row;
+.accordion-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
 }
 
 /* Mobile: Reset container height to auto */
