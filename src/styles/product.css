@@ -219,4 +219,22 @@
     .macro-item {
         align-items: center;
     }
+
+    .product-name {
+        font-size: 1.25rem;
+        text-align: center;
+    }
+
+    .product-desc {
+        text-align: center;
+    }
+
+    .macro-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .macro-value {
+        font-size: 1.25rem;
+    }
 }

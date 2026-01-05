@@ -7,6 +7,7 @@ import { useAuth } from '../context/AuthContext';
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // Mobile Menu State
     const location = useLocation();
     const navigate = useNavigate();
     const { toggleCart, cartCount } = useCart();
@@ -29,6 +30,7 @@ const Navbar = () => {
 
     const handleScrollLink = (e, targetId) => {
         e.preventDefault();
+        setIsMobileMenuOpen(false); // Close menu on click
 
         // If we are already on home page, just scroll
         if (location.pathname === '/') {
@@ -57,7 +59,7 @@ const Navbar = () => {
                 Innermatter
             </Link>
 
-            <div className="navbar-links">
+            <div className={`navbar-links ${isMobileMenuOpen ? 'active' : ''}`}>
                 {/* Custom handlers for sections */}
                 <Link to="/philosophy" onClick={(e) => handleScrollLink(e, 'mission')} className="nav-link">Philosophy</Link>
                 <a href="#shop" onClick={(e) => handleScrollLink(e, 'shop')} className="nav-link">Menu</a>
@@ -90,8 +92,19 @@ const Navbar = () => {
                 ) : (
                     <button className="btn-order" onClick={() => navigate('/checkout')}>Login</button>
                 )}
+
+                {/* Mobile Menu Toggle */}
+                <button
+                    className="mobile-menu-toggle"
+                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    aria-label="Toggle Navigation"
+                >
+                    <span style={{ transform: isMobileMenuOpen ? 'rotate(45deg)' : 'rotate(0)' }}></span>
+                    <span style={{ opacity: isMobileMenuOpen ? '0' : '1', translateX: isMobileMenuOpen ? '20px' : '0' }}></span>
+                    <span style={{ transform: isMobileMenuOpen ? 'rotate(-45deg)' : 'rotate(0)' }}></span>
+                </button>
             </div>
-        </nav>
+        </nav >
     );
 };
 

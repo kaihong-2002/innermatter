@@ -257,3 +257,18 @@
         align-items: center;
     }
 }
+
+@media (max-width: 480px) {
+    .brand-title {
+        font-size: 2.2rem;
+    }
+
+    .cereal-masthead {
+        margin-bottom: 16px;
+    }
+
+    .hero-cta-pill {
+        padding: 10px 24px;
+        font-size: 0.75rem;
+    }
+}

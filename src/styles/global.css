@@ -46,6 +46,16 @@ button {
     padding: 0 var(--spacing-md);
 }
 
+@media (max-width: 768px) {
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+
+    .intro-section {
+        padding: var(--spacing-xl) 0;
+    }
+}
+
 @keyframes pulse {
     0% {
         opacity: 1;

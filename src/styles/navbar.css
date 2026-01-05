@@ -13,6 +13,13 @@
     color: var(--color-midnight-black);
 }
 
+@media (max-width: 768px) {
+    .navbar {
+        height: 60px;
+        padding: 0 var(--spacing-md);
+    }
+}
+
 .navbar.scrolled {
     background-color: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(12px);
@@ -32,6 +39,28 @@
     display: flex;
     gap: 60px;
     align-items: center;
+}
+
+@media (max-width: 768px) {
+    .navbar-links {
+        display: none;
+        /* Hidden on mobile, to be toggled or replaced by a menu later */
+    }
+
+    /* Simple Mobile Menu Overlay (CSS-only basis, JS will toggle class) */
+    .navbar-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: #fff;
+        padding: 40px;
+        gap: 32px;
+        height: calc(100vh - 60px);
+        border-top: 1px solid #eee;
+    }
 }
 
 .nav-link {
@@ -87,6 +116,35 @@
     border-radius: 0;
 }
 
-.btn-order:hover {
-    transform: translateY(-2px);
+transform: translateY(-2px);
+}
+
+/* Mobile Menu Toggle Button (Hamburger) */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+    margin-left: 20px;
+}
+
+.mobile-menu-toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--color-midnight-black);
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: flex;
+    }
 }
