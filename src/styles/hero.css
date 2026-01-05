@@ -260,15 +260,34 @@
 
 @media (max-width: 480px) {
     .brand-title {
-        font-size: 2.2rem;
+        font-size: clamp(2.5rem, 10vw, 3.5rem);
+        /* Controlled scaling, not huge */
+        margin-bottom: 8px;
     }
 
     .cereal-masthead {
-        margin-bottom: 16px;
+        margin-bottom: 32px;
+        /* More breathing room */
+    }
+
+    .cereal-visual-frame {
+        max-height: 25vh;
+        /* slightly smaller to leave room for text */
+        margin-bottom: 32px;
+    }
+
+    .narrative-text {
+        font-size: 0.9rem;
+        /* Readable but refined */
+        line-height: 1.8;
+        padding: 0 10px;
+        /* Prevent edge hugging */
     }
 
     .hero-cta-pill {
-        padding: 10px 24px;
-        font-size: 0.75rem;
+        padding: 14px 40px;
+        /* Easier touch target */
+        font-size: 0.8rem;
+        margin-top: 16px;
     }
 }

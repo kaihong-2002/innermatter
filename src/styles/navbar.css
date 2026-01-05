@@ -47,19 +47,42 @@
         /* Hidden on mobile, to be toggled or replaced by a menu later */
     }
 
-    /* Simple Mobile Menu Overlay (CSS-only basis, JS will toggle class) */
+    /* Premium Full-Screen Overlay */
     .navbar-links.active {
         display: flex;
         flex-direction: column;
-        position: absolute;
-        top: 60px;
+        justify-content: center;
+        /* Center vertically */
+        align-items: center;
+        /* Center horizontally */
+        position: fixed;
+        /* Fixed to cover screen */
+        top: 0;
         left: 0;
-        right: 0;
-        background-color: #fff;
-        padding: 40px;
-        gap: 32px;
-        height: calc(100vh - 60px);
-        border-top: 1px solid #eee;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(255, 255, 255, 0.98);
+        /* High opacity with blur */
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        padding: 0;
+        gap: 40px;
+        /* Airy spacing */
+        z-index: 999;
+        /* Just below toggle button */
+        animation: fadeIn 0.4s ease-out;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -86,8 +109,20 @@
     transform: translateY(-50%);
 }
 
-.nav-link:hover {
-    opacity: 1;
+@media (max-width: 768px) {
+    .nav-link {
+        font-family: 'Cinzel', serif;
+        /* Premium Serif for Menu */
+        font-size: 2rem;
+        /* Large Editorial Size */
+        font-weight: 400;
+        color: var(--color-midnight-black);
+    }
+
+    .nav-link:not(:last-child)::after {
+        display: none;
+        /* No dots in vertical menu */
+    }
 }
 
 .navbar-actions {
@@ -124,13 +159,15 @@ transform: translateY(-2px);
     display: none;
     flex-direction: column;
     justify-content: space-around;
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    /* Slightly bigger touch target */
+    height: 20px;
     background: transparent;
     border: none;
     cursor: pointer;
     padding: 0;
-    z-index: 10;
+    z-index: 1001;
+    /* Above the overlay */
     margin-left: 20px;
 }
 

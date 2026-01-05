@@ -290,19 +290,39 @@
 @media (max-width: 768px) {
     .mindset-grid {
         grid-template-columns: 1fr;
+        gap: 40px;
+        /* More vertical breathing room between cards */
     }
 
     .solution-pillars {
-        flex-wrap: wrap;
-        gap: 30px;
+        flex-direction: column;
+        /* Stack vertically for premium look */
+        align-items: center;
+        gap: 48px;
+        padding: 40px 20px;
+        overflow-x: visible;
+        /* Remove scroll */
+    }
+
+    .solution-pillars::after {
+        display: none;
     }
 
     .pillar-operator {
-        display: none;
-        /* Hide symbols on mobile for clean stacking */
+        display: block;
+        /* Bring back operators but rotate them or keep separate */
+        transform: rotate(90deg);
+        /* Vertical flow arrow/plus */
+        margin: 10px 0;
+        font-size: 1.5rem;
     }
 
     .collection-grid {
         grid-template-columns: 1fr;
+    }
+
+    .intro-subtitle {
+        font-size: 2.5rem;
+        /* Reduce massive title on mobile */
     }
 }
