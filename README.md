@@ -94,5 +94,7 @@ npm run dev  # 啟動網站
 1.  點擊 **Settings** > **Pages**。
 2.  在 **Build and deployment** 下方的 **Source** 選單中，選擇 **GitHub Actions**。
 
+
 ### 開始部署
 完成上述設定後，只要執行 `git push origin main`，GitHub Actions 就會自動開始建置並部署您的網站！
+
