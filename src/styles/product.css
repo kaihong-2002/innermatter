@@ -152,11 +152,56 @@
     margin-top: 8px;
 }
 
-.product-price {
-    font-family: var(--font-heading);
-    font-size: 1.125rem;
-    font-weight: 700;
+.series-header {
+    padding: 16px 24px;
+    border-radius: 4px;
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    /* Default white text for headers */
 }
+
+.series-header h3 {
+    margin: 0;
+    color: inherit !important;
+    /* Force inherit white */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.series-header p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 0.95rem;
+}
+
+/* Series Header Colors - Distinct Hues */
+#series-Reset-Power .series-header {
+    background-color: #7E9689;
+}
+
+/* Sage */
+#series-Urban-Light .series-header {
+    background-color: #CFC0A5;
+}
+
+/* Sand */
+#series-Daily-Balance .series-header {
+    background-color: #95A9B8;
+}
+
+/* Blue */
+#series-Focus-Fuel .series-header {
+    background-color: #BCACA4;
+}
+
+/* Clay */
+#series-Complete-Reset .series-header {
+    background-color: #A8A8A8;
+}
+
+/* Grey */
 
 .btn-add {
     background-color: transparent;
