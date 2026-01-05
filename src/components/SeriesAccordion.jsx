@@ -9,8 +9,8 @@ const SERIES_DATA = [
         description: '專為高強度運動後的黃金修復期設計。35g 高純度分離乳清，極速補給受損肌肉，消除疲勞感。這是你重返強大的關鍵儀式。',
         suitableFor: '重度運動者 / 追求肌肉線條 / 易疲勞體質',
         specs: 'Protein 35g | Sugar <6g',
-        color: '#8B747F', // Muted Mauve (Complimentary to Sage)
-        image: 'url("/assets/texture_reset_power.png")'
+        color: '#B8C5BD', // Deep Sage
+        image: 'none'
     },
     {
         id: 'ul',
@@ -19,8 +19,8 @@ const SERIES_DATA = [
         description: '拒絕午後的沉重與水腫。輕量級蛋白配方，添加高纖與植化素，讓你保持輕盈體感，優雅應對忙碌日程。',
         suitableFor: '久坐上班族 / 易水腫體質 / 下午茶愛好者',
         specs: 'Low Cal | Fiber 8g',
-        color: '#748B6F', // Sage Green (Brand Core)
-        image: 'url("/assets/texture_urban_light.png")'
+        color: '#DBCBB8', // Deep Sand
+        image: 'none'
     },
     {
         id: 'db',
@@ -29,8 +29,8 @@ const SERIES_DATA = [
         description: '建立健康習慣的起點。穩定的優質油脂與植物性蛋白，撫平飢餓時的焦慮，為身心帶來平靜的能量流動。',
         suitableFor: '飲食不規律者 / 養生入門 / 素食友善',
         specs: 'Good Fats | Stable',
-        color: '#8B8574', // Warm Stone/Taupe
-        image: 'linear-gradient(to bottom right, #F5F1EB, #D8CFBE)' // Clean Sand Gradient
+        color: '#C4CDC6', // Deep Mist
+        image: 'none'
     },
     {
         id: 'ff',
@@ -39,8 +39,8 @@ const SERIES_DATA = [
         description: '當你需要絕對專注時的燃料。結合天然咖啡因與腦磷脂，提升思緒清晰度，讓你進入高效心流狀態。',
         suitableFor: '高壓腦力工作者 / 考生 / 需要熬夜者',
         specs: 'Caffeine 100mg',
-        color: '#8B7D74', // Muted Clay/Bronze
-        image: 'linear-gradient(to bottom right, #EBE6E1, #BFAFA0)' // Clean Bronze Gradient
+        color: '#DED6C8', // Deep Linen
+        image: 'none'
     },
     {
         id: 'cr',
@@ -49,8 +49,8 @@ const SERIES_DATA = [
         description: '繁忙時刻的完美代餐。一份即包含人體所需全營養，無需在便利商店妥協。高效、精準、完整的能量管理。',
         suitableFor: '忙碌商務人士 / 嚴格飲控者 / 戶外活動者',
         specs: '400 Cal | Complete',
-        color: '#D9D9D6', // Mist Grey/Cream
-        image: 'url("/assets/texture_complete_reset.png")'
+        color: '#BDCDD1', // Deep Sky
+        image: 'none'
     }
 ];
 
@@ -65,13 +65,12 @@ const SeriesAccordion = () => {
                     <div
                         key={series.id}
                         className="accordion-item"
-                        style={{ backgroundImage: series.image }}
+                        style={{ background: series.color }} // Forced background color
                     >
-                        {/* Fallback color if image fails or layered */}
-                        <div className="accordion-bg" style={{ backgroundColor: series.color, opacity: 0.2 }}></div>
+                        {/* Removed the white gradient overlay div entirely to let color shine */}
 
                         <div className="accordion-content">
-                            <h3 className="accordion-title">{series.title}</h3>
+                            <h3 className="accordion-title" style={{ background: 'rgba(255,255,255,0.4)' }}>{series.title}</h3>
                             <div className="accordion-details">
                                 <p style={{ fontStyle: 'italic', marginBottom: '16px', fontSize: '1.25rem', fontFamily: 'serif', color: '#111', fontWeight: '600' }}>{series.tagline}</p>
 
