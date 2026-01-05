@@ -120,7 +120,8 @@
     margin: 32px auto 0;
 }
 
-.accordion-item:hover .accordion-details {
+.accordion-item:hover .accordion-details,
+.accordion-item.active .accordion-details {
     max-height: 800px;
     /* Increased to fit new content */
     /* Arbitrary large enough height */
