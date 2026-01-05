@@ -79,8 +79,6 @@
     /* Image | Details | Macros */
     gap: 40px;
     align-items: center;
-    gap: 40px;
-    align-items: center;
     border-bottom: none;
     /* Removed border as color separates */
     background-color: #fff;
@@ -132,9 +130,11 @@
     height: 250px;
     /* Calculated from 4/5 aspect ratio of 200px */
     overflow: hidden;
-    background-color: #f5f5f5;
-    /* Placeholder color before load */
+    background-color: transparent;
+    /* Removed gray placeholder */
     flex-shrink: 0;
+    border-radius: 4px;
+    /* Slight roundness for image */
 }
 
 .product-image {
@@ -148,7 +148,7 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
-    border-right: 1px solid #f0f0f0;
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
     /* Separator between info and macros */
     padding-right: 40px;
 }
