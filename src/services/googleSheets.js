@@ -1,5 +1,6 @@
 // Google Sheets API Service
 // Connects to the Apps Script backend defined in VITE_GOOGLE_APP_SCRIPT_URL
+import { getAssetPath } from '../utils/assets';
 
 // Use proxy in development to avoid CORS issues
 const API_URL = import.meta.env.DEV
@@ -12,31 +13,31 @@ const MOCK_PRODUCTS = [
         id: 'rp', series: 'Reset Power', slug: 'reset-power-berry', name_en: 'Berry Recovery', name_tc: '莓果修復飲',
         desc_short: 'Post-workout repair', desc_long: '酸甜莓果口感，富含抗氧化劑，是運動後的最佳修復儀式。',
         macros: { protein: 32, carbs: 15, fats: 2, fiber: 4, sugar: 0 },
-        calories: 280, price: 160, image: '/assets/rp01.png', is_sold_out: false
+        calories: 280, price: 160, image: getAssetPath('/assets/rp01.png'), is_sold_out: false
     },
     {
         id: 'ul', series: 'Urban Light', slug: 'urban-light-green', name_en: 'Green Cleanse', name_tc: '綠色淨化飲',
         desc_short: 'Light afternoon lift', desc_long: '小黃瓜與芹菜的清爽結合，為下午帶來輕盈與清醒。',
         macros: { protein: 22, carbs: 8, fats: 1, fiber: 7, sugar: 0 },
-        calories: 140, price: 140, image: '/assets/ul01.png', is_sold_out: true
+        calories: 140, price: 140, image: getAssetPath('/assets/ul01.png'), is_sold_out: true
     },
     {
         id: 'db', series: 'Daily Balance', slug: 'daily-balance-cacao', name_en: 'Cacao Calm', name_tc: '可可平衡飲',
         desc_short: 'Stable energy', desc_long: '天然可可帶來的穩定愉悅，告別糖分焦慮。',
         macros: { protein: 28, carbs: 10, fats: 8, fiber: 5, sugar: 0 },
-        calories: 220, price: 150, image: '/assets/db01.png', is_sold_out: false
+        calories: 220, price: 150, image: getAssetPath('/assets/db01.png'), is_sold_out: false
     },
     {
         id: 'ff', series: 'Focus Fuel', slug: 'focus-fuel-mocha', name_en: 'Espresso Mocha', name_tc: '摩卡專注飲',
         desc_short: 'Deep work energy', desc_long: '冷萃咖啡結合酪蛋白，沒有心悸，只有持續的專注。',
         macros: { protein: 20, carbs: 10, fats: 4, fiber: 2, sugar: 0 },
-        calories: 190, price: 150, image: '/assets/ff01.png', is_sold_out: false
+        calories: 190, price: 150, image: getAssetPath('/assets/ff01.png'), is_sold_out: false
     },
     {
         id: 'cr', series: 'Complete Reset', slug: 'complete-reset-vanilla', name_en: 'Vanilla Whole', name_tc: '香草完整餐',
         desc_short: 'Full meal replacement', desc_long: '忙碌不是妥協的藉口。四小時的飽足，一杯搞定。',
         macros: { protein: 35, carbs: 40, fats: 15, fiber: 10, sugar: 2 },
-        calories: 450, price: 200, image: '/assets/cr01.png', is_sold_out: false
+        calories: 450, price: 200, image: getAssetPath('/assets/cr01.png'), is_sold_out: false
     }
 ];
 
@@ -203,7 +204,9 @@ const transformProduct = (row) => {
             desc_long: row.desc_long || '',
             price: safeNum(row.price),
             calories: safeNum(row.calories),
-            image: row.image || '',
+            calories: safeNum(row.calories),
+            image: getAssetPath(row.image) || '',
+            is_sold_out: row.is_sold_out === true || row.is_sold_out === 'TRUE',
             is_sold_out: row.is_sold_out === true || row.is_sold_out === 'TRUE',
             macros: {
                 protein: safeNum(row.protein),

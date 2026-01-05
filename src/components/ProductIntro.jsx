@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/product-intro.css';
+import { getAssetPath } from '../utils/assets';
 
 // Internal component for 3D Tilt Effect
 const TiltCard = ({ children, className, style }) => {
@@ -78,7 +79,7 @@ const ProductIntro = () => {
         <div className="mindset-grid">
           {/* Card 1: Body Control */}
           <div className="mindset-card card-body-control">
-            <img src="/assets/icon_body.png" alt="Body" className="card-icon" />
+            <img src={getAssetPath('/assets/icon_body.png')} alt="Body" className="card-icon" />
             <h3 className="card-title">Body Control<span>體態控制</span></h3>
             <p className="card-desc">
               真正的體態管理，不是盲目的挨餓，而是精準的熱量赤字與營養密度。
@@ -88,7 +89,7 @@ const ProductIntro = () => {
 
           {/* Card 2: Athletic */}
           <div className="mindset-card card-athletic">
-            <img src="/assets/icon_energy.png" alt="Athletic" className="card-icon" />
+            <img src={getAssetPath('/assets/icon_energy.png')} alt="Athletic" className="card-icon" />
             <h3 className="card-title">Athletic<span>運動表現</span></h3>
             <p className="card-desc">
               每一次的揮汗如雨，都值得被更好的營養承接。
@@ -98,7 +99,7 @@ const ProductIntro = () => {
 
           {/* Card 3: Clean Diet */}
           <div className="mindset-card card-clean-diet">
-            <img src="/assets/icon_mind.png" alt="Diet" className="card-icon" />
+            <img src={getAssetPath('/assets/icon_mind.png')} alt="Diet" className="card-icon" />
             <h3 className="card-title">Clean Diet<span>純粹飲食</span></h3>
             <p className="card-desc">
               在這充滿加工食品的時代，我們堅持「少即是多」的減法哲學。
@@ -130,7 +131,7 @@ const ProductIntro = () => {
             {/* Pillar 1 */}
             <div className="solution-pillar">
               <TiltCard className="pillar-image-wrap">
-                <img src="/assets/cereal_greens_v2.png" alt="Fresh Greens" />
+                <img src={getAssetPath('/assets/cereal_greens_v2.png')} alt="Fresh Greens" />
               </TiltCard>
               <div className="pillar-label">REAL FOOD</div>
               <div className="pillar-sub">新鮮蔬果<br />鮮活植化素</div>
@@ -141,7 +142,7 @@ const ProductIntro = () => {
             {/* Pillar 2 */}
             <div className="solution-pillar">
               <TiltCard className="pillar-image-wrap">
-                <img src="/assets/cereal_texture_nuts.png" alt="Texture" />
+                <img src={getAssetPath('/assets/cereal_texture_nuts.png')} alt="Texture" />
               </TiltCard>
               <div className="pillar-label">TEXTURE</div>
               <div className="pillar-sub">原型食物<br />細緻纖維</div>
@@ -152,7 +153,7 @@ const ProductIntro = () => {
             {/* Pillar 3 */}
             <div className="solution-pillar">
               <TiltCard className="pillar-image-wrap">
-                <img src="/assets/cereal_milk_pour.png" alt="Base" />
+                <img src={getAssetPath('/assets/cereal_milk_pour.png')} alt="Base" />
               </TiltCard>
               <div className="pillar-label">BASE</div>
               <div className="pillar-sub">優質乳源<br />分離蛋白</div>
@@ -163,7 +164,7 @@ const ProductIntro = () => {
             {/* Result */}
             <div className="solution-pillar solution-result-pillar">
               <TiltCard className="pillar-image-wrap">
-                <img src="/assets/cereal_glass_v2.png" alt="Glass" />
+                <img src={getAssetPath('/assets/cereal_glass_v2.png')} alt="Glass" />
               </TiltCard>
               <div className="pillar-label result-title">THE GLASS</div>
               <div className="pillar-sub">營養均衡．健康飲</div>

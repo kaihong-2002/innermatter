@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
+import Footer from '../components/Footer';
+import { getAssetPath } from '../utils/assets';
+
 const ClubRunning = () => {
     return (
         <div style={{ backgroundColor: '#fff', minHeight: '100vh' }}>
@@ -11,7 +14,7 @@ const ClubRunning = () => {
                 {/* Hero Section */}
                 <div style={{ height: '70vh', position: 'relative', overflow: 'hidden' }}>
                     <img
-                        src="/assets/club_running.png"
+                        src={getAssetPath('/assets/club_running.png')}
                         alt="Running Club"
                         style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
                     />

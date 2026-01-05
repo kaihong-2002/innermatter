@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/global.css';
+import { getAssetPath } from '../utils/assets';
 
 const EventTimeline = () => {
     const navigate = useNavigate();
@@ -32,7 +33,7 @@ const EventTimeline = () => {
                     >
                         <div style={{ overflow: 'hidden', marginBottom: '24px', border: '1px solid #eee' }}>
                             <img
-                                src="/assets/club_running.png"
+                                src={getAssetPath('/assets/club_running.png')}
                                 alt="Running Club"
                                 style={{ width: '100%', height: '400px', objectFit: 'cover', transition: 'transform 0.6s ease' }}
                                 onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
@@ -63,7 +64,7 @@ const EventTimeline = () => {
                     >
                         <div style={{ overflow: 'hidden', marginBottom: '24px', border: '1px solid #eee' }}>
                             <img
-                                src="/assets/club_biking.png"
+                                src={getAssetPath('/assets/club_biking.png')}
                                 alt="Cycling Club"
                                 style={{ width: '100%', height: '400px', objectFit: 'cover', transition: 'transform 0.6s ease' }}
                                 onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
@@ -94,7 +95,7 @@ const EventTimeline = () => {
                     >
                         <div style={{ overflow: 'hidden', marginBottom: '24px', border: '1px solid #eee' }}>
                             <img
-                                src="/assets/club_gym.png"
+                                src={getAssetPath('/assets/club_gym.png')}
                                 alt="Training Club"
                                 style={{ width: '100%', height: '400px', objectFit: 'cover', transition: 'transform 0.6s ease' }}
                                 onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}

@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { getAssetPath } from '../utils/assets';
 
 const IMAGES = [
-    '/assets/vogue_panoramic_sage_texture_retry_1767545912658.png',
-    '/assets/vogue_panoramic_smoothie_art_1767545865355.png',
-    '/assets/vogue_panoramic_liquid_motion_1767545885894.png'
+    getAssetPath('/assets/vogue_panoramic_sage_texture_retry_1767545912658.png'),
+    getAssetPath('/assets/vogue_panoramic_smoothie_art_1767545865355.png'),
+    getAssetPath('/assets/vogue_panoramic_liquid_motion_1767545885894.png')
 ];
 
 const VogueCarousel = () => {

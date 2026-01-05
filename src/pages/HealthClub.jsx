@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { getAssetPath } from '../utils/assets';
 
 const ClubCard = ({ title, description, imageSrc }) => (
     <div style={{ flex: 1, minWidth: '300px', border: '1px solid #eee', padding: '0', display: 'flex', flexDirection: 'column' }}>
@@ -46,17 +47,17 @@ const HealthClub = () => {
                     <ClubCard
                         title="Running Club"
                         description="Tuesday mornings at 7 AM. We own the city streets before the world wakes up. 5K/10K pacing groups available."
-                        imageSrc="/assets/club_running.png"
+                        imageSrc={getAssetPath('/assets/club_running.png')}
                     />
                     <ClubCard
                         title="Biking Club"
                         description="Weekend escapades to the mountains. High-intensity climbs followed by recovery sessions at the flagship store."
-                        imageSrc="/assets/club_biking.png"
+                        imageSrc={getAssetPath('/assets/club_biking.png')}
                     />
                     <ClubCard
                         title="Gym Club"
                         description="Functional strength and mobility. Expert-led workshops on lifting form and injury prevention."
-                        imageSrc="/assets/club_gym.png"
+                        imageSrc={getAssetPath('/assets/club_gym.png')}
                     />
                 </div>
             </div>

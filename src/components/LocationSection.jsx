@@ -1,4 +1,5 @@
 import React from 'react';
+import { getAssetPath } from '../utils/assets';
 
 const LocationSection = () => {
     return (
@@ -42,7 +43,7 @@ const LocationSection = () => {
                 <div style={{ flex: 1, minWidth: '300px', height: '400px', position: 'relative' }}>
                     {/* Digital Twin Placeholder */}
                     <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
-                        <img src="/assets/store_tokyo.png" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Innermatter Tokyo Flagship" />
+                        <img src={getAssetPath('/assets/store_tokyo.png')} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Innermatter Tokyo Flagship" />
                     </div>
                     <div style={{
                         position: 'absolute', inset: 0,

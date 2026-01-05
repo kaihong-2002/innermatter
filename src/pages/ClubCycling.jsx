@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
+import Footer from '../components/Footer';
+import { getAssetPath } from '../utils/assets';
+
 const ClubCycling = () => {
     return (
         <div style={{ backgroundColor: '#fff', minHeight: '100vh' }}>
@@ -10,7 +13,7 @@ const ClubCycling = () => {
             <div style={{ paddingTop: '80px' }}>
                 <div style={{ height: '70vh', position: 'relative', overflow: 'hidden' }}>
                     <img
-                        src="/assets/club_biking.png"
+                        src={getAssetPath('/assets/club_biking.png')}
                         alt="Cycling Club"
                         style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
                     />
