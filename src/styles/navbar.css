@@ -35,6 +35,13 @@
     text-transform: uppercase;
 }
 
+@media (max-width: 768px) {
+    .navbar-logo {
+        font-size: 1.25rem;
+        /* Smaller logo on mobile to prevent crowding */
+    }
+}
+
 .navbar-links {
     display: flex;
     gap: 60px;
@@ -135,7 +142,15 @@
     font-family: var(--font-heading);
     font-size: 0.875rem;
     font-weight: 700;
+    font-weight: 700;
     cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .cart-text {
+        display: none;
+        /* Hide 'CART (x)' text on mobile, showing only icon */
+    }
 }
 
 .btn-order {
