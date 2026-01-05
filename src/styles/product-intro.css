@@ -279,11 +279,42 @@
     letter-spacing: 0.15em;
     cursor: pointer;
     transition: all 0.3s ease;
+    /* Font style */
+    font-weight: 600;
 }
 
+/* 5 Distinct Aesthetic Colors */
+.collection-item:nth-child(1) {
+    background-color: #F0F2EF;
+}
+
+/* Ice Sage */
+.collection-item:nth-child(2) {
+    background-color: #F5F1ED;
+}
+
+/* Warm Sand */
+.collection-item:nth-child(3) {
+    background-color: #E8EBE9;
+}
+
+/* Mist */
+.collection-item:nth-child(4) {
+    background-color: #F2EFE9;
+}
+
+/* Linen */
+.collection-item:nth-child(5) {
+    background-color: #EBF0F2;
+}
+
+/* Cool Sky */
+
 .collection-item:hover {
-    background: #2c3e2d;
+    background: #2c3e2d !important;
+    /* Deep Green override */
     color: #fff;
+    transform: translateY(-4px);
 }
 
 /* Responsive */
