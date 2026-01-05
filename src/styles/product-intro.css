@@ -284,32 +284,32 @@
     font-weight: 600;
 }
 
-/* 5 Distinct Aesthetic Colors - Richer/Darker Earth Tones */
+/* 5 Distinct Aesthetic Colors - Clearly Different Hues */
 .collection-item:nth-child(1) {
-    background: #B8C5BD !important;
+    background: #7E9689 !important;
 }
 
-/* Deep Sage */
+/* Sage Green */
 .collection-item:nth-child(2) {
-    background: #DBCBB8 !important;
+    background: #CFC0A5 !important;
 }
 
-/* Deep Sand */
+/* Warm Sand (Yellowish) */
 .collection-item:nth-child(3) {
-    background: #C4CDC6 !important;
+    background: #95A9B8 !important;
 }
 
-/* Deep Mist */
+/* Steel Blue */
 .collection-item:nth-child(4) {
-    background: #DED6C8 !important;
+    background: #BCACA4 !important;
 }
 
-/* Deep Linen */
+/* Warm Clay (Reddish) */
 .collection-item:nth-child(5) {
-    background: #BDCDD1 !important;
+    background: #A8A8A8 !important;
 }
 
-/* Deep Sky */
+/* Neutral Grey */
 
 .collection-item:hover {
     background: #2c3e2d !important;
