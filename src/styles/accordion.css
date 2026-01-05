@@ -1,0 +1,152 @@
+.series-section {
+    padding: 0;
+    height: 80vh;
+    /* Or adjust as needed, maybe less */
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--color-clinical-white);
+    display: flex;
+    flex-direction: column;
+}
+
+.accordion-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+}
+
+.accordion-item {
+    position: relative;
+    flex: 1;
+    /* Default equal width */
+    height: 100%;
+    transition: flex var(--transition-slow), filter var(--transition-slow);
+    cursor: pointer;
+    overflow: hidden;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    /* filter: grayscale(100%); - Removed per user request for more color */
+}
+
+.accordion-item:last-child {
+    border-right: none;
+}
+
+/* Hover State logic handled via parent class or direct hover if simple */
+.accordion-item:hover {
+    flex: 3;
+    /* Expands to take up more space (approx 50% if others are 1) */
+    filter: grayscale(0%);
+}
+
+/* We might need a parent class 'has-hover' to shrink others effectively if we want exact 50% vs others.
+   Using flex-grow is easier. */
+
+.accordion-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: #f0f0f0;
+    /* Fallback */
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.5));
+    transition: all 0.4s ease;
+}
+
+.accordion-item:hover .accordion-bg {
+    /* More opaque on hover for readability */
+    background: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.8));
+}
+
+.accordion-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: var(--color-midnight-black);
+    width: 100%;
+    padding: 0 var(--spacing-md);
+    transition: all var(--transition-slow);
+    opacity: 1;
+}
+
+.accordion-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: var(--spacing-sm);
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Readability */
+    display: inline-block;
+    padding: 4px 8px;
+    backdrop-filter: blur(4px);
+}
+
+.accordion-details {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all var(--transition-slow);
+    transform: translateY(20px);
+    /* background-color: rgba(255, 255, 255, 0.9); REMOVED - Using global bg overlay */
+    padding: 0 var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.accordion-item:hover .accordion-details {
+    max-height: 800px;
+    /* Increased to fit new content */
+    /* Arbitrary large enough height */
+    opacity: 1;
+    transform: translateY(0);
+    padding: var(--spacing-md);
+}
+
+.accordion-specs {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.btn-explore {
+    border: 1px solid var(--color-midnight-black);
+    padding: 8px 16px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.75rem;
+    transition: all var(--transition-fast);
+}
+
+.btn-explore:hover {
+    background-color: var(--color-parakeet-green);
+    border-color: var(--color-parakeet-green);
+    color: white;
+}
+
+/* Mobile: Stack vertically */
+@media (max-width: 768px) {
+    .accordion-container {
+        flex-direction: column;
+    }
+
+    .accordion-item {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .accordion-item:hover {
+        flex: 2;
+        /* Less expansion on mobile */
+    }
+}

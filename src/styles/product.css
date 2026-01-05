@@ -1,0 +1,222 @@
+.product-section {
+    padding: var(--spacing-xxl) var(--spacing-md);
+    background-color: var(--color-clinical-white);
+}
+
+.product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1440px;
+    margin: 0 auto 40px;
+    padding: 0 var(--spacing-md);
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--color-midnight-black);
+}
+
+/* Toggle Switch */
+.nutrition-toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.875rem;
+}
+
+.toggle-switch {
+    position: relative;
+    width: 50px;
+    height: 26px;
+    background-color: #e0e0e0;
+    border-radius: 13px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.toggle-switch.active {
+    background-color: var(--color-parakeet-green);
+}
+
+.toggle-knob {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-switch.active .toggle-knob {
+    transform: translateX(24px);
+}
+
+/* Product Grid */
+.product-grid {
+    display: flex;
+    flex-direction: column;
+    /* Stack product cards vertically like a menu */
+    gap: 48px;
+    max-width: 1000px;
+    /* Constrain width for menu look */
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* Product Card - Editorial List Layout */
+.product-card {
+    display: grid;
+    grid-template-columns: 200px 1fr 1fr;
+    /* Image | Details | Macros */
+    gap: 40px;
+    align-items: center;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 40px;
+}
+
+.product-card:last-child {
+    border-bottom: none;
+}
+
+.product-image-container {
+    width: 200px;
+    /* Fixed width matching grid column */
+    height: 250px;
+    /* Calculated from 4/5 aspect ratio of 200px */
+    overflow: hidden;
+    background-color: #f5f5f5;
+    /* Placeholder color before load */
+    flex-shrink: 0;
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border-right: 1px solid #f0f0f0;
+    /* Separator between info and macros */
+    padding-right: 40px;
+}
+
+.product-name {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-midnight-black);
+}
+
+.product-desc {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+.product-footer {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-top: 8px;
+}
+
+.product-price {
+    font-family: var(--font-heading);
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+.btn-add {
+    background-color: transparent;
+    border: 1px solid var(--color-midnight-black);
+    padding: 10px 24px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-add:hover {
+    background-color: var(--color-parakeet-green);
+    border-color: var(--color-parakeet-green);
+    color: white;
+}
+
+/* Macro Side Display */
+.macro-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding-left: 20px;
+}
+
+.macro-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.macro-value {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 300;
+    /* Lighter weight for elegance */
+    color: var(--color-parakeet-green);
+    line-height: 1;
+}
+
+.macro-label {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #888;
+    margin-top: 6px;
+    letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .product-card {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        text-align: center;
+    }
+
+    .product-info {
+        border-right: none;
+        padding-right: 0;
+        align-items: center;
+    }
+
+    .product-image-container {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .macro-container {
+        padding-left: 0;
+        justify-content: center;
+        gap: 32px;
+    }
+
+    .macro-item {
+        align-items: center;
+    }
+}

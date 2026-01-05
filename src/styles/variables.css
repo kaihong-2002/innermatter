@@ -1,0 +1,25 @@
+:root {
+  /* Brand Colors */
+  --color-parakeet-green: #748B6F;
+  /* Sage Green */
+  --color-clinical-white: #FFFFFF;
+  --color-midnight-black: #121212;
+  --color-fog-grey: #F5F5F5;
+
+  /* Typography */
+  --font-heading: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-body: 'Spectral', 'Noto Serif TC', serif;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 64px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.4s ease;
+  --transition-slow: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
