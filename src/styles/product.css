@@ -79,8 +79,47 @@
     /* Image | Details | Macros */
     gap: 40px;
     align-items: center;
-    border-bottom: 1px solid #f0f0f0;
-    padding-bottom: 40px;
+    gap: 40px;
+    align-items: center;
+    border-bottom: none;
+    /* Removed border as color separates */
+    background-color: #fff;
+    /* Default fallback */
+    padding: 32px;
+    /* Added internal padding */
+    border-radius: 8px;
+    /* Soft edges */
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+}
+
+/* Series-Specific Card Colors - Matched to Collection Grid Deep Earth Tones */
+#series-Reset-Power .product-card {
+    background-color: #B8C5BD !important;
+    /* Deep Sage */
+}
+
+#series-Urban-Light .product-card {
+    background-color: #DBCBB8 !important;
+    /* Deep Sand */
+}
+
+#series-Daily-Balance .product-card {
+    background-color: #C4CDC6 !important;
+    /* Deep Mist */
+}
+
+#series-Focus-Fuel .product-card {
+    background-color: #DED6C8 !important;
+    /* Deep Linen */
+}
+
+#series-Complete-Reset .product-card {
+    background-color: #BDCDD1 !important;
+    /* Deep Sky */
 }
 
 .product-card:last-child {
