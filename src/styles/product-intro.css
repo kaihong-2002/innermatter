@@ -271,8 +271,9 @@
     border: 1px solid #eee;
 }
 
+/* Base item */
 .collection-item {
-    background: #fff;
+    /* Removed default white background to let specific colors shine */
     padding: 24px 10px;
     color: #555;
     font-size: 0.9rem;
@@ -284,29 +285,32 @@
 }
 
 /* 5 Distinct Aesthetic Colors */
+/* 5 Distinct Aesthetic Colors - Forced with !important for visibility */
 .collection-item:nth-child(1) {
-    background-color: #F0F2EF;
+    background: #F0F2EF !important;
 }
 
 /* Ice Sage */
 .collection-item:nth-child(2) {
-    background-color: #F5F1ED;
+    background: #F5F1ED !important;
 }
 
 /* Warm Sand */
 .collection-item:nth-child(3) {
-    background-color: #E8EBE9;
+    background: #E8EBE9 !important;
 }
 
 /* Mist */
 .collection-item:nth-child(4) {
-    background-color: #F2EFE9;
+    background: #F2EFE9 !important;
 }
 
 /* Linen */
 .collection-item:nth-child(5) {
-    background-color: #EBF0F2;
+    background: #EBF0F2 !important;
 }
+
+/* Cool Sky */
 
 /* Cool Sky */
 
