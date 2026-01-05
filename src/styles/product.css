@@ -94,31 +94,9 @@
     transform: translateY(-4px);
 }
 
-/* Series-Specific Card Colors - Matched to Collection Grid Distinct Hues */
-#series-Reset-Power .product-card {
-    background-color: #7E9689 !important;
-    /* Sage Green */
-}
-
-#series-Urban-Light .product-card {
-    background-color: #CFC0A5 !important;
-    /* Warm Sand (Yellowish) */
-}
-
-#series-Daily-Balance .product-card {
-    background-color: #95A9B8 !important;
-    /* Steel Blue */
-}
-
-#series-Focus-Fuel .product-card {
-    background-color: #BCACA4 !important;
-    /* Warm Clay (Reddish) */
-}
-
-#series-Complete-Reset .product-card {
-    background-color: #A8A8A8 !important;
-    /* Neutral Grey */
-}
+/* Series-Specific Card Colors - REMOVED from card itself */
+/* We will apply these to the HEADERS instead */
+/* keeping selectors empty or removing them to clean up */
 
 .product-card:last-child {
     border-bottom: none;
