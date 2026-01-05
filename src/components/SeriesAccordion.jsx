@@ -64,6 +64,7 @@ const SeriesAccordion = () => {
                 {SERIES_DATA.map((series) => (
                     <div
                         key={series.id}
+                        id={`accordion-${series.id}`} // Unique ID for scroll targeting
                         className="accordion-item"
                         style={{ background: series.color }} // Forced background color
                     >

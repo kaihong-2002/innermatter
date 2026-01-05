@@ -181,11 +181,37 @@ const ProductIntro = () => {
             </p>
 
             <div className="collection-grid">
-              <div className="collection-item">重啟修復</div>
-              <div className="collection-item">輕盈順暢</div>
-              <div className="collection-item">日常平衡</div>
-              <div className="collection-item">深度專注</div>
-              <div className="collection-item">全效代餐</div>
+              {/* Linked to Series Accordion via ID scrolling */}
+              <div
+                className="collection-item"
+                onClick={() => document.getElementById('accordion-rp')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+              >
+                重啟修復
+              </div>
+              <div
+                className="collection-item"
+                onClick={() => document.getElementById('accordion-ul')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+              >
+                輕盈順暢
+              </div>
+              <div
+                className="collection-item"
+                onClick={() => document.getElementById('accordion-db')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+              >
+                日常平衡
+              </div>
+              <div
+                className="collection-item"
+                onClick={() => document.getElementById('accordion-ff')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+              >
+                深度專注
+              </div>
+              <div
+                className="collection-item"
+                onClick={() => document.getElementById('accordion-cr')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+              >
+                全效代餐
+              </div>
             </div>
           </div>
 
