@@ -39,11 +39,19 @@ const TiltCard = ({ children, className, style }) => {
   );
 };
 
-const ProductIntro = () => {
+const ProductIntro = ({ onSeriesSelect }) => {
+  const handleCollectionClick = (seriesId, elementId) => {
+    if (onSeriesSelect) {
+      onSeriesSelect(seriesId);
+    }
+    document.getElementById(elementId)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+
   return (
     <section className="intro-section">
       <div className="intro-container">
 
+        {/* ... (Mission and Shift sections remain unchanged) ... */}
         {/* === PART 1: MISSION === */}
         <header id="mission" style={{ textAlign: 'center', marginBottom: '80px' }}>
           <span className="intro-subtitle">I. OUR MISSION</span>
@@ -184,31 +192,31 @@ const ProductIntro = () => {
               {/* Linked to Series Accordion via ID scrolling */}
               <div
                 className="collection-item"
-                onClick={() => document.getElementById('accordion-rp')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+                onClick={() => handleCollectionClick('rp', 'accordion-rp')}
               >
                 重啟修復
               </div>
               <div
                 className="collection-item"
-                onClick={() => document.getElementById('accordion-ul')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+                onClick={() => handleCollectionClick('ul', 'accordion-ul')}
               >
                 輕盈順暢
               </div>
               <div
                 className="collection-item"
-                onClick={() => document.getElementById('accordion-db')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+                onClick={() => handleCollectionClick('db', 'accordion-db')}
               >
                 日常平衡
               </div>
               <div
                 className="collection-item"
-                onClick={() => document.getElementById('accordion-ff')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+                onClick={() => handleCollectionClick('ff', 'accordion-ff')}
               >
                 深度專注
               </div>
               <div
                 className="collection-item"
-                onClick={() => document.getElementById('accordion-cr')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+                onClick={() => handleCollectionClick('cr', 'accordion-cr')}
               >
                 全效代餐
               </div>
