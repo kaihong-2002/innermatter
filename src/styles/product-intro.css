@@ -284,34 +284,32 @@
     font-weight: 600;
 }
 
-/* 5 Distinct Aesthetic Colors */
-/* 5 Distinct Aesthetic Colors - Forced with !important for visibility */
-/* Darkened slightly to ensure visibility on all screens */
+/* 5 Distinct Aesthetic Colors - Richer/Darker Earth Tones */
 .collection-item:nth-child(1) {
-    background: #D6DBD8 !important;
+    background: #B8C5BD !important;
 }
 
-/* Ice Sage (Visible) */
+/* Deep Sage */
 .collection-item:nth-child(2) {
-    background: #E6DFD7 !important;
+    background: #DBCBB8 !important;
 }
 
-/* Warm Sand (Visible) */
+/* Deep Sand */
 .collection-item:nth-child(3) {
-    background: #E0E3E1 !important;
+    background: #C4CDC6 !important;
 }
 
-/* Mist (Visible) */
+/* Deep Mist */
 .collection-item:nth-child(4) {
-    background: #EBE5DC !important;
+    background: #DED6C8 !important;
 }
 
-/* Linen (Visible) */
+/* Deep Linen */
 .collection-item:nth-child(5) {
-    background: #DBE3E6 !important;
+    background: #BDCDD1 !important;
 }
 
-/* Cool Sky (Visible) */
+/* Deep Sky */
 
 .collection-item:hover {
     background: #2c3e2d !important;
