@@ -57,7 +57,15 @@ const SERIES_DATA = [
 import { Link, useNavigate } from 'react-router-dom';
 
 const SeriesAccordion = () => {
-    // Navigate hook for programmatic navigation if needed, or just use Link
+    // Internal state for mobile click-to-expand interaction
+    // This replaces strict hover on mobile which is flaky during scrolling
+    const [mobileActiveId, setMobileActiveId] = useState(null);
+
+    const handleItemClick = (id) => {
+        // Toggle: close if open, otherwise open
+        setMobileActiveId(prev => prev === id ? null : id);
+    };
+
     return (
         <section className="series-section" id="products">
             <div className="accordion-container">
@@ -65,8 +73,9 @@ const SeriesAccordion = () => {
                     <div
                         key={series.id}
                         id={`accordion-${series.id}`} // Unique ID for scroll targeting
-                        className="accordion-item"
+                        className={`accordion-item ${mobileActiveId === series.id ? 'active' : ''}`}
                         style={{ background: series.color }} // Forced background color
+                        onClick={() => handleItemClick(series.id)}
                     >
                         {/* Removed the white gradient overlay div entirely to let color shine */}
 
