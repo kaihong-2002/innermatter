@@ -13,8 +13,6 @@ import { useLocation } from 'react-router-dom';
 
 const Home = () => {
     const location = useLocation();
-    // Lifted state for Series Accordion control
-    const [activeSeriesId, setActiveSeriesId] = React.useState(null);
 
     // Instant Hash Navigation
     // Since data loading is now instant (mock service), layout is stable immediately.
@@ -44,8 +42,8 @@ const Home = () => {
             <Navbar />
             <Hero />
             <VogueCarousel />
-            <ProductIntro onSeriesSelect={setActiveSeriesId} />
-            <SeriesAccordion activeSeriesId={activeSeriesId} />
+            <ProductIntro />
+            <SeriesAccordion />
             <ProductList />
             <div id="locations" style={{ padding: '64px 0', background: '#f5f5f5', scrollMarginTop: '100px' }}>
                 <LocationSection />

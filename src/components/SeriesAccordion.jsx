@@ -56,7 +56,7 @@ const SERIES_DATA = [
 
 import { Link, useNavigate } from 'react-router-dom';
 
-const SeriesAccordion = ({ activeSeriesId }) => {
+const SeriesAccordion = () => {
     // Navigate hook for programmatic navigation if needed, or just use Link
     return (
         <section className="series-section" id="products">
@@ -65,7 +65,7 @@ const SeriesAccordion = ({ activeSeriesId }) => {
                     <div
                         key={series.id}
                         id={`accordion-${series.id}`} // Unique ID for scroll targeting
-                        className={`accordion-item ${activeSeriesId === series.id ? 'active' : ''}`}
+                        className="accordion-item"
                         style={{ background: series.color }} // Forced background color
                     >
                         {/* Removed the white gradient overlay div entirely to let color shine */}
