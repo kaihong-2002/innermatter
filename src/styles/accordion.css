@@ -38,7 +38,8 @@
 }
 
 /* Hover State logic handled via parent class or direct hover if simple */
-.accordion-item:hover {
+.accordion-item:hover,
+.accordion-item.active {
     flex: 3;
     /* Expands to take up more space (approx 50% if others are 1) */
     filter: grayscale(0%);
@@ -60,7 +61,8 @@
     transition: all 0.4s ease;
 }
 
-.accordion-item:hover .accordion-bg {
+.accordion-item:hover .accordion-bg,
+.accordion-item.active .accordion-bg {
     /* More opaque on hover for readability */
     background: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.8));
 }
@@ -176,7 +178,8 @@
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     }
 
-    .accordion-item:hover {
+    .accordion-item:hover,
+    .accordion-item.active {
         flex: 2;
         /* Less expansion on mobile */
     }
