@@ -83,20 +83,20 @@
     /* Clean look */
 }
 
-/* Distinct Card Colors */
+/* Distinct Card Colors - Synced with Collection Grid deeper tones */
 .card-body-control {
-    background-color: #f7f5f2;
-    /* Warm Sand/Almond */
+    background-color: #DBCBB8 !important;
+    /* Deep Sand (Matches Collection 2) */
 }
 
 .card-athletic {
-    background-color: #f4f6f8;
-    /* Cool Stone/Mist */
+    background-color: #C4CDC6 !important;
+    /* Deep Mist (Matches Collection 3) */
 }
 
 .card-clean-diet {
-    background-color: #f1f5f3;
-    /* Fresh Sage Mist */
+    background-color: #B8C5BD !important;
+    /* Deep Sage (Matches Collection 1) */
 }
 
 .mindset-card:hover {
