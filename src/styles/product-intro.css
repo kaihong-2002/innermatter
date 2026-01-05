@@ -286,33 +286,32 @@
 
 /* 5 Distinct Aesthetic Colors */
 /* 5 Distinct Aesthetic Colors - Forced with !important for visibility */
+/* Darkened slightly to ensure visibility on all screens */
 .collection-item:nth-child(1) {
-    background: #F0F2EF !important;
+    background: #D6DBD8 !important;
 }
 
-/* Ice Sage */
+/* Ice Sage (Visible) */
 .collection-item:nth-child(2) {
-    background: #F5F1ED !important;
+    background: #E6DFD7 !important;
 }
 
-/* Warm Sand */
+/* Warm Sand (Visible) */
 .collection-item:nth-child(3) {
-    background: #E8EBE9 !important;
+    background: #E0E3E1 !important;
 }
 
-/* Mist */
+/* Mist (Visible) */
 .collection-item:nth-child(4) {
-    background: #F2EFE9 !important;
+    background: #EBE5DC !important;
 }
 
-/* Linen */
+/* Linen (Visible) */
 .collection-item:nth-child(5) {
-    background: #EBF0F2 !important;
+    background: #DBE3E6 !important;
 }
 
-/* Cool Sky */
-
-/* Cool Sky */
+/* Cool Sky (Visible) */
 
 .collection-item:hover {
     background: #2c3e2d !important;
