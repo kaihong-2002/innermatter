@@ -271,12 +271,13 @@
     .mobile-pentagon-container {
         display: block;
         width: 100%;
-        height: 500px;
-        /* Square-like area with room */
+        height: 380px;
+        /* Reduced from 500px to remove whitespace */
         position: relative;
         background-color: var(--color-clinical-white);
         overflow: hidden;
-        margin-bottom: 20px;
+        margin-bottom: 0;
+        /* Minimized bottom margin */
     }
 
     .pentagon-wrapper {
