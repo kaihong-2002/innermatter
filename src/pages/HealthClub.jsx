@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { getAssetPath } from '../utils/assets';
-import '../styles/health-club.css';
+import '../styles/health-club-mobile.css';
 
 const ClubCard = ({ title, description, imageSrc }) => (
     <div className="club-card">
