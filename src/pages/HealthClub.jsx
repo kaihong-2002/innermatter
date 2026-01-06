@@ -2,31 +2,23 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { getAssetPath } from '../utils/assets';
+import '../styles/health-club.css';
 
 const ClubCard = ({ title, description, imageSrc }) => (
-    <div style={{ flex: 1, minWidth: '300px', border: '1px solid #eee', padding: '0', display: 'flex', flexDirection: 'column' }}>
-        <div style={{ height: '300px', overflow: 'hidden', position: 'relative' }}>
+    <div className="club-card">
+        <div className="card-image-wrapper">
             <img
                 src={imageSrc}
                 alt={title}
-                style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
+                className="card-image"
             />
         </div>
-        <div style={{ padding: '32px', backgroundColor: 'var(--color-clinical-white)', flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+        <div className="card-content">
             <div>
-                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.75rem', marginBottom: '16px', color: 'var(--color-midnight-black)' }}>{title}</h3>
-                <p style={{ fontFamily: 'var(--font-body)', marginBottom: '24px', color: '#666', lineHeight: '1.6' }}>{description}</p>
+                <h3 className="card-title">{title}</h3>
+                <p className="card-desc">{description}</p>
             </div>
-            <button style={{
-                padding: '12px 24px',
-                border: '1px solid var(--color-midnight-black)',
-                textTransform: 'uppercase',
-                fontWeight: 700,
-                backgroundColor: 'transparent',
-                cursor: 'pointer',
-                fontFamily: 'var(--font-heading)',
-                alignSelf: 'flex-start'
-            }}>Join Club</button>
+            <button className="btn-join">Join Club</button>
         </div>
     </div>
 );
@@ -35,15 +27,15 @@ const HealthClub = () => {
     return (
         <div className="page-health-club">
             <Navbar />
-            <div style={{ backgroundColor: 'var(--color-parakeet-green)', color: 'white', padding: '160px 20px 80px', textAlign: 'center' }}>
-                <h1 style={{ fontSize: '4rem', fontFamily: 'var(--font-heading)', marginBottom: '20px' }}>Health Club</h1>
-                <p style={{ fontSize: '1.25rem', opacity: 0.9, maxWidth: '600px', margin: '0 auto', fontFamily: 'var(--font-body)' }}>
+            <div className="club-hero">
+                <h1>Health Club</h1>
+                <p>
                     More than a gym. A community of like-minded individuals redefined by sweat and discipline.
                 </p>
             </div>
 
-            <div className="container" style={{ padding: '80px 20px', maxWidth: '1200px', margin: '0 auto' }}>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '40px' }}>
+            <div className="club-container">
+                <div className="club-grid">
                     <ClubCard
                         title="Running Club"
                         description="Tuesday mornings at 7 AM. We own the city streets before the world wakes up. 5K/10K pacing groups available."
@@ -67,3 +59,4 @@ const HealthClub = () => {
 };
 
 export default HealthClub;
+
