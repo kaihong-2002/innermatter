@@ -378,9 +378,16 @@
 
 
 
-    .collection-bridge,
+    .collection-bridge {
+        display: block;
+        /* Restore text visibility */
+        margin-top: 40px;
+        padding: 0 20px;
+    }
+
     .collection-grid {
         display: none;
+        /* Hide only the grid block */
     }
 
     .intro-subtitle {
