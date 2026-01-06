@@ -376,17 +376,13 @@
         min-width: 20px;
     }
 
-    margin: 10px 0;
-    font-size: 1.5rem;
-}
 
-.collection-grid {
-    grid-template-columns: 1fr;
-}
 
-.intro-subtitle {
-    font-size: 1.75rem;
-    /* Reduced drastically from 2.5rem */
-    /* Reduce massive title on mobile */
-}
+    .collection-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .intro-subtitle {
+        font-size: 1.75rem;
+    }
 }
