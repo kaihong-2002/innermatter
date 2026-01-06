@@ -68,118 +68,118 @@ const SeriesAccordion = () => {
 
     return (
         <section className="series-section" id="products">
-            <section className="series-section" id="products">
-                {/* Desktop / Tablet List View */}
-                <div className="accordion-container desktop-only-accordion">
-                    {SERIES_DATA.map((series) => (
-                        <div
-                            key={series.id}
-                            id={`accordion-${series.id}`}
-                            className={`accordion-item ${mobileActiveId === series.id ? 'active' : ''}`}
-                            style={{ background: series.color }}
-                            onClick={() => handleItemClick(series.id)}
-                        >
-                            <div className="accordion-content">
-                                <h3 className="accordion-title" style={{ background: 'rgba(255,255,255,0.4)' }}>{series.title}</h3>
-                                <div className="accordion-details">
-                                    <p style={{ fontStyle: 'italic', marginBottom: '16px', fontSize: '1.25rem', fontFamily: 'serif', color: '#111', fontWeight: '600' }}>{series.tagline}</p>
 
-                                    <p className="accordion-desc" style={{
-                                        fontSize: '1rem',
-                                        lineHeight: '1.6',
-                                        marginBottom: '20px',
-                                        maxWidth: '280px',
-                                        fontFamily: 'var(--font-body)',
+            {/* Desktop / Tablet List View */}
+            <div className="accordion-container desktop-only-accordion">
+                {SERIES_DATA.map((series) => (
+                    <div
+                        key={series.id}
+                        id={`accordion-${series.id}`}
+                        className={`accordion-item ${mobileActiveId === series.id ? 'active' : ''}`}
+                        style={{ background: series.color }}
+                        onClick={() => handleItemClick(series.id)}
+                    >
+                        <div className="accordion-content">
+                            <h3 className="accordion-title" style={{ background: 'rgba(255,255,255,0.4)' }}>{series.title}</h3>
+                            <div className="accordion-details">
+                                <p style={{ fontStyle: 'italic', marginBottom: '16px', fontSize: '1.25rem', fontFamily: 'serif', color: '#111', fontWeight: '600' }}>{series.tagline}</p>
+
+                                <p className="accordion-desc" style={{
+                                    fontSize: '1rem',
+                                    lineHeight: '1.6',
+                                    marginBottom: '20px',
+                                    maxWidth: '280px',
+                                    fontFamily: 'var(--font-body)',
+                                    color: '#000',
+                                    fontWeight: '500'
+                                }}>
+                                    {series.description}
+                                </p>
+
+                                {/* Suitable For */}
+                                <div style={{ marginBottom: '24px' }}>
+                                    <span style={{
+                                        display: 'block',
+                                        fontSize: '0.75rem',
                                         color: '#000',
-                                        fontWeight: '500'
+                                        fontWeight: '800',
+                                        letterSpacing: '0.1em',
+                                        marginBottom: '6px',
+                                        textTransform: 'uppercase'
                                     }}>
-                                        {series.description}
+                                        Be Suitable For
+                                    </span>
+                                    <p style={{ fontSize: '0.95rem', color: '#000', fontWeight: '600' }}>
+                                        {series.suitableFor}
                                     </p>
-
-                                    {/* Suitable For */}
-                                    <div style={{ marginBottom: '24px' }}>
-                                        <span style={{
-                                            display: 'block',
-                                            fontSize: '0.75rem',
-                                            color: '#000',
-                                            fontWeight: '800',
-                                            letterSpacing: '0.1em',
-                                            marginBottom: '6px',
-                                            textTransform: 'uppercase'
-                                        }}>
-                                            Be Suitable For
-                                        </span>
-                                        <p style={{ fontSize: '0.95rem', color: '#000', fontWeight: '600' }}>
-                                            {series.suitableFor}
-                                        </p>
-                                    </div>
-
-                                    <div className="accordion-specs" style={{ color: '#000', fontWeight: '700' }}>
-                                        {series.specs}
-                                    </div>
-                                    <a href={`#series-${series.title.replace(/\s+/g, '-')}`} className="btn-explore" style={{ textDecoration: 'none', textAlign: 'center' }}>
-                                        View Products
-                                    </a>
                                 </div>
+
+                                <div className="accordion-specs" style={{ color: '#000', fontWeight: '700' }}>
+                                    {series.specs}
+                                </div>
+                                <a href={`#series-${series.title.replace(/\s+/g, '-')}`} className="btn-explore" style={{ textDecoration: 'none', textAlign: 'center' }}>
+                                    View Products
+                                </a>
                             </div>
                         </div>
-                    ))}
-                </div>
-
-                {/* Mobile Pentagon View */}
-                <div className="mobile-pentagon-container">
-                    <div className="pentagon-wrapper">
-                        {/* Center Content */}
-                        <div className={`pentagon-center-content ${mobileActiveId ? 'active' : ''}`}>
-                            {mobileActiveId ? (() => {
-                                const activeSeries = SERIES_DATA.find(s => s.id === mobileActiveId);
-                                return (
-                                    <>
-                                        <h3 style={{ fontSize: '1.4rem', marginBottom: '8px', color: '#1a261b' }}>{activeSeries.title}</h3>
-                                        <div style={{ width: '40px', height: '2px', background: activeSeries.color, margin: '0 auto 12px' }}></div>
-                                        <p style={{ fontSize: '0.9rem', lineHeight: '1.5', color: '#444', marginBottom: '16px' }}>{activeSeries.description}</p>
-                                        <a href={`#series-${activeSeries.title.replace(/\s+/g, '-')}`} className="btn-explore" style={{ fontSize: '0.7rem', padding: '6px 12px' }}>
-                                            View Products
-                                        </a>
-                                    </>
-                                );
-                            })() : (
-                                <p style={{ fontSize: '0.9rem', color: '#888', fontStyle: 'italic' }}>Tap a circle to explore</p>
-                            )}
-                        </div>
-
-                        {/* 5 Nodes */}
-                        {SERIES_DATA.map((series, index) => {
-                            // Calculate position on a circle
-                            // Start from top (-90deg). Index 0 = Top.
-                            const total = 5;
-                            const angle = (index * (360 / total)) - 90;
-                            const radius = 140; // px
-                            // Convert polar to cartesian
-                            // x = r * cos(theta)
-                            // y = r * sin(theta)
-                            const radian = (angle * Math.PI) / 180;
-                            const x = Math.cos(radian) * radius;
-                            const y = Math.sin(radian) * radius;
-
-                            return (
-                                <div
-                                    key={series.id}
-                                    className={`pentagon-node ${mobileActiveId === series.id ? 'active' : ''}`}
-                                    style={{
-                                        transform: `translate(${x}px, ${y}px)`,
-                                        background: series.color,
-                                    }}
-                                    onClick={() => handleItemClick(series.id)}
-                                >
-                                    <span className="node-label">{series.title.split(' ')[0]}</span> {/* Show first word */}
-                                </div>
-                            );
-                        })}
                     </div>
+                ))}
+            </div>
+
+            {/* Mobile Pentagon View */}
+            <div className="mobile-pentagon-container">
+                <div className="pentagon-wrapper">
+                    {/* Center Content */}
+                    <div className={`pentagon-center-content ${mobileActiveId ? 'active' : ''}`}>
+                        {mobileActiveId ? (() => {
+                            const activeSeries = SERIES_DATA.find(s => s.id === mobileActiveId);
+                            return (
+                                <>
+                                    <h3 style={{ fontSize: '1.4rem', marginBottom: '8px', color: '#1a261b' }}>{activeSeries.title}</h3>
+                                    <div style={{ width: '40px', height: '2px', background: activeSeries.color, margin: '0 auto 12px' }}></div>
+                                    <p style={{ fontSize: '0.9rem', lineHeight: '1.5', color: '#444', marginBottom: '16px' }}>{activeSeries.description}</p>
+                                    <a href={`#series-${activeSeries.title.replace(/\s+/g, '-')}`} className="btn-explore" style={{ fontSize: '0.7rem', padding: '6px 12px' }}>
+                                        View Products
+                                    </a>
+                                </>
+                            );
+                        })() : (
+                            <p style={{ fontSize: '0.9rem', color: '#888', fontStyle: 'italic' }}>Tap a circle to explore</p>
+                        )}
+                    </div>
+
+                    {/* 5 Nodes */}
+                    {SERIES_DATA.map((series, index) => {
+                        // Calculate position on a circle
+                        // Start from top (-90deg). Index 0 = Top.
+                        const total = 5;
+                        const angle = (index * (360 / total)) - 90;
+                        const radius = 140; // px
+                        // Convert polar to cartesian
+                        // x = r * cos(theta)
+                        // y = r * sin(theta)
+                        const radian = (angle * Math.PI) / 180;
+                        const x = Math.cos(radian) * radius;
+                        const y = Math.sin(radian) * radius;
+
+                        return (
+                            <div
+                                key={series.id}
+                                className={`pentagon-node ${mobileActiveId === series.id ? 'active' : ''}`}
+                                style={{
+                                    transform: `translate(${x}px, ${y}px)`,
+                                    background: series.color,
+                                }}
+                                onClick={() => handleItemClick(series.id)}
+                            >
+                                <span className="node-label">{series.title.split(' ')[0]}</span> {/* Show first word */}
+                            </div>
+                        );
+                    })}
                 </div>
-            </section>
-            );
+            </div>
+        </section>
+    );
 };
 
-            export default SeriesAccordion;
+export default SeriesAccordion;
