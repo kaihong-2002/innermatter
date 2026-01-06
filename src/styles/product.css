@@ -258,6 +258,8 @@
         grid-template-columns: 1fr;
         gap: 24px;
         text-align: center;
+        padding: 24px 20px;
+        /* Reduced padding from 32px */
     }
 
     .product-info {
@@ -268,7 +270,8 @@
 
     .product-image-container {
         width: 100%;
-        max-width: 300px;
+        max-width: 200px;
+        /* Reduced from 300px */
         margin: 0 auto;
     }
 

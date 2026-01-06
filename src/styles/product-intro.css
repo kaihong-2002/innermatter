@@ -322,7 +322,8 @@
 @media (max-width: 768px) {
     .mindset-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 24px;
+        /* Reduced from 40px */
         /* More vertical breathing room between cards */
     }
 
@@ -330,10 +331,22 @@
         flex-direction: column;
         /* Stack vertically for premium look */
         align-items: center;
-        gap: 48px;
+        gap: 32px;
+        /* Reduced from 48px */
         padding: 40px 20px;
         overflow-x: visible;
         /* Remove scroll */
+    }
+
+    .pillar-image-wrap {
+        width: 130px;
+        /* Reduced from 160px default */
+        height: 130px;
+    }
+
+    .solution-result-pillar .pillar-image-wrap {
+        width: 150px;
+        height: 150px;
     }
 
     .solution-pillars::after {
@@ -354,7 +367,8 @@
     }
 
     .intro-subtitle {
-        font-size: 2.5rem;
+        font-size: 1.75rem;
+        /* Reduced drastically from 2.5rem */
         /* Reduce massive title on mobile */
     }
 }

@@ -233,7 +233,8 @@
 
 @media (max-width: 768px) {
     .cereal-container {
-        padding: 80px 20px 40px;
+        padding: 60px 20px 40px;
+        /* Reduced from 80px */
     }
 
     .brand-title {
@@ -260,7 +261,8 @@
 
 @media (max-width: 480px) {
     .brand-title {
-        font-size: clamp(2.5rem, 10vw, 3.5rem);
+        font-size: clamp(2rem, 8vw, 3rem);
+        /* Reduced scaling */
         /* Controlled scaling, not huge */
         margin-bottom: 8px;
     }
@@ -271,9 +273,10 @@
     }
 
     .cereal-visual-frame {
-        max-height: 25vh;
+        max-height: 20vh;
+        /* Reduced from 25vh */
         /* slightly smaller to leave room for text */
-        margin-bottom: 32px;
+        margin-bottom: 24px;
     }
 
     .narrative-text {
