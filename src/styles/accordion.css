@@ -181,67 +181,72 @@
 
 /* Mobile: Stack vertically */
 /* Mobile: Stack vertically with natural height expansion */
+/* Mobile: Horizontal Carousel (No vertical stack) */
 @media (max-width: 768px) {
+    .series-section {
+        height: auto;
+        min-height: auto;
+        /* Remove 100vh constraint */
+        padding-bottom: 20px;
+        /* Small buffer */
+    }
+
     .accordion-container {
-        flex-direction: column;
+        flex-direction: row;
+        /* Horizontal */
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        height: 350px;
+        /* Fixed height for the carousel row */
+        align-items: stretch;
     }
 
     .accordion-item {
-        width: 100%;
-        height: 80px;
-        /* Reduced from 120px */
-        /* Fixed collapsed height */
+        min-width: 85vw;
+        /* Card width */
+        width: 85vw;
+        height: 100%;
+        /* Fill container */
         flex: none;
-        /* Disable flex-grow */
-        border-right: none;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        border-right: 1px solid rgba(0, 0, 0, 0.1);
+        border-bottom: none;
+        /* Remove bottom border */
+        scroll-snap-align: center;
     }
 
-    /* Expand naturally on interactions - Active ONLY on mobile to prevent sticky hover */
+    /* Active State: Just content visibility, no size change needed for carousel */
     .accordion-item.active {
-        height: auto;
-        /* Grow to fit content */
+        width: 85vw;
+        height: 100%;
+        min-height: auto;
+    }
+
+    /* Reset Hover */
+    .accordion-item:hover {
         flex: none;
-        min-height: 500px;
-        /* Ensure enough space for content */
+        height: 100%;
+    }
+
+    /* Adjust content for fixed height card */
+    .accordion-content {
+        position: relative;
+        top: auto;
+        transform: none;
     }
 
     .accordion-title {
         font-size: 1.25rem;
-        /* Slightly smaller on mobile */
     }
 
-    /* !!! CRITICAL FIX: Reset Hover Effects on Mobile !!! */
-    /* This overrides the global hover rule that causes sticky expansion */
-    .accordion-item:hover {
-        /* Do NOT expand on hover */
-        flex: none;
-        height: 80px;
-        /* Match new reduced height */
-        /* Force collapsed height unless active */
-    }
-
+    /* Reset hover details to avoid sticky issues even in horizontal */
     .accordion-item:hover .accordion-details {
-        /* Hide details on hover */
         max-height: 0;
         opacity: 0;
-        padding: 0 var(--spacing-md);
-        margin-top: var(--spacing-md);
-        transform: translateY(20px);
-    }
-
-    /* Ensure ACTIVE state still works and takes precedence */
-    .accordion-item.active {
-        height: auto !important;
-        /* Force expand */
-        min-height: 500px;
     }
 
     .accordion-item.active .accordion-details {
         max-height: 1000px !important;
         opacity: 1 !important;
-        transform: translateY(0) !important;
-        padding: var(--spacing-md);
-        padding-top: 24px;
+        padding-top: 16px;
     }
 }
