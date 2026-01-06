@@ -321,54 +321,72 @@
 /* Responsive */
 @media (max-width: 768px) {
     .mindset-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-        /* Reduced from 40px */
-        /* More vertical breathing room between cards */
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        gap: 16px;
+        padding: 10px 4px 20px 4px;
+        grid-template-columns: none;
+        scroll-snap-type: x mandatory;
+    }
+
+    .mindset-card {
+        min-width: 85vw;
+        scroll-snap-align: center;
+        margin-right: 0;
     }
 
     .solution-pillars {
-        flex-direction: column;
-        /* Stack vertically for premium look */
-        align-items: center;
-        gap: 32px;
-        /* Reduced from 48px */
-        padding: 40px 20px;
-        overflow-x: visible;
-        /* Remove scroll */
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 12px;
+        padding: 40px 10px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .solution-pillar {
+        min-width: 130px;
     }
 
     .pillar-image-wrap {
-        width: 130px;
-        /* Reduced from 160px default */
-        height: 130px;
+        width: 110px;
+        height: 110px;
     }
 
     .solution-result-pillar .pillar-image-wrap {
-        width: 150px;
-        height: 150px;
+        width: 130px;
+        height: 130px;
     }
 
     .solution-pillars::after {
-        display: none;
+        content: '';
+        min-width: 20px;
+        height: 1px;
+        display: block;
     }
 
     .pillar-operator {
         display: block;
-        /* Bring back operators but rotate them or keep separate */
-        transform: rotate(90deg);
-        /* Vertical flow arrow/plus */
-        margin: 10px 0;
-        font-size: 1.5rem;
+        transform: none;
+        margin: 40px 0 0 0;
+        font-size: 1.25rem;
+        min-width: 20px;
     }
 
-    .collection-grid {
-        grid-template-columns: 1fr;
-    }
+    margin: 10px 0;
+    font-size: 1.5rem;
+}
 
-    .intro-subtitle {
-        font-size: 1.75rem;
-        /* Reduced drastically from 2.5rem */
-        /* Reduce massive title on mobile */
-    }
+.collection-grid {
+    grid-template-columns: 1fr;
+}
+
+.intro-subtitle {
+    font-size: 1.75rem;
+    /* Reduced drastically from 2.5rem */
+    /* Reduce massive title on mobile */
+}
 }
