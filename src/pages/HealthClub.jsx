@@ -26,6 +26,37 @@ const ClubCard = ({ title, description, imageSrc }) => (
 const HealthClub = () => {
     return (
         <div className="page-health-club">
+            <style>{`
+                /* Inlined Mobile Styles to bypass cache */
+                @media (max-width: 768px) {
+                    .page-health-club .club-hero {
+                        padding: 100px 20px 60px !important;
+                    }
+                    .page-health-club .club-hero h1 {
+                        font-size: 2.5rem !important;
+                    }
+                    .page-health-club .club-container {
+                        padding: 40px 0 !important;
+                        overflow: hidden !important;
+                    }
+                    .page-health-club .club-grid {
+                        display: flex !important;
+                        flex-direction: row !important;
+                        flex-wrap: nowrap !important;
+                        overflow-x: auto !important;
+                        scroll-snap-type: x mandatory !important;
+                        gap: 16px !important;
+                        padding: 0 20px 20px 20px !important;
+                        -webkit-overflow-scrolling: touch !important;
+                    }
+                    .page-health-club .club-card {
+                        min-width: 85vw !important;
+                        width: 85vw !important;
+                        flex: none !important;
+                        scroll-snap-align: center !important;
+                    }
+                }
+            `}</style>
             <Navbar />
             <div className="club-hero">
                 <h1>Health Club</h1>
