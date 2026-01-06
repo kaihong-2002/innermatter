@@ -378,7 +378,14 @@
 
 
 
+    .collection-bridge {
+        margin-top: 40px;
+        /* Reduced from 80px */
+    }
+
     .collection-grid {
+        margin-top: 20px;
+        /* Reduced from 40px */
         grid-template-columns: 1fr;
     }
 
