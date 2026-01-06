@@ -209,4 +209,37 @@
         font-size: 1.25rem;
         /* Slightly smaller on mobile */
     }
+
+    /* !!! CRITICAL FIX: Reset Hover Effects on Mobile !!! */
+    /* This overrides the global hover rule that causes sticky expansion */
+    .accordion-item:hover {
+        /* Do NOT expand on hover */
+        flex: none;
+        height: 120px;
+        /* Force collapsed height unless active */
+    }
+
+    .accordion-item:hover .accordion-details {
+        /* Hide details on hover */
+        max-height: 0;
+        opacity: 0;
+        padding: 0 var(--spacing-md);
+        margin-top: var(--spacing-md);
+        transform: translateY(20px);
+    }
+
+    /* Ensure ACTIVE state still works and takes precedence */
+    .accordion-item.active {
+        height: auto !important;
+        /* Force expand */
+        min-height: 500px;
+    }
+
+    .accordion-item.active .accordion-details {
+        max-height: 1000px !important;
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        padding: var(--spacing-md);
+        padding-top: 24px;
+    }
 }
