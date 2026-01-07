@@ -26,7 +26,7 @@ const Home = () => {
             if (element) {
                 // ... existing scroll logic ...
                 const performScroll = () => {
-                    const yOffset = -100; // Exact height of Navbar + buffer
+                    const yOffset = window.innerWidth < 768 ? -60 : -80; // Match Navbar Height
                     const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
                     window.scrollTo({ top: y, behavior: 'smooth' });
                 };
