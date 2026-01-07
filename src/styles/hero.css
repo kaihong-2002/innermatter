@@ -281,10 +281,15 @@
 
     .narrative-text {
         font-size: 0.9rem;
-        /* Readable but refined */
         line-height: 1.8;
         padding: 0 10px;
-        /* Prevent edge hugging */
+    }
+
+    /* Fix for Panoramic Smoothie Image on Mobile: Ensure full visibility */
+    .cereal-image {
+        object-fit: contain;
+        /* Show full image, don't crop */
+        object-position: center;
     }
 
     .hero-cta-pill {
