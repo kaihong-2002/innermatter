@@ -35,7 +35,7 @@ const Home = () => {
                     if (elementHeight < windowHeight) {
                         y = elementTop - (windowHeight - elementHeight) / 2.5;
                     } else {
-                        y = elementTop - navbarHeight;
+                        y = elementTop;
                     }
 
                     window.scrollTo({ top: y, behavior: 'smooth' });

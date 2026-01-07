@@ -51,8 +51,8 @@ const Navbar = () => {
                     // If element is smaller than window, center it but slightly higher (divide by 2.5 instead of 2)
                     offsetPosition = elementTop - (windowHeight - elementHeight) / 2.5;
                 } else {
-                    // If element is larger, just align to top (minus navbar)
-                    offsetPosition = elementTop - navbarHeight;
+                    // If element is larger, align to top strictly (let navbar overlap padding)
+                    offsetPosition = elementTop;
                 }
 
                 window.scrollTo({
