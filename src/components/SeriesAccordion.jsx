@@ -66,6 +66,16 @@ const SeriesAccordion = () => {
         setMobileActiveId(prev => prev === id ? null : id);
     };
 
+    const handleScrollToSeries = (e, title) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const targetId = `series-${title.replace(/\s+/g, '-')}`;
+        const element = document.getElementById(targetId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
+
     return (
         <section className="series-section" id="products">
 
@@ -80,16 +90,16 @@ const SeriesAccordion = () => {
                         onClick={() => handleItemClick(series.id)}
                     >
                         <div className="accordion-content">
-                            <h3 className="accordion-title" style={{ background: 'rgba(255,255,255,0.4)' }}>{series.title}</h3>
+                            <h3 className="accordion-title" style={{ background: 'rgba(255,255,255,0.4)', fontFamily: '"Cinzel", serif' }}>{series.title}</h3>
                             <div className="accordion-details">
-                                <p style={{ fontStyle: 'italic', marginBottom: '16px', fontSize: '1.25rem', fontFamily: 'serif', color: '#111', fontWeight: '600' }}>{series.tagline}</p>
+                                <p style={{ fontStyle: 'italic', marginBottom: '16px', fontSize: '1.25rem', fontFamily: '"Didot", serif', color: '#111', fontWeight: '600' }}>{series.tagline}</p>
 
                                 <p className="accordion-desc" style={{
                                     fontSize: '1rem',
                                     lineHeight: '1.6',
                                     marginBottom: '20px',
                                     maxWidth: '280px',
-                                    fontFamily: 'var(--font-body)',
+                                    fontFamily: '"Lato", sans-serif',
                                     color: '#000',
                                     fontWeight: '500'
                                 }}>
@@ -105,21 +115,32 @@ const SeriesAccordion = () => {
                                         fontWeight: '800',
                                         letterSpacing: '0.1em',
                                         marginBottom: '6px',
-                                        textTransform: 'uppercase'
+                                        textTransform: 'uppercase',
+                                        fontFamily: '"Lato", sans-serif'
                                     }}>
                                         Be Suitable For
                                     </span>
-                                    <p style={{ fontSize: '0.95rem', color: '#000', fontWeight: '600' }}>
+                                    <p style={{ fontSize: '0.95rem', color: '#000', fontWeight: '600', fontFamily: '"Lato", sans-serif' }}>
                                         {series.suitableFor}
                                     </p>
                                 </div>
 
-                                <div className="accordion-specs" style={{ color: '#000', fontWeight: '700' }}>
+                                <div className="accordion-specs" style={{ color: '#000', fontWeight: '700', fontFamily: '"Cinzel", serif' }}>
                                     {series.specs}
                                 </div>
-                                <a href={`#series-${series.title.replace(/\s+/g, '-')}`} className="btn-explore" style={{ textDecoration: 'none', textAlign: 'center' }}>
+                                <button
+                                    onClick={(e) => handleScrollToSeries(e, series.title)}
+                                    className="btn-explore"
+                                    style={{
+                                        textDecoration: 'none',
+                                        textAlign: 'center',
+                                        background: 'transparent',
+                                        cursor: 'pointer',
+                                        fontFamily: '"Lato", sans-serif'
+                                    }}
+                                >
                                     View Products
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -135,16 +156,26 @@ const SeriesAccordion = () => {
                             const activeSeries = SERIES_DATA.find(s => s.id === mobileActiveId);
                             return (
                                 <>
-                                    <h3 style={{ fontSize: '1.4rem', marginBottom: '8px', color: '#1a261b' }}>{activeSeries.title}</h3>
+                                    <h3 style={{ fontSize: '1.4rem', marginBottom: '8px', color: '#1a261b', fontFamily: '"Cinzel", serif' }}>{activeSeries.title}</h3>
                                     <div style={{ width: '40px', height: '2px', background: activeSeries.color, margin: '0 auto 12px' }}></div>
-                                    <p style={{ fontSize: '0.9rem', lineHeight: '1.5', color: '#444', marginBottom: '16px' }}>{activeSeries.description}</p>
-                                    <a href={`#series-${activeSeries.title.replace(/\s+/g, '-')}`} className="btn-explore" style={{ fontSize: '0.7rem', padding: '6px 12px' }}>
+                                    <p style={{ fontSize: '0.9rem', lineHeight: '1.5', color: '#444', marginBottom: '16px', fontFamily: '"Lato", sans-serif' }}>{activeSeries.description}</p>
+                                    <button
+                                        onClick={(e) => handleScrollToSeries(e, activeSeries.title)}
+                                        className="btn-explore"
+                                        style={{
+                                            fontSize: '0.7rem',
+                                            padding: '6px 12px',
+                                            cursor: 'pointer',
+                                            background: 'transparent',
+                                            fontFamily: '"Lato", sans-serif'
+                                        }}
+                                    >
                                         View Products
-                                    </a>
+                                    </button>
                                 </>
                             );
                         })() : (
-                            <p style={{ fontSize: '0.9rem', color: '#888', fontStyle: 'italic' }}>Tap a circle to explore</p>
+                            <p style={{ fontSize: '0.9rem', color: '#888', fontStyle: 'italic', fontFamily: '"Lato", sans-serif' }}>Tap a circle to explore</p>
                         )}
                     </div>
 
@@ -172,7 +203,7 @@ const SeriesAccordion = () => {
                                 }}
                                 onClick={() => handleItemClick(series.id)}
                             >
-                                <span className="node-label">{series.title.split(' ')[0]}</span> {/* Show first word */}
+                                <span className="node-label" style={{ fontFamily: '"Cinzel", serif' }}>{series.title.split(' ')[0]}</span> {/* Show first word */}
                             </div>
                         );
                     })}

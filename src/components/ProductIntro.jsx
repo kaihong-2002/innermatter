@@ -181,38 +181,37 @@ const ProductIntro = () => {
               設計出五款營養光譜截然不同的健康飲品，只為精準回應你身體當下的每一次呼喚。
             </p>
 
-            <div className="collection-grid">
-              {/* Linked to Series Accordion via ID scrolling */}
-              <div
-                className="collection-item"
-                onClick={() => document.getElementById('accordion-rp')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
-              >
-                重啟修復
-              </div>
-              <div
-                className="collection-item"
-                onClick={() => document.getElementById('accordion-ul')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
-              >
-                輕盈順暢
-              </div>
-              <div
-                className="collection-item"
-                onClick={() => document.getElementById('accordion-db')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
-              >
-                日常平衡
-              </div>
-              <div
-                className="collection-item"
-                onClick={() => document.getElementById('accordion-ff')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
-              >
-                深度專注
-              </div>
-              <div
-                className="collection-item"
-                onClick={() => document.getElementById('accordion-cr')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
-              >
-                全效代餐
-              </div>
+            <div className="collection-nav" style={{
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '24px',
+              flexWrap: 'wrap',
+              marginTop: '40px'
+            }}>
+              {/* Elegant Text Links */}
+              <button className="nav-text-btn" onClick={() => document.getElementById('accordion-rp')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}>
+                RESET POWER
+              </button>
+              <span className="nav-separator">|</span>
+
+              <button className="nav-text-btn" onClick={() => document.getElementById('accordion-ul')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}>
+                URBAN LIGHT
+              </button>
+              <span className="nav-separator">|</span>
+
+              <button className="nav-text-btn" onClick={() => document.getElementById('accordion-db')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}>
+                DAILY BALANCE
+              </button>
+              <span className="nav-separator">|</span>
+
+              <button className="nav-text-btn" onClick={() => document.getElementById('accordion-ff')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}>
+                FOCUS FUEL
+              </button>
+              <span className="nav-separator">|</span>
+
+              <button className="nav-text-btn" onClick={() => document.getElementById('accordion-cr')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}>
+                COMPLETE RESET
+              </button>
             </div>
           </div>
 
