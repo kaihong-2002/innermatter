@@ -140,6 +140,18 @@
 }
 
 /* Formula / Solution Styles */
+.formula-item div {
+    /* Container for image */
+    overflow: hidden;
+}
+
+.formula-item img {
+    border-radius: 50%;
+    object-fit: cover;
+    width: 100% !important;
+    height: 100% !important;
+}
+
 .formula-item h5 {
     letter-spacing: 0.05em;
 }
