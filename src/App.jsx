@@ -36,6 +36,8 @@ function App() {
             <Route path="/club-training" element={<ClubTraining />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/checkout" element={<Checkout />} />
+            {/* Catch all - Redirect to Home */}
+            <Route path="*" element={<Home />} />
           </Routes>
         </Router>
       </CartProvider>
