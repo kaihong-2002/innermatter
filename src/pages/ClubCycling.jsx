@@ -91,7 +91,7 @@ const ClubCycling = () => {
                         </div>
                     </div>
 
-                    <a href="/#health-club" style={{
+                    <Link to="/health-club" style={{
                         display: 'inline-block',
                         padding: '16px 40px',
                         border: '1px solid #ddd',
@@ -107,7 +107,7 @@ const ClubCycling = () => {
                         onMouseLeave={(e) => { e.target.style.borderColor = '#ddd'; e.target.style.color = '#333'; }}
                     >
                         ← Back to Health Club
-                    </a>
+                    </Link>
                 </div>
             </div>
             <Footer />
