@@ -92,7 +92,7 @@ const ClubTraining = () => {
                         </div>
                     </div>
 
-                    <Link to="/#health-club" style={{
+                    <Link to={{ pathname: '/', hash: '#health-club' }} style={{
                         display: 'inline-block',
                         padding: '16px 40px',
                         border: '1px solid #ddd',
