@@ -14,8 +14,8 @@
 }
 
 .immersive-book {
-    width: 95vw;
-    height: 90vh;
+    width: 85vw;
+    height: 80vh;
     display: flex;
     box-shadow: 0 40px 100px rgba(0, 0, 0, 0.2);
     background: #fff;

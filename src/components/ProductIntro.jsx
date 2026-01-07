@@ -6,27 +6,10 @@ const ProductIntro = () => {
   // Pre-load assets
   useEffect(() => {
     ['v5_page1_mission_architecture.png', 'v5_page2_evolution_lifestyle.png', 'v5_page3_solution_smoothie.png',
-      'v5_icon_body_modern.png', 'v5_icon_energy_modern.png', 'v5_icon_diet_modern.png',
+      'v6_icon_control_measure.png', 'v6_icon_athletic_wing.png', 'v6_icon_diet_drop.png',
       'cereal_greens_v2.png', 'cereal_milk_pour.png', 'cereal_glass_v2.png'].forEach(f => {
         const img = new Image();
-        img.src = getAssetPath(f.startsWith('v5') ? `/artifacts/${f}` : `/assets/${f}`); // Handle artifact paths vs assets
-        // Note: In this environment key, artifacts are usually copied to assets or referenced differently.
-        // Assuming user will handle file moving or I should point to where they are?
-        // Actually, for the user to see generated images, I usually need to move them to public/assets OR 
-        // the user has to wait. But I can't move files easily between virtual dirs. 
-        // Strategy: I will assume the user (or system) handles the artifact placement or I use the artifact URL logic if possible.
-        // HOWEVER, standard practice here: I should assume 'getAssetPath' works if I put them in the right place.
-        // Since I cannot move files to 'public/assets' via tool, I will use valid paths.
-        // WAIT: 'generate_image' saves to artifacts dir. I need to use the absolute path or copy them.
-        // I will trust the 'getAssetPath' helper or just use the filenames and hope the dev server picks them up 
-        // if I could move them. 
-        // CRITICAL: I cannot move files to public/assets. 
-        // I will use the relative path assuming they might be moved. 
-        // ACTUALLY, I must use 'write_to_file' to create a helper or I simply point to the artifact path if served?
-        // Let's rely on the fact that I should probably ASK the user to move them or I just use the filenames and 
-        // let the user know. 
-        // RE-READING RULES: "You can use this tool to generate assets for use in an application... The resulting image will be saved as an artifact".
-        // To use them in the app, I MUST COPY THEM to the public folder. I can use 'run_command' for this!
+        img.src = getAssetPath(f.startsWith('v5') || f.startsWith('v6') ? `/artifacts/${f}` : `/assets/${f}`);
       });
   }, []);
 
@@ -77,7 +60,7 @@ const ProductIntro = () => {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '20px', flex: 1 }}>
 
             <div className="shift-card" style={{ display: 'flex', alignItems: 'center', gap: '24px', padding: '24px', background: 'rgba(255,255,255,0.4)', borderLeft: '4px solid #3B3430', borderRadius: '4px' }}>
-              <img src={getAssetPath('/assets/v5_icon_body_modern.png')} style={{ width: '50px', opacity: 0.9 }} alt="" />
+              <img src={getAssetPath('/assets/v6_icon_control_measure.png')} style={{ width: '50px', opacity: 0.9 }} alt="" />
               <div>
                 <h4 style={{ margin: '0 0 6px', fontSize: '1.1rem', fontFamily: '"Cinzel", serif', letterSpacing: '0.05em' }}>BODY CONTROL 體態關注</h4>
                 <p style={{ margin: 0, fontSize: '0.9rem', color: '#444' }}>精準的熱量赤字與營養密度。</p>
@@ -85,7 +68,7 @@ const ProductIntro = () => {
             </div>
 
             <div className="shift-card" style={{ display: 'flex', alignItems: 'center', gap: '24px', padding: '24px', background: 'rgba(255,255,255,0.4)', borderLeft: '4px solid #3B3430', borderRadius: '4px' }}>
-              <img src={getAssetPath('/assets/v5_icon_energy_modern.png')} style={{ width: '50px', opacity: 0.9 }} alt="" />
+              <img src={getAssetPath('/assets/v6_icon_athletic_wing.png')} style={{ width: '50px', opacity: 0.9 }} alt="" />
               <div>
                 <h4 style={{ margin: '0 0 6px', fontSize: '1.1rem', fontFamily: '"Cinzel", serif', letterSpacing: '0.05em' }}>ATHLETIC 運動表現</h4>
                 <p style={{ margin: 0, fontSize: '0.9rem', color: '#444' }}>針對運動後的黃金修復期。</p>
@@ -93,7 +76,7 @@ const ProductIntro = () => {
             </div>
 
             <div className="shift-card" style={{ display: 'flex', alignItems: 'center', gap: '24px', padding: '24px', background: 'rgba(255,255,255,0.4)', borderLeft: '4px solid #3B3430', borderRadius: '4px' }}>
-              <img src={getAssetPath('/assets/v5_icon_diet_modern.png')} style={{ width: '50px', opacity: 0.9 }} alt="" />
+              <img src={getAssetPath('/assets/v6_icon_diet_drop.png')} style={{ width: '50px', opacity: 0.9 }} alt="" />
               <div>
                 <h4 style={{ margin: '0 0 6px', fontSize: '1.1rem', fontFamily: '"Cinzel", serif', letterSpacing: '0.05em' }}>CLEAN DIET 純粹飲食</h4>
                 <p style={{ margin: 0, fontSize: '0.9rem', color: '#444' }}>拒絕人工添加，嚴選原型食材。</p>
