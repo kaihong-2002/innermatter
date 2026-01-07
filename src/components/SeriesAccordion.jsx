@@ -89,7 +89,7 @@ const SeriesAccordion = () => {
                     marginBottom: '24px',
                     color: '#2c2c2c'
                 }}>
-                    Curated for your Rhythm.
+                    Precision for your Goals.
                 </h3>
                 <p style={{
                     fontFamily: '"Lato", sans-serif',
@@ -98,7 +98,7 @@ const SeriesAccordion = () => {
                     color: '#555',
                     marginBottom: '16px'
                 }}>
-                    你的身體在清晨需要的喚醒，與睡前渴望的平靜截然不同。
+                    延續 InnerMatter 對於精準營養的承諾，我們深知單一配方無法滿足現代人多樣化的健康渴望。
                 </p>
                 <p style={{
                     fontFamily: '"Lato", sans-serif',
@@ -106,8 +106,8 @@ const SeriesAccordion = () => {
                     lineHeight: '1.8',
                     color: '#555'
                 }}>
-                    我們不相信一套配方能解決所有問題。因此，InnerMatter 針對現代人一日中的<strong>「五種關鍵生理時刻」</strong>，
-                    設計出五款營養光譜截然不同的健康飲品，只為精準回應你身體當下的每一次呼喚。
+                    因此，我們將高蛋白果昔的機能發揮至極致，針對<strong>「五大健康面向」</strong>——從體態控制、運動表現到深層修復，
+                    設計出五款專屬配方。這不只是飲品，更是助你精準達成目標的高效策略。
                 </p>
             </div>
 
