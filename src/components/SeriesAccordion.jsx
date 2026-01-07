@@ -77,7 +77,7 @@ const SeriesAccordion = () => {
     };
 
     return (
-        <section className="series-section" id="products" style={{ backgroundColor: 'var(--color-warm-stone)', padding: '80px 0', transition: 'background-color 0.5s ease' }}>
+        <section className="series-section" id="products" style={{ backgroundColor: '#EAE6E1', padding: '80px 0', transition: 'background-color 0.5s ease' }}>
 
             {/* Desktop / Tablet List View */}
             <div className="accordion-container desktop-only-accordion">
