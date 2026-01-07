@@ -3,53 +3,60 @@ import { getAssetPath } from '../utils/assets';
 
 const LocationSection = () => {
     return (
-        <section className="location-section">
-            <div style={{ maxWidth: '1440px', margin: '0 auto 40px', padding: '0 24px' }}>
-                <h2 style={{
-                    fontFamily: 'var(--font-heading)',
-                    fontSize: '2rem',
-                    fontWeight: 800,
-                    textTransform: 'uppercase',
-                    color: 'var(--color-midnight-black)'
-                }}>Locations</h2>
-            </div>
+        <section className="location-section" style={{ padding: '80px 0', backgroundColor: 'var(--color-clinical-white)' }}>
+            <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
 
-            <div className="location-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '40px', maxWidth: '1440px', margin: '0 auto', padding: '0 24px' }}>
-                <div style={{ flex: 1, minWidth: '300px' }}>
-                    <h2 style={{ fontSize: '2.5rem', marginBottom: '24px' }}>Xinyi Flagship</h2>
-                    <div style={{ marginBottom: '24px' }}>
-                        <p style={{ fontSize: '1.125rem' }}>No. 123, Songshou Rd, Xinyi District</p>
-                        <p style={{ color: '#666' }}>Taipei City, Taiwan 110</p>
-                    </div>
+                {/* Editorial Layout: Image Left, Content Right (Asymmetrical) */}
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '60px', alignItems: 'center' }}>
 
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
-                        <div style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: 'var(--color-parakeet-green)' }}></div>
-                        <span style={{ fontWeight: 700, letterSpacing: '0.05em' }}>OPEN NOW</span>
-                        <span style={{ color: '#666', fontSize: '0.875rem' }}>• Live Wait: 15min</span>
-                    </div>
-
-                    <div style={{ padding: '16px', backgroundColor: '#f5f5f5', borderRadius: '4px' }}>
-                        <p style={{ fontSize: '0.75rem', textTransform: 'uppercase', color: '#666', marginBottom: '8px' }}>Now Playing</p>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                            <div style={{ width: '32px', height: '32px', background: '#333' }}></div>
-                            <div>
-                                <p style={{ fontSize: '0.875rem', fontWeight: 700 }}>Midnight City</p>
-                                <p style={{ fontSize: '0.75rem' }}>M83</p>
-                            </div>
+                    {/* Visual (Dominant) */}
+                    <div style={{ position: 'relative', height: '600px' }}>
+                        <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
+                            <img src={getAssetPath('/assets/store_tokyo.png')} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.95)' }} alt="Innermatter Tokyo Flagship" />
+                        </div>
+                        {/* Minimal Label */}
+                        <div style={{
+                            position: 'absolute',
+                            bottom: '32px',
+                            left: '-20px',
+                            background: '#fff',
+                            padding: '16px 32px',
+                            boxShadow: '0 10px 30px rgba(0,0,0,0.05)'
+                        }}>
+                            <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 600, letterSpacing: '0.1em', fontSize: '0.8rem' }}>FLAGSHIP STORE</span>
                         </div>
                     </div>
-                </div>
 
-                <div style={{ flex: 1, minWidth: '300px', height: '400px', position: 'relative' }}>
-                    {/* Digital Twin Placeholder */}
-                    <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
-                        <img src={getAssetPath('/assets/store_tokyo.png')} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Innermatter Tokyo Flagship" />
-                    </div>
-                    <div style={{
-                        position: 'absolute', inset: 0,
-                        display: 'flex', alignItems: 'center', justifyContent: 'center'
-                    }}>
-                        <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, color: 'white', textShadow: '0 2px 10px rgba(0,0,0,0.5)', letterSpacing: '0.1em' }}>3D DIGITAL TWIN</span>
+                    {/* Editorial Content */}
+                    <div style={{ paddingLeft: '20px' }}>
+                        <span style={{ display: 'block', fontSize: '0.8rem', letterSpacing: '0.2em', color: '#999', marginBottom: '24px', textTransform: 'uppercase' }}>Destination</span>
+                        <h2 style={{
+                            fontFamily: 'var(--font-heading)',
+                            fontSize: '3.5rem',
+                            lineHeight: '1.1',
+                            margin: '0 0 32px',
+                            color: 'var(--color-midnight-black)',
+                            fontWeight: 400
+                        }}>
+                            Xinyi <br /> Sanctuary.
+                        </h2>
+
+                        <div style={{ width: '40px', height: '1px', background: '#ccc', marginBottom: '32px' }}></div>
+
+                        <p style={{ fontFamily: 'var(--font-body)', fontSize: '1rem', lineHeight: '1.8', color: '#555', marginBottom: '40px', maxWidth: '400px' }}>
+                            An oasis of calm in the heart of the city.
+                            Designed for clarity, restoration, and the mindful consumption of essential nutrients.
+                        </p>
+
+                        <div style={{ marginBottom: '40px' }}>
+                            <p style={{ fontSize: '1.1rem', fontFamily: 'var(--font-heading)', marginBottom: '8px' }}>No. 123, Songshou Rd</p>
+                            <p style={{ color: '#888', fontStyle: 'italic' }}>Taipei City, Taiwan</p>
+                        </div>
+
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                            <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--color-parakeet-green)' }}></div>
+                            <span style={{ fontSize: '0.8rem', letterSpacing: '0.1em', fontWeight: 700, textTransform: 'uppercase' }}>Open Now</span>
+                        </div>
                     </div>
                 </div>
             </div>
