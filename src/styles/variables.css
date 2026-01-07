@@ -1,14 +1,18 @@
 :root {
   /* Brand Colors */
+  /* Brand Colors - Softer Volumes / Warm Minimalist Palette */
   --color-parakeet-green: #748B6F;
   /* Sage Green */
-  --color-clinical-white: #FFFFFF;
-  --color-midnight-black: #121212;
-  --color-fog-grey: #F5F5F5;
+  --color-clinical-white: #FDFCF8;
+  /* Warm Paper White (was #FFFFFF) */
+  --color-midnight-black: #1a1a1a;
+  /* Softer Black */
+  --color-fog-grey: #F2F0E9;
+  /* Warm Beige Grey (was #F5F5F5) */
 
-  /* Typography */
-  --font-heading: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-body: 'Spectral', 'Noto Serif TC', serif;
+  /* Typography - Editorial Style */
+  --font-heading: 'Cinzel', serif;
+  --font-body: 'Lato', sans-serif;
 
   /* Spacing */
   --spacing-xs: 4px;
