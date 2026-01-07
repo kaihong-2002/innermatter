@@ -48,8 +48,8 @@ const Navbar = () => {
             // Update URL without reload to reflect state
             window.history.pushState(null, '', `/#${targetId}`);
         } else {
-            // Navigate to home with hash
-            navigate(`/#${targetId}`);
+            // Navigate to home with hash using object syntax to avoid path confusion
+            navigate({ pathname: '/', hash: `#${targetId}` });
         }
     };
 
