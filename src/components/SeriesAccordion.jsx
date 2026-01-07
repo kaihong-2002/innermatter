@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/accordion.css';
+import { getAssetPath } from '../utils/assets';
 
 const SERIES_DATA = [
     {
@@ -10,7 +11,7 @@ const SERIES_DATA = [
         suitableFor: '重度運動者 / 追求肌肉線條 / 易疲勞體質',
         specs: 'Protein 35g | Sugar <6g',
         color: '#7E9689', // Sage Green
-        image: 'none'
+        image: 'texture_reset_power.png'
     },
     {
         id: 'ul',
@@ -20,7 +21,7 @@ const SERIES_DATA = [
         suitableFor: '久坐上班族 / 易水腫體質 / 下午茶愛好者',
         specs: 'Low Cal | Fiber 8g',
         color: '#CFC0A5', // Warm Sand (Yellowish)
-        image: 'none'
+        image: 'texture_urban_light.png'
     },
     {
         id: 'db',
@@ -30,7 +31,7 @@ const SERIES_DATA = [
         suitableFor: '飲食不規律者 / 養生入門 / 素食友善',
         specs: 'Good Fats | Stable',
         color: '#95A9B8', // Steel Blue
-        image: 'none'
+        image: 'texture_balance_daily.png'
     },
     {
         id: 'ff',
@@ -40,7 +41,7 @@ const SERIES_DATA = [
         suitableFor: '高壓腦力工作者 / 考生 / 需要熬夜者',
         specs: 'Caffeine 100mg',
         color: '#BCACA4', // Warm Clay (Reddish)
-        image: 'none'
+        image: 'texture_focus_fuel.png'
     },
     {
         id: 'cr',
@@ -50,7 +51,7 @@ const SERIES_DATA = [
         suitableFor: '忙碌商務人士 / 嚴格飲控者 / 戶外活動者',
         specs: '400 Cal | Complete',
         color: '#A8A8A8', // Neutral Grey
-        image: 'none'
+        image: 'texture_complete_reset.png'
     }
 ];
 
@@ -86,11 +87,15 @@ const SeriesAccordion = () => {
                         key={series.id}
                         id={`accordion-${series.id}`}
                         className={`accordion-item ${mobileActiveId === series.id ? 'active' : ''}`}
-                        style={{ background: series.color }}
+                        style={{
+                            background: series.image !== 'none'
+                                ? `linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url(${getAssetPath(`/assets/${series.image}`)}) center/cover no-repeat`
+                                : series.color
+                        }}
                         onClick={() => handleItemClick(series.id)}
                     >
                         <div className="accordion-content">
-                            <h3 className="accordion-title" style={{ background: 'rgba(255,255,255,0.4)', color: '#1a1a1a', fontFamily: '"Cinzel", serif' }}>{series.title}</h3>
+                            <h3 className="accordion-title" style={{ background: 'rgba(255,255,255,0.6)', color: '#1a1a1a', fontFamily: '"Cinzel", serif' }}>{series.title}</h3>
                             <div className="accordion-details">
                                 <p style={{ fontStyle: 'italic', marginBottom: '16px', fontSize: '1.25rem', fontFamily: '"Didot", serif', color: '#111', fontWeight: '600' }}>{series.tagline}</p>
 
@@ -204,6 +209,9 @@ const SeriesAccordion = () => {
                                 style={{
                                     transform: `translate(${x}px, ${y}px)`,
                                     background: series.color,
+                                    backgroundImage: series.image !== 'none' ? `url(${getAssetPath(`/assets/${series.image}`)})` : 'none',
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center'
                                 }}
                                 onClick={() => handleItemClick(series.id)}
                             >
