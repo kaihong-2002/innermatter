@@ -78,7 +78,38 @@ const SeriesAccordion = () => {
     };
 
     return (
-        <section className="series-section" id="products" style={{ backgroundColor: '#EAE6E1', padding: '80px 0', transition: 'background-color 0.5s ease' }}>
+        <section className="series-section" id="products" style={{ backgroundColor: '#EAE6E1', padding: '100px 0 80px', transition: 'background-color 0.5s ease' }}>
+
+            {/* Intro Text for Series - Restored based on user request */}
+            <div className="container" style={{ maxWidth: '800px', margin: '0 auto 60px', textAlign: 'center', padding: '0 24px' }}>
+                <h3 style={{
+                    fontSize: '2rem',
+                    fontFamily: '"Didot", serif',
+                    fontStyle: 'italic',
+                    marginBottom: '24px',
+                    color: '#2c2c2c'
+                }}>
+                    Curated for your Rhythm.
+                </h3>
+                <p style={{
+                    fontFamily: '"Lato", sans-serif',
+                    fontSize: '1rem',
+                    lineHeight: '1.8',
+                    color: '#555',
+                    marginBottom: '16px'
+                }}>
+                    你的身體在清晨需要的喚醒，與睡前渴望的平靜截然不同。
+                </p>
+                <p style={{
+                    fontFamily: '"Lato", sans-serif',
+                    fontSize: '1rem',
+                    lineHeight: '1.8',
+                    color: '#555'
+                }}>
+                    我們不相信一套配方能解決所有問題。因此，InnerMatter 針對現代人一日中的<strong>「五種關鍵生理時刻」</strong>，
+                    設計出五款營養光譜截然不同的健康飲品，只為精準回應你身體當下的每一次呼喚。
+                </p>
+            </div>
 
             {/* Desktop / Tablet List View */}
             <div className="accordion-container desktop-only-accordion">
