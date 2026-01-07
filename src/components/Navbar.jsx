@@ -48,8 +48,8 @@ const Navbar = () => {
                 let offsetPosition;
 
                 if (elementHeight < windowHeight) {
-                    // If element is smaller than window, center it
-                    offsetPosition = elementTop - (windowHeight - elementHeight) / 2;
+                    // If element is smaller than window, center it but slightly higher (divide by 2.5 instead of 2)
+                    offsetPosition = elementTop - (windowHeight - elementHeight) / 2.5;
                 } else {
                     // If element is larger, just align to top (minus navbar)
                     offsetPosition = elementTop - navbarHeight;

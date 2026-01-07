@@ -33,7 +33,7 @@ const Home = () => {
 
                     let y;
                     if (elementHeight < windowHeight) {
-                        y = elementTop - (windowHeight - elementHeight) / 2;
+                        y = elementTop - (windowHeight - elementHeight) / 2.5;
                     } else {
                         y = elementTop - navbarHeight;
                     }
