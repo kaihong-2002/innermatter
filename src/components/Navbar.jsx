@@ -61,7 +61,7 @@ const Navbar = () => {
 
             <div className={`navbar-links ${isMobileMenuOpen ? 'active' : ''}`}>
                 {/* Custom handlers for sections */}
-                <Link to="/philosophy" className="nav-link">Philosophy</Link>
+                <span onClick={(e) => handleScrollLink(e, 'philosophy')} className="nav-link" style={{ cursor: 'pointer' }}>Philosophy</span>
                 <span onClick={(e) => handleScrollLink(e, 'shop')} className="nav-link" style={{ cursor: 'pointer' }}>Menu</span>
                 <span onClick={(e) => handleScrollLink(e, 'locations')} className="nav-link" style={{ cursor: 'pointer' }}>Locations</span>
                 <span onClick={(e) => handleScrollLink(e, 'health-club')} className="nav-link" style={{ cursor: 'pointer' }}>Health Club</span>

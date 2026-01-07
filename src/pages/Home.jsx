@@ -43,7 +43,9 @@ const Home = () => {
             <Navbar />
             <Hero />
             <VogueCarousel />
-            <ProductIntro />
+            <div id="philosophy" style={{ scrollMarginTop: '100px' }}>
+                <ProductIntro />
+            </div>
             <SeriesAccordion />
             <ProductList />
             <div id="locations" style={{ background: '#3B3430', scrollMarginTop: '100px' }}>
