@@ -89,13 +89,13 @@ const SeriesAccordion = () => {
                         className={`accordion-item ${mobileActiveId === series.id ? 'active' : ''}`}
                         style={{
                             background: series.image !== 'none'
-                                ? `linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url(${getAssetPath(`/assets/${series.image}`)}) center/cover no-repeat`
+                                ? `linear-gradient(${series.color}D9, ${series.color}D9), url(${getAssetPath(`/assets/${series.image}`)}) center/cover no-repeat`
                                 : series.color
                         }}
                         onClick={() => handleItemClick(series.id)}
                     >
                         <div className="accordion-content">
-                            <h3 className="accordion-title" style={{ background: 'rgba(255,255,255,0.6)', color: '#1a1a1a', fontFamily: '"Cinzel", serif' }}>{series.title}</h3>
+                            <h3 className="accordion-title" style={{ background: 'rgba(255,255,255,0.2)', color: '#1a1a1a', fontFamily: '"Cinzel", serif' }}>{series.title}</h3>
                             <div className="accordion-details">
                                 <p style={{ fontStyle: 'italic', marginBottom: '16px', fontSize: '1.25rem', fontFamily: '"Didot", serif', color: '#111', fontWeight: '600' }}>{series.tagline}</p>
 
@@ -209,7 +209,9 @@ const SeriesAccordion = () => {
                                 style={{
                                     transform: `translate(${x}px, ${y}px)`,
                                     background: series.color,
-                                    backgroundImage: series.image !== 'none' ? `url(${getAssetPath(`/assets/${series.image}`)})` : 'none',
+                                    backgroundImage: series.image !== 'none'
+                                        ? `linear-gradient(${series.color}D9, ${series.color}D9), url(${getAssetPath(`/assets/${series.image}`)})`
+                                        : series.color,
                                     backgroundSize: 'cover',
                                     backgroundPosition: 'center'
                                 }}
