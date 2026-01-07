@@ -318,6 +318,63 @@
     transform: translateY(-4px);
 }
 
+/* New Elegant Text Nav */
+.nav-text-btn {
+    background: none;
+    border: none;
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    color: #666;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    padding: 0;
+    position: relative;
+}
+
+.nav-text-btn:hover {
+    color: #2c3e2d;
+    /* Sage Green */
+}
+
+.nav-text-btn::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -4px;
+    left: 0;
+    background-color: #2c3e2d;
+    transition: width 0.3s;
+}
+
+.nav-text-btn:hover::after {
+    width: 100%;
+}
+
+.nav-separator {
+    color: #ddd;
+    font-weight: 300;
+}
+
+/* Mobile Adjustments for Nav */
+@media (max-width: 768px) {
+    .collection-nav {
+        gap: 16px;
+    }
+
+    .nav-separator {
+        display: none;
+        /* Stack or just minimal space on mobile */
+    }
+
+    .nav-text-btn {
+        font-size: 0.8rem;
+        margin-bottom: 8px;
+        /* For wrapping */
+    }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .mindset-grid {
