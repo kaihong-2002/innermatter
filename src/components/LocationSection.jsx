@@ -3,7 +3,7 @@ import { getAssetPath } from '../utils/assets';
 
 const LocationSection = () => {
     return (
-        <section className="location-section" style={{ padding: '80px 0', backgroundColor: 'var(--color-clinical-white)' }}>
+        <section className="location-section" style={{ padding: '80px 0', backgroundColor: 'transparent' }}>
             <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
 
                 {/* Editorial Layout: Image Left, Content Right (Asymmetrical) */}
@@ -19,9 +19,10 @@ const LocationSection = () => {
                             position: 'absolute',
                             bottom: '32px',
                             left: '-20px',
-                            background: '#fff',
+                            background: 'var(--color-parakeet-green)',
+                            color: '#fff',
                             padding: '16px 32px',
-                            boxShadow: '0 10px 30px rgba(0,0,0,0.05)'
+                            boxShadow: '0 10px 30px rgba(0,0,0,0.2)'
                         }}>
                             <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 600, letterSpacing: '0.1em', fontSize: '0.8rem' }}>FLAGSHIP STORE</span>
                         </div>
@@ -29,33 +30,33 @@ const LocationSection = () => {
 
                     {/* Editorial Content */}
                     <div style={{ paddingLeft: '20px' }}>
-                        <span style={{ display: 'block', fontSize: '0.8rem', letterSpacing: '0.2em', color: '#999', marginBottom: '24px', textTransform: 'uppercase' }}>Destination</span>
+                        <span style={{ display: 'block', fontSize: '0.8rem', letterSpacing: '0.2em', color: '#aaa', marginBottom: '24px', textTransform: 'uppercase' }}>Destination</span>
                         <h2 style={{
                             fontFamily: 'var(--font-heading)',
                             fontSize: '3.5rem',
                             lineHeight: '1.1',
                             margin: '0 0 32px',
-                            color: 'var(--color-midnight-black)',
+                            color: '#fff',
                             fontWeight: 400
                         }}>
                             Xinyi <br /> Sanctuary.
                         </h2>
 
-                        <div style={{ width: '40px', height: '1px', background: '#ccc', marginBottom: '32px' }}></div>
+                        <div style={{ width: '40px', height: '1px', background: '#555', marginBottom: '32px' }}></div>
 
-                        <p style={{ fontFamily: 'var(--font-body)', fontSize: '1rem', lineHeight: '1.8', color: '#555', marginBottom: '40px', maxWidth: '400px' }}>
+                        <p style={{ fontFamily: 'var(--font-body)', fontSize: '1rem', lineHeight: '1.8', color: '#ccc', marginBottom: '40px', maxWidth: '400px' }}>
                             An oasis of calm in the heart of the city.
                             Designed for clarity, restoration, and the mindful consumption of essential nutrients.
                         </p>
 
                         <div style={{ marginBottom: '40px' }}>
-                            <p style={{ fontSize: '1.1rem', fontFamily: 'var(--font-heading)', marginBottom: '8px' }}>No. 123, Songshou Rd</p>
-                            <p style={{ color: '#888', fontStyle: 'italic' }}>Taipei City, Taiwan</p>
+                            <p style={{ fontSize: '1.1rem', fontFamily: 'var(--font-heading)', marginBottom: '8px', color: '#fff' }}>No. 123, Songshou Rd</p>
+                            <p style={{ color: '#999', fontStyle: 'italic' }}>Taipei City, Taiwan</p>
                         </div>
 
                         <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
                             <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--color-parakeet-green)' }}></div>
-                            <span style={{ fontSize: '0.8rem', letterSpacing: '0.1em', fontWeight: 700, textTransform: 'uppercase' }}>Open Now</span>
+                            <span style={{ fontSize: '0.8rem', letterSpacing: '0.1em', fontWeight: 700, textTransform: 'uppercase', color: '#fff' }}>Open Now</span>
                         </div>
                     </div>
                 </div>

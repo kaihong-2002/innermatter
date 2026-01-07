@@ -4,11 +4,13 @@
   --color-parakeet-green: #748B6F;
   /* Sage Green */
   --color-clinical-white: #FDFCF8;
-  /* Warm Paper White (was #FFFFFF) */
+  /* Warm Paper White */
   --color-midnight-black: #1a1a1a;
   /* Softer Black */
+  --color-deep-wood: #262321;
+  /* Dark Walnut / Burnt Wood */
   --color-fog-grey: #F2F0E9;
-  /* Warm Beige Grey (was #F5F5F5) */
+  /* Warm Beige Grey */
 
   /* Typography - Editorial Style */
   --font-heading: 'Cinzel', serif;
