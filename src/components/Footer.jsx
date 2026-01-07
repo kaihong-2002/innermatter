@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer style={{ backgroundColor: 'var(--color-deep-wood)', color: 'var(--color-clinical-white)', padding: '100px 0 40px' }}>
+        <footer style={{ backgroundColor: 'var(--color-pure-black)', color: 'var(--color-clinical-white)', padding: '100px 0 40px' }}>
             <div className="container" style={{ maxWidth: '1440px', padding: '0 40px' }}>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '60px', marginBottom: '80px' }}>
                     {/* Brand Column */}

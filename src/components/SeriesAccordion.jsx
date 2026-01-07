@@ -77,7 +77,7 @@ const SeriesAccordion = () => {
     };
 
     return (
-        <section className="series-section" id="products" style={{ backgroundColor: 'var(--color-deep-wood)', padding: '80px 0', color: 'var(--color-clinical-white)' }}>
+        <section className="series-section" id="products" style={{ backgroundColor: 'var(--color-warm-stone)', padding: '80px 0', transition: 'background-color 0.5s ease' }}>
 
             {/* Desktop / Tablet List View */}
             <div className="accordion-container desktop-only-accordion">
@@ -90,7 +90,7 @@ const SeriesAccordion = () => {
                         onClick={() => handleItemClick(series.id)}
                     >
                         <div className="accordion-content">
-                            <h3 className="accordion-title" style={{ background: 'rgba(255,255,255,0.9)', color: '#1a1a1a', fontFamily: '"Cinzel", serif' }}>{series.title}</h3>
+                            <h3 className="accordion-title" style={{ background: 'rgba(255,255,255,0.4)', color: '#1a1a1a', fontFamily: '"Cinzel", serif' }}>{series.title}</h3>
                             <div className="accordion-details">
                                 <p style={{ fontStyle: 'italic', marginBottom: '16px', fontSize: '1.25rem', fontFamily: '"Didot", serif', color: '#111', fontWeight: '600' }}>{series.tagline}</p>
 
@@ -111,7 +111,7 @@ const SeriesAccordion = () => {
                                     <span style={{
                                         display: 'block',
                                         fontSize: '0.75rem',
-                                        color: '#333',
+                                        color: '#000',
                                         fontWeight: '800',
                                         letterSpacing: '0.1em',
                                         marginBottom: '6px',
@@ -120,7 +120,7 @@ const SeriesAccordion = () => {
                                     }}>
                                         Be Suitable For
                                     </span>
-                                    <p style={{ fontSize: '0.95rem', color: '#111', fontWeight: '600', fontFamily: '"Lato", sans-serif' }}>
+                                    <p style={{ fontSize: '0.95rem', color: '#000', fontWeight: '600', fontFamily: '"Lato", sans-serif' }}>
                                         {series.suitableFor}
                                     </p>
                                 </div>
@@ -137,8 +137,8 @@ const SeriesAccordion = () => {
                                         background: 'transparent',
                                         cursor: 'pointer',
                                         fontFamily: '"Lato", sans-serif',
-                                        color: '#000',
                                         border: '1px solid #000',
+                                        color: '#000',
                                         padding: '8px 16px',
                                         marginTop: '12px'
                                     }}
