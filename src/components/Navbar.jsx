@@ -36,9 +36,24 @@ const Navbar = () => {
         if (location.pathname === '/') {
             const element = document.getElementById(targetId);
             if (element) {
-                const headerOffset = window.innerWidth < 768 ? 60 : 80;
-                const elementPosition = element.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                const navbarHeight = window.innerWidth < 768 ? 60 : 80;
+                const elementHeight = element.offsetHeight;
+                const windowHeight = window.innerHeight;
+
+                // Center the element: Top of element should be at (WindowHeight - ElementHeight) / 2
+                // But we must account for scrolling.
+                // Target Scroll Y = Element Top Y - (WindowHeight - ElementHeight) / 2
+
+                const elementTop = element.getBoundingClientRect().top + window.pageYOffset;
+                let offsetPosition;
+
+                if (elementHeight < windowHeight) {
+                    // If element is smaller than window, center it
+                    offsetPosition = elementTop - (windowHeight - elementHeight) / 2;
+                } else {
+                    // If element is larger, just align to top (minus navbar)
+                    offsetPosition = elementTop - navbarHeight;
+                }
 
                 window.scrollTo({
                     top: offsetPosition,

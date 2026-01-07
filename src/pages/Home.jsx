@@ -26,8 +26,18 @@ const Home = () => {
             if (element) {
                 // ... existing scroll logic ...
                 const performScroll = () => {
-                    const yOffset = window.innerWidth < 768 ? -60 : -80; // Match Navbar Height
-                    const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                    const elementHeight = element.offsetHeight;
+                    const windowHeight = window.innerHeight;
+                    const navbarHeight = window.innerWidth < 768 ? 60 : 80;
+                    const elementTop = element.getBoundingClientRect().top + window.pageYOffset;
+
+                    let y;
+                    if (elementHeight < windowHeight) {
+                        y = elementTop - (windowHeight - elementHeight) / 2;
+                    } else {
+                        y = elementTop - navbarHeight;
+                    }
+
                     window.scrollTo({ top: y, behavior: 'smooth' });
                 };
 

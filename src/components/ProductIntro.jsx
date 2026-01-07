@@ -86,252 +86,253 @@ const ProductIntro = () => {
           </div>
         </div>
       ),
-      bg: '#E2DCD2', // Light Wood / Beige Gradient Step
-      text: '#2c2c2c',
-      accent: '#59493F'
+      ),
+bg: '#FDFCF8', // Unified White
+  text: '#1a1a1a',
+    accent: '#748B6F' // Unified Sage
     },
-    {
-      id: 'solution',
-      label: 'III. Solution',
+{
+  id: 'solution',
+    label: 'III. Solution',
       title: '解構．重組．進化',
-      subtitle: 'III. THE SOLUTION',
-      visual: 'v5_page3_solution_smoothie.png', // Generated
-      visualStyle: { filter: 'brightness(0.95) contrast(1.05)' },
-      content: (
-        <div className="content-fade-in" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-          <p className="body-text" style={{ marginBottom: '32px', opacity: 0.9, fontSize: '1.1rem' }}>
-            我們重新思考了「健康飲品」的角色。透過天然食材的黃金配比，將營養學化繁為簡，打造出美味與功能兼具的方案。
-          </p>
+        subtitle: 'III. THE SOLUTION',
+          visual: 'v5_page3_solution_smoothie.png', // Generated
+            visualStyle: { filter: 'brightness(0.95) contrast(1.05)' },
+  content: (
+    <div className="content-fade-in" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+      <p className="body-text" style={{ marginBottom: '32px', opacity: 0.9, fontSize: '1.1rem' }}>
+        我們重新思考了「健康飲品」的角色。透過天然食材的黃金配比，將營養學化繁為簡，打造出美味與功能兼具的方案。
+      </p>
 
-          <p className="body-text" style={{ marginBottom: '40px', opacity: 0.9, fontWeight: 500 }}>
-            我們定義了新產品 <span style={{ fontFamily: '"Cinzel", serif', borderBottom: '1px solid currentColor' }}>Protein Smoothie 高蛋白奶昔</span>。<br />
-            透鍋營養均衡，助你達成個人的健康目標。
-          </p>
+      <p className="body-text" style={{ marginBottom: '40px', opacity: 0.9, fontWeight: 500 }}>
+        我們定義了新產品 <span style={{ fontFamily: '"Cinzel", serif', borderBottom: '1px solid currentColor' }}>Protein Smoothie 高蛋白奶昔</span>。<br />
+        透鍋營養均衡，助你達成個人的健康目標。
+      </p>
 
-          {/* Stylized Formula Section - Larger Ingredients & Labels */}
-          <div style={{
-            flex: 1,
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            background: 'rgba(255,255,255,0.05)',
-            borderRadius: '4px',
-            padding: '24px',
-            border: '1px solid rgba(255,255,255,0.1)'
-          }}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr auto 1fr', alignItems: 'start', gap: '10px', textAlign: 'center' }}>
+      {/* Stylized Formula Section - Larger Ingredients & Labels */}
+      <div style={{
+        flex: 1,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        background: 'rgba(116, 139, 111, 0.05)', // Sage tint for white bg
+        borderRadius: '4px',
+        padding: '24px',
+        border: '1px solid rgba(116, 139, 111, 0.1)'
+      }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr auto 1fr', alignItems: 'start', gap: '10px', textAlign: 'center' }}>
 
-              {/* Item 1 */}
-              <div className="formula-item">
-                <div style={{ width: '90px', height: '90px', background: '#fff', borderRadius: '50%', padding: '12px', margin: '0 auto 12px', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 8px 20px rgba(0,0,0,0.2)' }}>
-                  <img src={getAssetPath('/assets/cereal_greens_v2.png')} style={{ width: '100%' }} alt="" />
-                </div>
-                <h5 style={{ fontSize: '0.9rem', marginBottom: '4px', color: '#fff', fontWeight: 600 }}>新鮮蔬果</h5>
-                <p style={{ fontSize: '0.75rem', opacity: 0.7, margin: 0 }}>嚴選產地直送</p>
-              </div>
-
-              <span style={{ fontSize: '2rem', opacity: 0.3, fontWeight: 300, paddingTop: '30px' }}>+</span>
-
-              {/* Item 2 */}
-              <div className="formula-item">
-                <div style={{ width: '90px', height: '90px', background: '#fff', borderRadius: '50%', padding: '12px', margin: '0 auto 12px', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 8px 20px rgba(0,0,0,0.2)' }}>
-                  <img src={getAssetPath('/assets/cereal_texture_nuts.png')} style={{ width: '100%' }} alt="" />
-                </div>
-                <h5 style={{ fontSize: '0.9rem', marginBottom: '4px', color: '#fff', fontWeight: 600 }}>天然食材</h5>
-                <p style={{ fontSize: '0.75rem', opacity: 0.7, margin: 0 }}>豐富口感好油</p>
-              </div>
-
-              <span style={{ fontSize: '2rem', opacity: 0.3, fontWeight: 300, paddingTop: '30px' }}>+</span>
-
-              {/* Item 3 */}
-              <div className="formula-item">
-                <div style={{ width: '90px', height: '90px', background: '#fff', borderRadius: '50%', padding: '12px', margin: '0 auto 12px', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 8px 20px rgba(0,0,0,0.2)' }}>
-                  <img src={getAssetPath('/assets/cereal_milk_pour.png')} style={{ width: '100%' }} alt="" />
-                </div>
-                <h5 style={{ fontSize: '0.9rem', marginBottom: '4px', color: '#fff', fontWeight: 600 }}>優質蛋白</h5>
-                <p style={{ fontSize: '0.75rem', opacity: 0.7, margin: 0 }}>高效吸收修復</p>
-              </div>
+          {/* Item 1 */}
+          <div className="formula-item">
+            <div style={{ width: '90px', height: '90px', background: '#fff', borderRadius: '50%', padding: '12px', margin: '0 auto 12px', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 8px 20px rgba(0,0,0,0.1)' }}>
+              <img src={getAssetPath('/assets/cereal_greens_v2.png')} style={{ width: '100%' }} alt="" />
             </div>
+            <h5 style={{ fontSize: '0.9rem', marginBottom: '4px', color: '#1a1a1a', fontWeight: 600 }}>新鮮蔬果</h5>
+            <p style={{ fontSize: '0.75rem', opacity: 0.7, margin: 0, color: '#444' }}>嚴選產地直送</p>
+          </div>
 
-            <div style={{ textAlign: 'center', marginTop: '30px', paddingTop: '20px', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
-              <h4 style={{ margin: '0', fontFamily: '"Cinzel", serif', fontSize: '1.4rem', letterSpacing: '0.1em' }}>= THE GLASS</h4>
+          <span style={{ fontSize: '2rem', opacity: 0.3, fontWeight: 300, paddingTop: '30px', color: '#1a1a1a' }}>+</span>
+
+          {/* Item 2 */}
+          <div className="formula-item">
+            <div style={{ width: '90px', height: '90px', background: '#fff', borderRadius: '50%', padding: '12px', margin: '0 auto 12px', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 8px 20px rgba(0,0,0,0.1)' }}>
+              <img src={getAssetPath('/assets/cereal_texture_nuts.png')} style={{ width: '100%' }} alt="" />
             </div>
+            <h5 style={{ fontSize: '0.9rem', marginBottom: '4px', color: '#1a1a1a', fontWeight: 600 }}>天然食材</h5>
+            <p style={{ fontSize: '0.75rem', opacity: 0.7, margin: 0, color: '#444' }}>豐富口感好油</p>
+          </div>
+
+          <span style={{ fontSize: '2rem', opacity: 0.3, fontWeight: 300, paddingTop: '30px', color: '#1a1a1a' }}>+</span>
+
+          {/* Item 3 */}
+          <div className="formula-item">
+            <div style={{ width: '90px', height: '90px', background: '#fff', borderRadius: '50%', padding: '12px', margin: '0 auto 12px', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 8px 20px rgba(0,0,0,0.1)' }}>
+              <img src={getAssetPath('/assets/cereal_milk_pour.png')} style={{ width: '100%' }} alt="" />
+            </div>
+            <h5 style={{ fontSize: '0.9rem', marginBottom: '4px', color: '#1a1a1a', fontWeight: 600 }}>優質蛋白</h5>
+            <p style={{ fontSize: '0.75rem', opacity: 0.7, margin: 0, color: '#444' }}>高效吸收修復</p>
           </div>
         </div>
-      ),
-      bg: '#6B5B4E', // Standard Wood (Lighter than Deep Wood)
-      text: '#FDFCF8',
-      accent: '#CFC0A5'
-    }
+
+        <div style={{ textAlign: 'center', marginTop: '30px', paddingTop: '20px', borderTop: '1px solid rgba(116, 139, 111, 0.1)' }}>
+          <h4 style={{ margin: '0', fontFamily: '"Cinzel", serif', fontSize: '1.4rem', letterSpacing: '0.1em', color: '#748B6F' }}>= THE GLASS</h4>
+        </div>
+      </div>
+    </div>
+  ),
+    bg: '#FDFCF8', // Unified White
+      text: '#1a1a1a',
+        accent: '#748B6F'
+}
   ];
 
-  const changePage = (newIndex) => {
-    if (isAnimating) return;
-    if (newIndex === activePage) return;
-    setIsAnimating(true);
-    setActivePage(newIndex);
-    setTimeout(() => setIsAnimating(false), 800);
-  };
+const changePage = (newIndex) => {
+  if (isAnimating) return;
+  if (newIndex === activePage) return;
+  setIsAnimating(true);
+  setActivePage(newIndex);
+  setTimeout(() => setIsAnimating(false), 800);
+};
 
-  const currentPage = PAGES[activePage];
+const currentPage = PAGES[activePage];
 
-  return (
-    <section className="intro-section" style={{
-      padding: '0',
-      background: currentPage.bg,
-      transition: 'background-color 0.8s ease',
-      minHeight: '100vh',
+return (
+  <section className="intro-section" style={{
+    padding: '0',
+    background: currentPage.bg,
+    transition: 'background-color 0.8s ease',
+    minHeight: '100vh',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'relative'
+  }}>
+
+    {/* Immersive Container */}
+    <div className="immersive-book" style={{
+      width: '95vw',
+      height: '90vh',
       display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      position: 'relative'
+      boxShadow: '0 40px 100px rgba(0,0,0,0.2)',
+      background: '#fff',
+      overflow: 'hidden'
     }}>
 
-      {/* Immersive Container */}
-      <div className="immersive-book" style={{
-        width: '95vw',
-        height: '90vh',
+      {/* LEFT: Visual */}
+      <div className="book-visual" style={{
+        flex: '0 0 45%',
+        position: 'relative',
+        overflow: 'hidden',
+        background: '#f0f0f0'
+      }}>
+        {PAGES.map((page, index) => (
+          <div
+            key={page.id}
+            style={{
+              position: 'absolute', inset: 0,
+              opacity: activePage === index ? 1 : 0,
+              transition: 'opacity 1s ease',
+              zIndex: activePage === index ? 2 : 1
+            }}
+          >
+            <img
+              src={getAssetPath(`/assets/${page.visual}`)}
+              alt=""
+              style={{
+                width: '100%', height: '100%', objectFit: 'cover',
+                transform: activePage === index ? 'scale(1)' : 'scale(1.1)',
+                transition: 'transform 1.2s ease',
+                ...page.visualStyle
+              }}
+            />
+            {/* Chapter Number */}
+            <div style={{
+              position: 'absolute', top: '40px', left: '40px',
+              color: '#fff', fontFamily: '"Cinzel", serif', fontSize: '6rem',
+              opacity: 0.8, textShadow: '0 0 30px rgba(0,0,0,0.5)'
+            }}>
+              0{index + 1}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* RIGHT: Content */}
+      <div className="book-content" style={{
+        flex: '1',
+        background: currentPage.bg,
+        padding: '60px 80px', // Adjusted padding
         display: 'flex',
-        boxShadow: '0 40px 100px rgba(0,0,0,0.2)',
-        background: '#fff',
-        overflow: 'hidden'
+        flexDirection: 'column',
+        justifyContent: 'center',
+        position: 'relative',
+        transition: 'background-color 0.8s ease'
       }}>
 
-        {/* LEFT: Visual */}
-        <div className="book-visual" style={{
-          flex: '0 0 45%',
-          position: 'relative',
-          overflow: 'hidden',
-          background: '#f0f0f0'
-        }}>
-          {PAGES.map((page, index) => (
-            <div
-              key={page.id}
-              style={{
-                position: 'absolute', inset: 0,
-                opacity: activePage === index ? 1 : 0,
-                transition: 'opacity 1s ease',
-                zIndex: activePage === index ? 2 : 1
-              }}
-            >
-              <img
-                src={getAssetPath(`/assets/${page.visual}`)}
-                alt=""
-                style={{
-                  width: '100%', height: '100%', objectFit: 'cover',
-                  transform: activePage === index ? 'scale(1)' : 'scale(1.1)',
-                  transition: 'transform 1.2s ease',
-                  ...page.visualStyle
-                }}
-              />
-              {/* Chapter Number */}
-              <div style={{
-                position: 'absolute', top: '40px', left: '40px',
-                color: '#fff', fontFamily: '"Cinzel", serif', fontSize: '6rem',
-                opacity: 0.8, textShadow: '0 0 30px rgba(0,0,0,0.5)'
-              }}>
-                0{index + 1}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* RIGHT: Content */}
-        <div className="book-content" style={{
-          flex: '1',
-          background: currentPage.bg,
-          padding: '60px 80px', // Adjusted padding
+        <div key={activePage} style={{
+          flex: 1,
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
-          position: 'relative',
-          transition: 'background-color 0.8s ease'
+          animation: 'fadeInSlide 0.8s ease forwards'
         }}>
-
-          <div key={activePage} style={{
-            flex: 1,
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            animation: 'fadeInSlide 0.8s ease forwards'
+          <span style={{
+            display: 'block',
+            color: currentPage.accent,
+            fontSize: '0.9rem',
+            letterSpacing: '0.3em',
+            textTransform: 'uppercase',
+            marginBottom: '20px',
+            fontWeight: 600
           }}>
-            <span style={{
-              display: 'block',
-              color: currentPage.accent,
-              fontSize: '0.9rem',
-              letterSpacing: '0.3em',
-              textTransform: 'uppercase',
-              marginBottom: '20px',
-              fontWeight: 600
-            }}>
-              {currentPage.subtitle}
-            </span>
+            {currentPage.subtitle}
+          </span>
 
-            <h1 style={{
-              color: currentPage.text,
-              fontSize: '3rem',
-              fontFamily: '"Cinzel", serif',
-              lineHeight: '1.2',
-              marginBottom: '32px'
-            }}>
-              {currentPage.title}
-            </h1>
+          <h1 style={{
+            color: currentPage.text,
+            fontSize: '3rem',
+            fontFamily: '"Cinzel", serif',
+            lineHeight: '1.2',
+            marginBottom: '32px'
+          }}>
+            {currentPage.title}
+          </h1>
 
-            <div style={{
-              color: currentPage.text,
-              fontSize: '1.1rem',
-              lineHeight: '1.8',
-              fontFamily: '"Lato", sans-serif',
-              fontWeight: 400
-            }}>
-              {currentPage.content}
-            </div>
-          </div>
-
-          {/* Simple Arrow Navigation */}
           <div style={{
-            position: 'absolute',
-            bottom: '40px',
-            right: '60px',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '24px',
+            color: currentPage.text,
+            fontSize: '1.1rem',
+            lineHeight: '1.8',
+            fontFamily: '"Lato", sans-serif',
+            fontWeight: 400
           }}>
-            <button
-              onClick={() => changePage((activePage - 1 + PAGES.length) % PAGES.length)}
-              style={{
-                background: 'none',
-                border: 'none',
-                color: currentPage.text,
-                fontSize: '2rem', // Simple Arrow Size
-                cursor: 'pointer',
-                opacity: 0.6,
-                padding: '0'
-              }}
-            >
-              ←
-            </button>
-            <button
-              onClick={() => changePage((activePage + 1) % PAGES.length)}
-              style={{
-                background: 'none',
-                border: 'none',
-                color: currentPage.text,
-                fontSize: '2rem', // Simple Arrow Size
-                cursor: 'pointer',
-                opacity: 1,
-                padding: '0'
-              }}
-            >
-              →
-            </button>
+            {currentPage.content}
           </div>
+        </div>
 
+        {/* Simple Arrow Navigation */}
+        <div style={{
+          position: 'absolute',
+          bottom: '40px',
+          right: '60px',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '24px',
+        }}>
+          <button
+            onClick={() => changePage((activePage - 1 + PAGES.length) % PAGES.length)}
+            style={{
+              background: 'none',
+              border: 'none',
+              color: currentPage.text,
+              fontSize: '2rem', // Simple Arrow Size
+              cursor: 'pointer',
+              opacity: 0.6,
+              padding: '0'
+            }}
+          >
+            ←
+          </button>
+          <button
+            onClick={() => changePage((activePage + 1) % PAGES.length)}
+            style={{
+              background: 'none',
+              border: 'none',
+              color: currentPage.text,
+              fontSize: '2rem', // Simple Arrow Size
+              cursor: 'pointer',
+              opacity: 1,
+              padding: '0'
+            }}
+          >
+            →
+          </button>
         </div>
 
       </div>
 
-      <style>{`
+    </div>
+
+    <style>{`
         @keyframes fadeInSlide {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -350,8 +351,8 @@ const ProductIntro = () => {
         }
       `}</style>
 
-    </section>
-  );
+  </section>
+);
 };
 
 export default ProductIntro;
