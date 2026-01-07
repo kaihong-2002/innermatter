@@ -91,7 +91,7 @@ const ClubCycling = () => {
                         </div>
                     </div>
 
-                    <Link to="/health-club" style={{
+                    <Link to="/#health-club" style={{
                         display: 'inline-block',
                         padding: '16px 40px',
                         border: '1px solid #ddd',
