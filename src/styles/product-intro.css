@@ -1,453 +1,281 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lato:wght@300;400;700&display=swap');
 
-/* Core Section */
-.intro-section {
-    width: 100%;
-    background-color: #fff;
-    font-family: 'Lato', sans-serif;
-    color: #4a4a4a;
-}
-
-.intro-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 80px 20px;
-}
-
-/* Typography - Cereal Style */
-/* Typography - Premium Big Editorial */
-.intro-subtitle {
-    font-family: 'Cinzel', serif;
-    font-size: 3.5rem;
-    /* Massive Scale */
-    letter-spacing: 0.1em;
-    color: #1a261b;
-    /* Darker Deep Sage */
-    margin-bottom: 24px;
-    display: block;
-    font-weight: 600;
-    /* Bolder */
-    line-height: 1;
-    text-shadow: none;
-    /* Cleaner look */
-}
-
-.intro-title {
-    font-family: 'Bodoni Moda', 'Didot', 'Playfair Display', serif;
-    /* Elegant Italic Serif */
-    font-size: 1.85rem;
-    font-style: italic;
-    color: #4a5d4b;
-    /* Darker Muted Sage */
-    margin-bottom: 32px;
-    line-height: 1.4;
-    font-weight: 500;
-    /* Slightly heavier */
-}
-
-.intro-text {
-    font-family: "Noto Sans TC", sans-serif;
-    font-size: 0.95rem;
-    /* Match Hero precise size */
-    line-height: 2;
-    /* Airy line height like Hero */
-    color: #444;
-    /* Darker Gray */
-    margin-bottom: 24px;
-    font-weight: 300;
-    letter-spacing: 0.02em;
-}
-
-.section-divider {
-    display: none;
-    /* Removed as requested */
-}
-
-/* Premium Mindset Cards */
-.mindset-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-    /* More breathing room */
-    margin-bottom: 100px;
-}
-
-.mindset-card {
-    padding: 50px 32px;
-    text-align: center;
-    border-radius: 4px;
-    /* Sharp editorial corners */
-    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-    border: none;
-    /* Clean look */
-}
-
-/* Distinct Card Colors - Synced with Collection Grid deeper tones */
-.card-body-control {
-    background-color: #DBCBB8 !important;
-    /* Deep Sand (Matches Collection 2) */
-}
-
-.card-athletic {
-    background-color: #C4CDC6 !important;
-    /* Deep Mist (Matches Collection 3) */
-}
-
-.card-clean-diet {
-    background-color: #B8C5BD !important;
-    /* Deep Sage (Matches Collection 1) */
-}
-
-.mindset-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-}
-
-.card-icon {
-    width: 64px;
-    /* Larger icons */
-    height: 64px;
-    margin-bottom: 24px;
-    opacity: 1;
-}
-
-.card-title {
-    font-family: 'Cinzel', serif;
-    font-size: 1.5rem;
-    color: #1a261b;
-    margin-bottom: 16px;
-    font-weight: 700;
-}
-
-.card-title span {
-    display: block;
-    font-family: "Noto Sans TC", sans-serif;
-    font-size: 0.9rem;
-    color: #555;
-    margin-top: 8px;
-    letter-spacing: 0.15em;
-    font-weight: 500;
-}
-
-.card-desc {
-    font-family: "Noto Sans TC", sans-serif;
-    font-size: 0.95rem;
-    line-height: 1.9;
-    color: #555;
-    font-weight: 300;
-    text-align: justify;
-    text-align-last: center;
-}
-
-/* Solution Pillars - Enlarged */
-.solution-pillars {
+/* V5 Core Layout - Immersive Book */
+.intro-section-v5 {
+    padding: 0;
+    transition: background-color 0.8s ease;
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
-    /* Default: center for desktop */
     align-items: center;
-    flex-wrap: nowrap;
-    /* Keep the formula A+B+C=D intact */
-    gap: 20px;
-    /* Reduced gap slightly to ensure fit */
-    padding: 60px 20px;
-    /* Vertical breathing room */
-    margin-top: 20px;
-    width: 100%;
-    max-width: 1200px;
-    /* Allow it to be wide */
-    margin-left: auto;
-    margin-right: auto;
-    box-sizing: border-box;
+    justify-content: center;
+    position: relative;
+    /* Prevent horizontal scroll on mobile if artifacts exist */
+    overflow-x: hidden;
 }
 
-/* Responsive: Scroll on Tablet/Mobile */
-@media (max-width: 1024px) {
-    .solution-pillars {
-        justify-content: flex-start;
-        padding: 60px 40px;
-        /* Keep side padding for scroll safety */
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .solution-pillars::after {
-        content: '';
-        flex: 0 0 40px;
-        /* Spacer */
-    }
-}
-
-.solution-pillar {
-    text-align: center;
-    min-width: 180px;
-}
-
-/* Larger Images */
-.pillar-image-wrap {
-    width: 160px;
-    height: 160px;
-    margin: 0 auto 24px;
-    transition: transform 0.4s ease;
-    border-radius: 50%;
-    border: 4px solid #fff;
-    /* White border ring */
-    box-shadow: 0 8px 24px rgba(44, 62, 45, 0.1);
-    /* Sage shadow */
-    overflow: hidden;
-    /* Enforce circle mask */
-    background-color: #fcebd9;
-    /* Fallback color to prevent transparent corners */
-}
-
-.pillar-image-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 50%;
-    /* Double safety */
-}
-
-.pillar-label {
-    font-family: 'Cinzel', serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #2c3e2d;
-    margin-bottom: 8px;
-    letter-spacing: 0.1em;
-}
-
-.pillar-sub {
-    font-family: "Noto Sans TC", sans-serif;
-    font-size: 0.9rem;
-    color: #666;
-    line-height: 1.6;
-}
-
-.pillar-operator {
-    font-family: 'Cinzel', serif;
-    font-size: 2rem;
-    /* Big Elegant Math Symbols */
-    color: #ccc;
-    font-weight: 300;
-    padding: 0 10px;
-}
-
-/* Result Glass - Heroic Size */
-.solution-result-pillar {
-    min-width: 200px;
-}
-
-.solution-result-pillar .pillar-image-wrap {
-    width: 180px;
-    height: 180px;
-    border: 1px solid rgba(116, 139, 111, 0.2);
+.immersive-book {
+    width: 95vw;
+    height: 90vh;
+    display: flex;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.2);
     background: #fff;
-    padding: 0;
-}
-
-.result-title {
-    color: #748b6f;
-    /* Highlight Color */
-    font-size: 1.25rem;
-}
-
-/* Collection Grid Bridge */
-.collection-bridge {
-    text-align: center;
-    margin-top: 80px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.collection-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1px;
-    background: #eee;
-    margin-top: 40px;
-    border: 1px solid #eee;
-}
-
-/* Base item */
-.collection-item {
-    /* Removed default white background to let specific colors shine */
-    padding: 24px 10px;
-    color: #555;
-    font-size: 0.9rem;
-    letter-spacing: 0.15em;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    /* Font style */
-    font-weight: 600;
-}
-
-/* 5 Distinct Aesthetic Colors - Clearly Different Hues */
-.collection-item:nth-child(1) {
-    background: #7E9689 !important;
-}
-
-/* Sage Green */
-.collection-item:nth-child(2) {
-    background: #CFC0A5 !important;
-}
-
-/* Warm Sand (Yellowish) */
-.collection-item:nth-child(3) {
-    background: #95A9B8 !important;
-}
-
-/* Steel Blue */
-.collection-item:nth-child(4) {
-    background: #BCACA4 !important;
-}
-
-/* Warm Clay (Reddish) */
-.collection-item:nth-child(5) {
-    background: #A8A8A8 !important;
-}
-
-/* Neutral Grey */
-
-.collection-item:hover {
-    background: #2c3e2d !important;
-    /* Deep Green override */
-    color: #fff;
-    transform: translateY(-4px);
-}
-
-/* New Elegant Text Nav */
-.nav-text-btn {
-    background: none;
-    border: none;
-    font-family: 'Cinzel', serif;
-    font-size: 0.9rem;
-    cursor: pointer;
-    color: #666;
-    letter-spacing: 0.1em;
-    transition: all 0.3s ease;
-    padding: 0;
+    overflow: hidden;
     position: relative;
 }
 
-.nav-text-btn:hover {
-    color: #2c3e2d;
-    /* Sage Green */
+/* LEFT: Visual Side */
+.book-visual {
+    flex: 0 0 45%;
+    position: relative;
+    overflow: hidden;
+    background: #f0f0f0;
 }
 
-.nav-text-btn::after {
-    content: '';
+.visual-slide {
     position: absolute;
-    width: 0;
-    height: 1px;
-    bottom: -4px;
-    left: 0;
-    background-color: #2c3e2d;
-    transition: width 0.3s;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1s ease;
+    z-index: 1;
 }
 
-.nav-text-btn:hover::after {
+.visual-slide.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+.visual-img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.1);
+    transition: transform 1.2s ease;
 }
 
-.nav-separator {
-    color: #ddd;
-    font-weight: 300;
+.visual-img.active {
+    transform: scale(1);
 }
 
-/* Mobile Adjustments for Nav */
+.chapter-number {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    color: #fff;
+    font-family: "Cinzel", serif;
+    font-size: 6rem;
+    opacity: 0.8;
+    text-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+/* RIGHT: Content Side */
+.book-content {
+    flex: 1;
+    padding: 60px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    transition: background-color 0.8s ease;
+}
+
+.content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Fade In Animation */
+    animation: fadeInSlide 0.8s ease forwards;
+}
+
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content-subtitle {
+    display: block;
+    font-size: 0.9rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.content-title {
+    font-size: 3rem;
+    font-family: "Cinzel", serif;
+    line-height: 1.2;
+    margin-bottom: 32px;
+}
+
+.content-body {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+}
+
+/* Helper Text Classes */
+.body-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    opacity: 0.9;
+}
+
+/* New Shift Cards (V5) */
+.shift-card {
+    transition: all 0.3s ease;
+}
+
+.shift-card:hover {
+    transform: translateX(10px);
+    background: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Formula / Solution Styles */
+.formula-item h5 {
+    letter-spacing: 0.05em;
+}
+
+/* Navigation */
+.book-nav {
+    position: absolute;
+    bottom: 40px;
+    right: 60px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    z-index: 10;
+}
+
+.nav-arrow {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0;
+    transition: opacity 0.3s;
+}
+
+.nav-arrow.left {
+    opacity: 0.6;
+}
+
+.nav-arrow.left:hover {
+    opacity: 1;
+}
+
+.nav-arrow.right {
+    opacity: 1;
+}
+
+
+/* =========================================
+   MOBILE OPTIMIZATION (Max-Width 768px)
+   ========================================= */
 @media (max-width: 768px) {
-    .collection-nav {
-        gap: 16px;
+    .intro-section-v5 {
+        min-height: auto;
+        padding: 0;
+        height: auto;
+        /* Allow scroll */
+        display: block;
+        padding-top: 60px;
+        /* Nav Height */
     }
 
-    .nav-separator {
-        display: none;
-        /* Stack or just minimal space on mobile */
+    .immersive-book {
+        width: 100vw;
+        height: auto;
+        min-height: 100vh;
+        flex-direction: column;
+        box-shadow: none;
+        border-radius: 0;
     }
 
-    .nav-text-btn {
-        font-size: 0.8rem;
-        margin-bottom: 8px;
-        /* For wrapping */
-    }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .mindset-grid {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        gap: 16px;
-        padding: 10px 4px 20px 4px;
-        grid-template-columns: none;
-        scroll-snap-type: x mandatory;
+    /* Visual on Top */
+    .book-visual {
+        flex: 0 0 300px;
+        /* Fixed height for visual on mobile */
+        height: 300px;
+        width: 100%;
     }
 
-    .mindset-card {
-        min-width: 85vw;
-        scroll-snap-align: center;
-        margin-right: 0;
+    .chapter-number {
+        font-size: 4rem;
+        top: 20px;
+        left: 20px;
     }
 
-    .solution-pillars {
-        flex-direction: row;
-        align-items: flex-start;
+    /* Content below */
+    .book-content {
+        padding: 40px 24px 80px 24px;
+        /* Extra bottom padding for floating nav if needed */
         justify-content: flex-start;
-        gap: 12px;
-        padding: 40px 10px;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
+        flex: auto;
+        /* Take remaining space */
     }
 
-    .solution-pillar {
-        min-width: 130px;
+    .content-title {
+        font-size: 2rem;
+        /* Smaller title */
+        margin-bottom: 24px;
     }
 
-    .pillar-image-wrap {
-        width: 110px;
-        height: 110px;
+    .content-subtitle {
+        margin-bottom: 12px;
+        font-size: 0.8rem;
     }
 
-    .solution-result-pillar .pillar-image-wrap {
-        width: 130px;
-        height: 130px;
+    /* Shift Cards Mobile */
+    .shift-card {
+        padding: 16px !important;
+        flex-direction: column;
+        /* Stack Icon and Text if narrow */
+        align-items: flex-start !important;
+        gap: 12px !important;
+        margin-bottom: 12px;
     }
 
-    .solution-pillars::after {
-        content: '';
-        min-width: 20px;
-        height: 1px;
-        display: block;
+    .shift-card img {
+        width: 40px !important;
     }
 
-    .pillar-operator {
-        display: block;
-        transform: none;
-        margin: 40px 0 0 0;
-        font-size: 1.25rem;
-        min-width: 20px;
+    /* Solution Formula Mobile */
+    .formula-item div {
+        width: 70px !important;
+        height: 70px !important;
+        padding: 8px !important;
     }
 
+    .formula-item h5 {
+        font-size: 0.8rem !important;
+    }
 
-
-    .collection-bridge {
-        display: block;
-        /* Restore text visibility */
+    /* Navigation - Bottom Right Fixed or Inline? 
+       Let's keep it inline bottom right of content area */
+    .book-nav {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        position: relative;
+        bottom: auto;
+        right: auto;
         margin-top: 40px;
-        padding: 0 20px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
     }
 
-    .collection-grid {
-        display: none;
-        /* Hide only the grid block */
-    }
-
-    .intro-subtitle {
-        font-size: 1.75rem;
+    .nav-arrow {
+        font-size: 2.5rem;
+        /* Bigger for touch */
+        padding: 10px;
     }
 }
