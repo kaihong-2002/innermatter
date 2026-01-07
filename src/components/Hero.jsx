@@ -25,7 +25,7 @@ const Hero = () => {
 
                 {/* 2. Visual (Panoramic 21:9) */}
                 <div className="cereal-visual-frame">
-                    <img src={getAssetPath('/assets/vogue_river_smoothie_panoramic.png')} alt="Inner Matter Serene Flow" className="cereal-image" />
+                    <img src={getAssetPath('/assets/vogue_river_smoothie_natural_v2.png')} alt="Inner Matter Serene Flow" className="cereal-image" />
                 </div>
 
                 {/* 3. Narrative (Compact) */}
