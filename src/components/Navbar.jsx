@@ -45,11 +45,11 @@ const Navbar = () => {
                     behavior: "smooth"
                 });
             }
-            // Update URL without reload to reflect state
-            window.history.pushState(null, '', `/#${targetId}`);
+            // Do not pushState to '/#targetId' because it confuses HashRouter (treats as route /targetId)
+            // Just let the scroll happen.
         } else {
-            // Navigate to home with hash using object syntax to avoid path confusion
-            navigate({ pathname: '/', hash: `#${targetId}` });
+            // Navigate to home with state, instructing it to scroll
+            navigate('/', { state: { scrollTo: targetId } });
         }
     };
 

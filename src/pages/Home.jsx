@@ -17,8 +17,10 @@ const Home = () => {
     // Instant Hash Navigation
     // Since data loading is now instant (mock service), layout is stable immediately.
     useEffect(() => {
-        if (location.hash) {
-            const targetId = location.hash.substring(1);
+        // Handle Hash (legacy/direct link) OR State (from internal navigation)
+        const targetId = location.state?.scrollTo || (location.hash ? location.hash.substring(1) : null);
+
+        if (targetId) {
             const element = document.getElementById(targetId);
 
             if (element) {
@@ -26,13 +28,12 @@ const Home = () => {
                 const performScroll = () => {
                     const yOffset = -100; // Exact height of Navbar + buffer
                     const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                    window.scrollTo({ top: y, behavior: 'auto' });
+                    window.scrollTo({ top: y, behavior: 'smooth' });
                 };
 
                 // Execute immediately and after a short render tick
                 performScroll();
-                setTimeout(performScroll, 50);
-                setTimeout(performScroll, 200); // Final verification snap
+                setTimeout(performScroll, 100);
             }
         }
     }, [location]);
