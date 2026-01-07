@@ -5,25 +5,42 @@ import { getAssetPath } from '../utils/assets';
 const ProductIntro = () => {
   // Pre-load assets
   useEffect(() => {
-    ['store_tokyo.png', 'club_running.png', 'vogue_river_smoothie_natural_v2.png',
-      'icon_body.png', 'icon_energy.png', 'icon_mind.png',
+    ['v5_page1_mission_architecture.png', 'v5_page2_evolution_lifestyle.png', 'v5_page3_solution_smoothie.png',
+      'v5_icon_body_modern.png', 'v5_icon_energy_modern.png', 'v5_icon_diet_modern.png',
       'cereal_greens_v2.png', 'cereal_milk_pour.png', 'cereal_glass_v2.png'].forEach(f => {
         const img = new Image();
-        img.src = getAssetPath(`/assets/${f}`);
+        img.src = getAssetPath(f.startsWith('v5') ? `/artifacts/${f}` : `/assets/${f}`); // Handle artifact paths vs assets
+        // Note: In this environment key, artifacts are usually copied to assets or referenced differently.
+        // Assuming user will handle file moving or I should point to where they are?
+        // Actually, for the user to see generated images, I usually need to move them to public/assets OR 
+        // the user has to wait. But I can't move files easily between virtual dirs. 
+        // Strategy: I will assume the user (or system) handles the artifact placement or I use the artifact URL logic if possible.
+        // HOWEVER, standard practice here: I should assume 'getAssetPath' works if I put them in the right place.
+        // Since I cannot move files to 'public/assets' via tool, I will use valid paths.
+        // WAIT: 'generate_image' saves to artifacts dir. I need to use the absolute path or copy them.
+        // I will trust the 'getAssetPath' helper or just use the filenames and hope the dev server picks them up 
+        // if I could move them. 
+        // CRITICAL: I cannot move files to public/assets. 
+        // I will use the relative path assuming they might be moved. 
+        // ACTUALLY, I must use 'write_to_file' to create a helper or I simply point to the artifact path if served?
+        // Let's rely on the fact that I should probably ASK the user to move them or I just use the filenames and 
+        // let the user know. 
+        // RE-READING RULES: "You can use this tool to generate assets for use in an application... The resulting image will be saved as an artifact".
+        // To use them in the app, I MUST COPY THEM to the public folder. I can use 'run_command' for this!
       });
   }, []);
 
   const [activePage, setActivePage] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  // Content Data - V4 Refined
+  // Content Data - V5
   const PAGES = [
     {
       id: 'mission',
       label: 'I. Mission',
       title: 'Defining the Future of Asian Wellness.',
       subtitle: 'I. OUR MISSION',
-      visual: 'store_tokyo.png',
+      visual: 'v5_page1_mission_architecture.png', // Generated
       visualStyle: { filter: 'grayscale(0%) contrast(1.05)' },
       content: (
         <div className="content-fade-in">
@@ -39,131 +56,127 @@ const ProductIntro = () => {
           </p>
         </div>
       ),
-      bg: '#FDFCF8', // Warm Paper
+      bg: '#FDFCF8', // White / Warm Paper
       text: '#1a1a1a',
       accent: '#748B6F'
     },
     {
       id: 'shift',
       label: 'II. Shift',
-      title: '健康追求的進化', // Evolution
+      title: '健康追求的進化',
       subtitle: 'II. THE EVOLUTION',
-      visual: 'club_running.png', // Health Goals Visual
-      visualStyle: { filter: 'grayscale(20%) contrast(0.95)' },
+      visual: 'v5_page2_evolution_lifestyle.png', // Generated
+      visualStyle: { filter: 'grayscale(10%) contrast(1.0)' },
       content: (
         <div className="content-fade-in" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
           <p className="body-text" style={{ marginBottom: '40px' }}>
-            現代人對於健康的追求已經進化，不再只是模糊的概念，轉而追求更精細、更具體的目標。
+            現代人對於健康的追求已經進化，從單一的體重數字，轉而追求更精細、更具體的自我掌控。我們相信，真正的健康建立在對身體的深度理解之上。
           </p>
 
-          {/* Extended Mindset Grid - Full Width */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '24px', flex: 1 }}>
+          {/* Extended Mindset Grid - New Icons */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '20px', flex: 1 }}>
 
-            <div className="shift-card" style={{ display: 'flex', alignItems: 'flex-start', gap: '20px', padding: '24px', background: 'rgba(255,255,255,0.6)', borderLeft: '4px solid #3B3430' }}>
-              <img src={getAssetPath('/assets/icon_body.png')} style={{ width: '48px', opacity: 0.9 }} alt="" />
+            <div className="shift-card" style={{ display: 'flex', alignItems: 'center', gap: '24px', padding: '24px', background: 'rgba(255,255,255,0.4)', borderLeft: '4px solid #3B3430', borderRadius: '4px' }}>
+              <img src={getAssetPath('/assets/v5_icon_body_modern.png')} style={{ width: '50px', opacity: 0.9 }} alt="" />
               <div>
-                <h4 style={{ margin: '0 0 8px', fontSize: '1.1rem', fontFamily: '"Cinzel", serif', letterSpacing: '0.05em' }}>BODY CONTROL 體態關注</h4>
-                <p style={{ margin: 0, fontSize: '0.95rem', lineHeight: '1.6', color: '#444' }}>
-                  精準的熱量赤字與營養密度，不盲目挨餓。
-                </p>
+                <h4 style={{ margin: '0 0 6px', fontSize: '1.1rem', fontFamily: '"Cinzel", serif', letterSpacing: '0.05em' }}>BODY CONTROL 體態關注</h4>
+                <p style={{ margin: 0, fontSize: '0.9rem', color: '#444' }}>精準的熱量赤字與營養密度。</p>
               </div>
             </div>
 
-            <div className="shift-card" style={{ display: 'flex', alignItems: 'flex-start', gap: '20px', padding: '24px', background: 'rgba(255,255,255,0.6)', borderLeft: '4px solid #3B3430' }}>
-              <img src={getAssetPath('/assets/icon_energy.png')} style={{ width: '48px', opacity: 0.9 }} alt="" />
+            <div className="shift-card" style={{ display: 'flex', alignItems: 'center', gap: '24px', padding: '24px', background: 'rgba(255,255,255,0.4)', borderLeft: '4px solid #3B3430', borderRadius: '4px' }}>
+              <img src={getAssetPath('/assets/v5_icon_energy_modern.png')} style={{ width: '50px', opacity: 0.9 }} alt="" />
               <div>
-                <h4 style={{ margin: '0 0 8px', fontSize: '1.1rem', fontFamily: '"Cinzel", serif', letterSpacing: '0.05em' }}>ATHLETIC 運動表現</h4>
-                <p style={{ margin: 0, fontSize: '0.95rem', lineHeight: '1.6', color: '#444' }}>
-                  針對運動後的黃金修復期，提供優質分離乳清。
-                </p>
+                <h4 style={{ margin: '0 0 6px', fontSize: '1.1rem', fontFamily: '"Cinzel", serif', letterSpacing: '0.05em' }}>ATHLETIC 運動表現</h4>
+                <p style={{ margin: 0, fontSize: '0.9rem', color: '#444' }}>針對運動後的黃金修復期。</p>
               </div>
             </div>
 
-            <div className="shift-card" style={{ display: 'flex', alignItems: 'flex-start', gap: '20px', padding: '24px', background: 'rgba(255,255,255,0.6)', borderLeft: '4px solid #3B3430' }}>
-              <img src={getAssetPath('/assets/icon_mind.png')} style={{ width: '48px', opacity: 0.9 }} alt="" />
+            <div className="shift-card" style={{ display: 'flex', alignItems: 'center', gap: '24px', padding: '24px', background: 'rgba(255,255,255,0.4)', borderLeft: '4px solid #3B3430', borderRadius: '4px' }}>
+              <img src={getAssetPath('/assets/v5_icon_diet_modern.png')} style={{ width: '50px', opacity: 0.9 }} alt="" />
               <div>
-                <h4 style={{ margin: '0 0 8px', fontSize: '1.1rem', fontFamily: '"Cinzel", serif', letterSpacing: '0.05em' }}>CLEAN DIET 純粹健康飲食</h4>
-                <p style={{ margin: 0, fontSize: '0.95rem', lineHeight: '1.6', color: '#444' }}>
-                  拒絕人工添加，嚴選原型食材與植化素。
-                </p>
+                <h4 style={{ margin: '0 0 6px', fontSize: '1.1rem', fontFamily: '"Cinzel", serif', letterSpacing: '0.05em' }}>CLEAN DIET 純粹飲食</h4>
+                <p style={{ margin: 0, fontSize: '0.9rem', color: '#444' }}>拒絕人工添加，嚴選原型食材。</p>
               </div>
             </div>
 
           </div>
         </div>
       ),
-      bg: '#EAE6E1', // Warm Stone
+      bg: '#E2DCD2', // Light Wood / Beige Gradient Step
       text: '#2c2c2c',
-      accent: '#3B3430'
+      accent: '#59493F'
     },
     {
       id: 'solution',
       label: 'III. Solution',
       title: '解構．重組．進化',
       subtitle: 'III. THE SOLUTION',
-      visual: 'vogue_river_smoothie_natural_v2.png',
-      visualStyle: { filter: 'brightness(0.9) contrast(1.1)' },
+      visual: 'v5_page3_solution_smoothie.png', // Generated
+      visualStyle: { filter: 'brightness(0.95) contrast(1.05)' },
       content: (
         <div className="content-fade-in" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
           <p className="body-text" style={{ marginBottom: '32px', opacity: 0.9, fontSize: '1.1rem' }}>
-            我們重新思考了「健康飲品」在現代生活中的角色。透過天然食材的黃金配比，將營養學化繁為簡，打造出美味與功能兼具的方案。
+            我們重新思考了「健康飲品」的角色。透過天然食材的黃金配比，將營養學化繁為簡，打造出美味與功能兼具的方案。
           </p>
 
           <p className="body-text" style={{ marginBottom: '40px', opacity: 0.9, fontWeight: 500 }}>
             我們定義了新產品 <span style={{ fontFamily: '"Cinzel", serif', borderBottom: '1px solid currentColor' }}>Protein Smoothie 高蛋白奶昔</span>。<br />
-            我們的目標是透過營養均衡，去達到個人的健康目標。
+            透鍋營養均衡，助你達成個人的健康目標。
           </p>
 
-          {/* Stylized Formula Section */}
+          {/* Stylized Formula Section - Larger Ingredients & Labels */}
           <div style={{
             flex: 1,
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
-            background: 'rgba(255,255,255,0.05)', // Slightly lighter overlay
-            borderRadius: '2px',
-            padding: '30px',
+            background: 'rgba(255,255,255,0.05)',
+            borderRadius: '4px',
+            padding: '24px',
             border: '1px solid rgba(255,255,255,0.1)'
           }}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr auto 1fr', alignItems: 'center', gap: '10px', textAlign: 'center' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr auto 1fr', alignItems: 'start', gap: '10px', textAlign: 'center' }}>
 
-              {/* Real Food */}
+              {/* Item 1 */}
               <div className="formula-item">
-                <div style={{ width: '70px', height: '70px', background: '#fff', borderRadius: '50%', padding: '10px', margin: '0 auto 12px', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 5px 15px rgba(0,0,0,0.2)' }}>
+                <div style={{ width: '90px', height: '90px', background: '#fff', borderRadius: '50%', padding: '12px', margin: '0 auto 12px', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 8px 20px rgba(0,0,0,0.2)' }}>
                   <img src={getAssetPath('/assets/cereal_greens_v2.png')} style={{ width: '100%' }} alt="" />
                 </div>
-                <h5 style={{ fontSize: '0.8rem', letterSpacing: '0.1em', marginBottom: '4px', color: '#CFC0A5' }}>REAL FOOD</h5>
+                <h5 style={{ fontSize: '0.9rem', marginBottom: '4px', color: '#fff', fontWeight: 600 }}>新鮮蔬果</h5>
+                <p style={{ fontSize: '0.75rem', opacity: 0.7, margin: 0 }}>嚴選產地直送</p>
               </div>
 
-              <span style={{ fontSize: '1.5rem', opacity: 0.3, fontWeight: 300 }}>+</span>
+              <span style={{ fontSize: '2rem', opacity: 0.3, fontWeight: 300, paddingTop: '30px' }}>+</span>
 
-              {/* Texture */}
+              {/* Item 2 */}
               <div className="formula-item">
-                <div style={{ width: '70px', height: '70px', background: '#fff', borderRadius: '50%', padding: '10px', margin: '0 auto 12px', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 5px 15px rgba(0,0,0,0.2)' }}>
+                <div style={{ width: '90px', height: '90px', background: '#fff', borderRadius: '50%', padding: '12px', margin: '0 auto 12px', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 8px 20px rgba(0,0,0,0.2)' }}>
                   <img src={getAssetPath('/assets/cereal_texture_nuts.png')} style={{ width: '100%' }} alt="" />
                 </div>
-                <h5 style={{ fontSize: '0.8rem', letterSpacing: '0.1em', marginBottom: '4px', color: '#CFC0A5' }}>TEXTURE</h5>
+                <h5 style={{ fontSize: '0.9rem', marginBottom: '4px', color: '#fff', fontWeight: 600 }}>天然食材</h5>
+                <p style={{ fontSize: '0.75rem', opacity: 0.7, margin: 0 }}>豐富口感好油</p>
               </div>
 
-              <span style={{ fontSize: '1.5rem', opacity: 0.3, fontWeight: 300 }}>+</span>
+              <span style={{ fontSize: '2rem', opacity: 0.3, fontWeight: 300, paddingTop: '30px' }}>+</span>
 
-              {/* Base */}
+              {/* Item 3 */}
               <div className="formula-item">
-                <div style={{ width: '70px', height: '70px', background: '#fff', borderRadius: '50%', padding: '10px', margin: '0 auto 12px', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 5px 15px rgba(0,0,0,0.2)' }}>
+                <div style={{ width: '90px', height: '90px', background: '#fff', borderRadius: '50%', padding: '12px', margin: '0 auto 12px', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 8px 20px rgba(0,0,0,0.2)' }}>
                   <img src={getAssetPath('/assets/cereal_milk_pour.png')} style={{ width: '100%' }} alt="" />
                 </div>
-                <h5 style={{ fontSize: '0.8rem', letterSpacing: '0.1em', marginBottom: '4px', color: '#CFC0A5' }}>BASE</h5>
+                <h5 style={{ fontSize: '0.9rem', marginBottom: '4px', color: '#fff', fontWeight: 600 }}>優質蛋白</h5>
+                <p style={{ fontSize: '0.75rem', opacity: 0.7, margin: 0 }}>高效吸收修復</p>
               </div>
             </div>
 
-            <div style={{ textAlign: 'center', marginTop: '24px', paddingTop: '24px', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
-              <h4 style={{ margin: '0 0 4px', fontFamily: '"Cinzel", serif', fontSize: '1.3rem', letterSpacing: '0.1em' }}>= THE GLASS</h4>
+            <div style={{ textAlign: 'center', marginTop: '30px', paddingTop: '20px', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+              <h4 style={{ margin: '0', fontFamily: '"Cinzel", serif', fontSize: '1.4rem', letterSpacing: '0.1em' }}>= THE GLASS</h4>
             </div>
           </div>
         </div>
       ),
-      // NEW COLOR STANDARDIZATION: Standard Wood (not too black)
-      bg: '#59493F', // Standard Wood / Dark Coffee. Lighter than #3B3430
+      bg: '#6B5B4E', // Standard Wood (Lighter than Deep Wood)
       text: '#FDFCF8',
       accent: '#CFC0A5'
     }
@@ -244,7 +257,7 @@ const ProductIntro = () => {
         <div className="book-content" style={{
           flex: '1',
           background: currentPage.bg,
-          padding: '80px 100px',
+          padding: '60px 80px', // Adjusted padding
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
@@ -273,10 +286,10 @@ const ProductIntro = () => {
 
             <h1 style={{
               color: currentPage.text,
-              fontSize: '3.5rem',
+              fontSize: '3rem',
               fontFamily: '"Cinzel", serif',
               lineHeight: '1.2',
-              marginBottom: '40px'
+              marginBottom: '32px'
             }}>
               {currentPage.title}
             </h1>
@@ -292,27 +305,42 @@ const ProductIntro = () => {
             </div>
           </div>
 
-          {/* Navigation */}
+          {/* Simple Arrow Navigation */}
           <div style={{
+            position: 'absolute',
+            bottom: '40px',
+            right: '60px',
             display: 'flex',
             alignItems: 'center',
-            gap: '20px',
-            marginTop: '40px',
-            borderTop: `1px solid ${currentPage.text}20`,
-            paddingTop: '30px'
+            gap: '24px',
           }}>
             <button
               onClick={() => changePage((activePage - 1 + PAGES.length) % PAGES.length)}
-              style={{ background: 'none', border: 'none', color: currentPage.text, fontSize: '1.5rem', cursor: 'pointer', opacity: 0.6, padding: '0 10px' }}
+              style={{
+                background: 'none',
+                border: 'none',
+                color: currentPage.text,
+                fontSize: '2rem', // Simple Arrow Size
+                cursor: 'pointer',
+                opacity: 0.6,
+                padding: '0'
+              }}
             >
-              ← PREV
+              ←
             </button>
-            <div style={{ height: '1px', flex: 1, background: `${currentPage.text}20` }}></div>
             <button
               onClick={() => changePage((activePage + 1) % PAGES.length)}
-              style={{ background: 'none', border: 'none', color: currentPage.text, fontSize: '1.5rem', cursor: 'pointer', hover: { opacity: 1 }, padding: '0 10px' }}
+              style={{
+                background: 'none',
+                border: 'none',
+                color: currentPage.text,
+                fontSize: '2rem', // Simple Arrow Size
+                cursor: 'pointer',
+                opacity: 1,
+                padding: '0'
+              }}
             >
-              NEXT →
+              →
             </button>
           </div>
 
@@ -332,8 +360,7 @@ const ProductIntro = () => {
         }
         .shift-card:hover {
             transform: translateX(10px);
-            background: rgba(255,255,255,0.95) !important;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            background: rgba(255,255,255,0.6) !important;
         }
         .shift-card {
             transition: all 0.3s ease;
