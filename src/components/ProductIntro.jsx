@@ -269,7 +269,7 @@ const ProductIntro = ({ forceExpanded = false }) => {
           <div
             className="philosophy-teaser"
             style={{
-              padding: '0px 24px 20px',
+              padding: '30px 24px 30px',
               textAlign: 'center',
               background: '#FDFCF8',
               borderBottom: '1px solid #eaeaea'
