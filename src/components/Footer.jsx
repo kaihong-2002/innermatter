@@ -18,7 +18,9 @@ const Footer = () => {
                         <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', marginBottom: '24px', letterSpacing: '0.15em', color: '#888' }}>Menu</h4>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                             {['Reset Power', 'Urban Light', 'Daily Balance', 'Complete Reset'].map(item => (
-                                <a key={item} href="/#shop" style={{ fontFamily: 'var(--font-body)', fontSize: '0.9rem', color: '#bbb', transition: 'color 0.2s' }}
+                                <a key={item}
+                                    href={`/#series-${item.replace(/\s+/g, '-')}`}
+                                    style={{ fontFamily: 'var(--font-body)', fontSize: '0.9rem', color: '#bbb', transition: 'color 0.2s', textDecoration: 'none' }}
                                     onMouseEnter={(e) => e.target.style.color = 'var(--color-parakeet-green)'}
                                     onMouseLeave={(e) => e.target.style.color = '#bbb'}>
                                     {item}
@@ -32,13 +34,13 @@ const Footer = () => {
                         <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', marginBottom: '24px', letterSpacing: '0.15em', color: '#888' }}>Support</h4>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                             {['FAQ', 'Shipping & Returns', 'Privacy Policy'].map(item => (
-                                <a key={item} href="#" style={{ fontFamily: 'var(--font-body)', fontSize: '0.9rem', color: '#bbb', transition: 'color 0.2s' }}
+                                <a key={item} href="/contact" style={{ fontFamily: 'var(--font-body)', fontSize: '0.9rem', color: '#bbb', transition: 'color 0.2s', textDecoration: 'none' }}
                                     onMouseEnter={(e) => e.target.style.color = 'var(--color-parakeet-green)'}
                                     onMouseLeave={(e) => e.target.style.color = '#bbb'}>
                                     {item}
                                 </a>
                             ))}
-                            <a href="/contact" style={{ fontFamily: 'var(--font-body)', fontSize: '0.9rem', color: '#bbb', transition: 'color 0.2s' }}
+                            <a href="/contact" style={{ fontFamily: 'var(--font-body)', fontSize: '0.9rem', color: '#bbb', transition: 'color 0.2s', textDecoration: 'none' }}
                                 onMouseEnter={(e) => e.target.style.color = 'var(--color-parakeet-green)'}
                                 onMouseLeave={(e) => e.target.style.color = '#bbb'}>
                                 Contact Us
@@ -52,7 +54,7 @@ const Footer = () => {
                         <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.9rem', color: '#ccc', marginBottom: '24px' }}>
                             Join the inner circle.
                         </p>
-                        <div style={{ display: 'flex', gap: '0', borderBottom: '1px solid #555', paddingBottom: '8px' }}>
+                        <form onSubmit={(e) => { e.preventDefault(); alert('Welcome to the inner circle! (Demo)'); }} style={{ display: 'flex', gap: '0', borderBottom: '1px solid #555', paddingBottom: '8px' }}>
                             <input
                                 type="email"
                                 placeholder="Email Address"
@@ -67,18 +69,20 @@ const Footer = () => {
                                     fontSize: '0.9rem'
                                 }}
                             />
-                            <button style={{
+                            <button type="submit" style={{
                                 padding: '0 12px',
                                 backgroundColor: 'transparent',
                                 color: 'var(--color-parakeet-green)',
                                 textTransform: 'uppercase',
                                 fontWeight: 700,
                                 fontSize: '0.75rem',
-                                letterSpacing: '0.05em'
+                                letterSpacing: '0.05em',
+                                border: 'none',
+                                cursor: 'pointer'
                             }}>
                                 Join
                             </button>
-                        </div>
+                        </form>
                     </div>
                 </div>
 
