@@ -60,9 +60,10 @@ const HealthClub = () => {
             <Navbar />
             <div className="club-hero">
                 <h1 style={{ fontFamily: '"Cinzel", serif', letterSpacing: '0.05em' }}>Health Club</h1>
-                <p style={{ fontFamily: '"Noto Sans TC", sans-serif', maxWidth: '600px', margin: '0 auto', lineHeight: '1.8', fontSize: '1.1rem', color: '#555' }}>
-                    打造健康理想生活。<br />
-                    InnerMatter 設計了一連串專屬活動，只為回應都會人對健康的深層嚮往。
+                <p style={{ fontFamily: '"Noto Sans TC", sans-serif', maxWidth: '800px', margin: '0 auto', lineHeight: '2', fontSize: '1.1rem', color: '#555' }}>
+                    <strong style={{ display: 'block', fontSize: '1.4rem', marginBottom: '16px', color: '#2c2c2c', fontWeight: 500 }}>打造健康理想生活。</strong>
+                    InnerMatter 深知都會靈魂對健康的渴望，因此我們策劃了一系列專屬活動——從晨間跑團到週末騎行及健身聚會。<br />
+                    透過汗水與連結，讓健康不再只是口號，而是你每天實踐的理想生活風格。
                 </p>
             </div>
 
