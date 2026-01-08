@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/global.css';
+import '../styles/health-club-mobile.css';
 import { getAssetPath } from '../utils/assets';
 
 const EventTimeline = () => {
@@ -54,7 +55,7 @@ const EventTimeline = () => {
             </div>
 
             <div className="container" style={{ maxWidth: '1200px', padding: '0 24px', margin: '0 auto' }}>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px' }}>
+                <div className="club-card-container">
 
                     {/* Running Club */}
                     <div

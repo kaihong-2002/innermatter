@@ -273,9 +273,8 @@
     }
 
     .cereal-visual-frame {
-        max-height: 20vh;
-        /* Reduced from 25vh */
-        /* slightly smaller to leave room for text */
+        max-height: 50vh;
+        /* Increased from 20vh for visibility */
         margin-bottom: 24px;
     }
 
@@ -287,8 +286,8 @@
 
     /* Fix for Panoramic Smoothie Image on Mobile: Ensure full visibility */
     .cereal-image {
-        object-fit: contain;
-        /* Show full image, don't crop */
+        object-fit: cover;
+        /* Cover to fill the larger frame */
         object-position: center;
     }
 

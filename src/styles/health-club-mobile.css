@@ -1,181 +1,37 @@
-/* Health Club Page Styles */
-
-.page-health-club {
-    width: 100%;
-    min-height: 100vh;
-    background-color: var(--color-clinical-white);
-}
-
-/* Hero Section */
-.club-hero {
-    background-color: var(--color-parakeet-green);
-    color: white;
-    padding: 160px 20px 80px;
-    text-align: center;
-}
-
-.club-hero h1 {
-    font-size: 4rem;
-    font-family: var(--font-heading);
-    margin-bottom: 20px;
-}
-
-.club-hero p {
-    font-size: 1.25rem;
-    opacity: 0.9;
-    max-width: 600px;
-    margin: 0 auto;
-    font-family: var(--font-body);
-}
-
-/* Content Container */
-.club-container {
-    padding: 80px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Grid Layout (Desktop Default) */
-.club-grid {
+/* Default Grid (Desktop) */
+.club-card-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    /* Force 3 columns on large screens if fit */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
 }
 
-/* Card Styling */
-.club-card {
-    flex: 1;
-    min-width: 300px;
-    border: 1px solid #eee;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    background-color: var(--color-clinical-white);
-    transition: transform 0.3s ease;
-}
-
-.club-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-}
-
-.card-image-wrapper {
-    height: 300px;
-    overflow: hidden;
-    position: relative;
-}
-
-.card-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.club-card:hover .card-image {
-    transform: scale(1.05);
-}
-
-.card-content {
-    padding: 32px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.card-title {
-    font-family: var(--font-heading);
-    font-size: 1.75rem;
-    margin-bottom: 16px;
-    color: var(--color-midnight-black);
-}
-
-.card-desc {
-    font-family: var(--font-body);
-    margin-bottom: 24px;
-    color: #666;
-    line-height: 1.6;
-}
-
-.btn-join {
-    padding: 12px 24px;
-    border: 1px solid var(--color-midnight-black);
-    text-transform: uppercase;
-    font-weight: 700;
-    background-color: transparent;
-    cursor: pointer;
-    font-family: var(--font-heading);
-    align-self: flex-start;
-    transition: all 0.2s ease;
-}
-
-.btn-join:hover {
-    background-color: var(--color-midnight-black);
-    color: white;
-}
-
-/* Responsive - Tablet */
-@media (max-width: 1024px) {
-    .club-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    }
-}
-
-/* Responsive - Mobile Optimization */
+/* Mobile Horizontal Scroll */
 @media (max-width: 768px) {
-    .club-hero {
-        padding: 100px 20px 60px;
-        /* Reduced padding */
-    }
-
-    .club-hero h1 {
-        font-size: 2.5rem;
-        /* Smaller title */
-    }
-
-    .club-hero p {
-        font-size: 1rem;
-    }
-
-    .club-container {
-        padding: 40px 0;
-        /* Full width scroll, remove horizontal padding from container */
-        overflow: hidden;
-        /* Hide scrollbar for container */
-    }
-
-    /* Transform Grid to Horizontal Carousel */
-    .club-grid {
+    .club-card-container {
         display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
-        gap: 16px;
-        padding: 0 20px;
-        /* Padding inside scroll area */
-        padding-bottom: 20px;
-        /* Space for scrollbar if visible/touch */
-        -webkit-overflow-scrolling: touch;
+        gap: 24px;
+        padding-bottom: 24px;
+        /* Space for scrollbar or visual breathing room */
+        -ms-overflow-style: none;
+        /* Icon Hide */
+        scrollbar-width: none;
+    }
+
+    .club-card-container::-webkit-scrollbar {
+        display: none;
     }
 
     .club-card {
-        min-width: 85vw;
-        /* Show mostly one card */
+        flex: 0 0 85vw;
+        /* Show 85% of card to encourage swipe */
         width: 85vw;
-        flex: none;
         scroll-snap-align: center;
-        border: 1px solid #eee;
     }
 
-    .card-image-wrapper {
-        height: 240px;
-        /* Slightly shorter image */
-    }
-
-    .card-content {
-        padding: 24px;
+    .club-card img {
+        height: 350px !important;
+        /* Slightly smaller on mobile height-wise if needed, but 400 is fine too */
     }
 }
