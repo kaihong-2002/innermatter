@@ -254,9 +254,23 @@
     }
 
     .content-title {
-        font-size: 2rem;
+        font-size: 1.5rem;
+        /* Reduced from 2rem */
         /* Smaller title */
-        margin-bottom: 24px;
+        margin-bottom: 16px;
+        /* Reduced margin */
+    }
+
+    .book-content {
+        padding: 30px 20px;
+        /* Tighter padding */
+    }
+
+    .content-body,
+    .body-text {
+        font-size: 0.95rem !important;
+        /* Smaller body text */
+        line-height: 1.6 !important;
     }
 
     .content-subtitle {

@@ -15,7 +15,7 @@ const EventTimeline = () => {
             borderTop: '1px solid #E2DCD2' // Subtle separation line
         }}>
             <div style={{ maxWidth: '1440px', margin: '0 auto 60px', padding: '0 24px', textAlign: 'center' }}>
-                <h2 style={{
+                <h2 className="section-title-mobile-override" style={{
                     fontFamily: '"Cinzel", serif',
                     fontSize: '2.5rem',
                     fontWeight: 700,

@@ -1,0 +1,54 @@
+/* Location Section Styles */
+.location-section {
+    padding: 80px 0;
+    background-color: transparent;
+}
+
+.location-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 60px;
+    align-items: center;
+}
+
+.location-title {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin: 0 0 32px;
+    color: #fff;
+    font-weight: 400;
+}
+
+.location-visual-height {
+    height: 600px;
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .location-section {
+        padding: 60px 0;
+    }
+
+    .location-grid {
+        grid-template-columns: 1fr;
+        /* Stack vertically */
+        gap: 40px;
+    }
+
+    .location-visual-height {
+        height: 400px;
+        /* Reduced visual height */
+    }
+
+    .location-title {
+        font-size: 2rem;
+        /* Significantly reduced from 3.5rem */
+        margin-bottom: 20px;
+    }
+
+    .location-description {
+        font-size: 0.95rem !important;
+        max-width: 100% !important;
+    }
+}

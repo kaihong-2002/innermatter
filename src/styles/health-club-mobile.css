@@ -31,7 +31,21 @@
     }
 
     .club-card img {
-        height: 350px !important;
-        /* Slightly smaller on mobile height-wise if needed, but 400 is fine too */
+        height: 250px !important;
+        /* Reduced height to see text */
+    }
+
+    .section-title-mobile-override {
+        font-size: 1.75rem !important;
+        /* Reduced from 3rem */
+        margin-bottom: 24px !important;
+    }
+
+    .club-card h3 {
+        font-size: 1.25rem !important;
+    }
+
+    .club-card p {
+        font-size: 0.85rem !important;
     }
 }
