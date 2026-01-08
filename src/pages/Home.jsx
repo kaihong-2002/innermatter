@@ -58,7 +58,7 @@ const Home = () => {
             </div>
             <SeriesAccordion />
             <ProductList />
-            <div id="locations" style={{ background: '#3B3430', scrollMarginTop: '100px' }}>
+            <div id="locations" style={{ background: '#3B3430', paddingTop: '100px' }}>
                 <LocationSection />
             </div>
             <EventTimeline />

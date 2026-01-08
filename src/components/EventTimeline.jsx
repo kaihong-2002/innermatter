@@ -7,7 +7,12 @@ const EventTimeline = () => {
     const navigate = useNavigate();
 
     return (
-        <section className="section" id="health-club" style={{ backgroundColor: '#fff', paddingBottom: '120px', paddingTop: '100px' }}>
+        <section className="section" id="health-club" style={{
+            background: 'linear-gradient(to bottom, #F5F5F3 0%, #FFFFFF 100%)', // Subtle Stone Gradient
+            paddingBottom: '120px',
+            paddingTop: '100px',
+            borderTop: '1px solid #E2DCD2' // Subtle separation line
+        }}>
             <div style={{ maxWidth: '1440px', margin: '0 auto 60px', padding: '0 24px', textAlign: 'center' }}>
                 <h2 style={{
                     fontFamily: '"Cinzel", serif',
