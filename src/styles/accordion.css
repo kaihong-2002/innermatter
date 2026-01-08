@@ -1,5 +1,5 @@
 .series-section {
-    padding: 0;
+    padding: 100px 0 80px;
     height: 80vh;
     /* Or adjust as needed, maybe less */
     width: 100%;
@@ -21,6 +21,8 @@
     .series-section {
         height: auto;
         min-height: 100vh;
+        padding: 40px 0 40px;
+        /* Reduced Padding */
     }
 
     .accordion-container {

@@ -78,7 +78,7 @@ const SeriesAccordion = () => {
     };
 
     return (
-        <section className="series-section" id="products" style={{ backgroundColor: '#EAE6E1', padding: '100px 0 80px', transition: 'background-color 0.5s ease' }}>
+        <section className="series-section" id="products" style={{ backgroundColor: '#EAE6E1', transition: 'background-color 0.5s ease' }}>
 
             {/* Intro Text for Series - Restored based on user request */}
             <div className="container" style={{ maxWidth: '800px', margin: '0 auto 60px', textAlign: 'center', padding: '0 24px' }}>

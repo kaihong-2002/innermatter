@@ -128,7 +128,7 @@ const EventTimeline = ({ forceExpanded = false }) => {
                         </div>
                     )}
 
-                    <div className="club-card-container">
+                    <div className={`club-card-container ${forceExpanded ? 'vertical-mobile' : ''}`}>
 
                         {/* Running Club */}
                         <div

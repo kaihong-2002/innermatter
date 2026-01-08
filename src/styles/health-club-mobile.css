@@ -30,6 +30,20 @@
         scroll-snap-align: center;
     }
 
+    /* Vertical Stack Override for Mobile Page */
+    .club-card-container.vertical-mobile {
+        flex-direction: column;
+        overflow-x: visible;
+        scroll-snap-type: none;
+        padding-bottom: 0;
+    }
+
+    .club-card-container.vertical-mobile .club-card {
+        width: 100%;
+        flex: none;
+        margin-bottom: 30px;
+    }
+
     .club-card img {
         height: 250px !important;
         /* Reduced height to see text */
