@@ -215,9 +215,12 @@ const transformProduct = (row) => {
                 fiber: safeNum(row.fiber),
                 sugar: safeNum(row.sugar)
             },
-            // Static fields for now, or add to sheet if requested later
-            benefits: ['Muscle Repair', 'Antioxidants'],
-            ingredients: ['Pea Protein', 'Mixed Berries']
+            ingredients: row.ingredients
+                ? row.ingredients.toString().split(',').map(s => s.trim())
+                : ['Premium Plant Protein', 'Natural Flavorings'], // Basic Fallback
+            benefits: row.benefits
+                ? row.benefits.toString().split(',').map(s => s.trim())
+                : ['Muscle Repair', 'Antioxidants'] // Basic Fallback
         };
     } catch (err) {
         console.error('Error transforming product row:', row, err);

@@ -21,6 +21,7 @@
     *   `carbs` (營養素：碳水)
     *   `fats` (營養素：脂肪)
     *   `calories` (營養素：熱量)
+    *   `ingredients` (成分，以逗號分隔，例如：豌豆蛋白, 綜合莓果, 櫻桃萃取)
     *   以及系統需要的：`id`, `name_en`, `desc_short`, `price`, `image`, `is_sold_out`。
     
 #### **2. Consumers (消費者工作表)**

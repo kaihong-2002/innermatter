@@ -43,15 +43,23 @@
 }
 
 .navbar-links {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
-    gap: 60px;
+    gap: 40px;
+    /* Adjust gap as needed */
     align-items: center;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .navbar-links {
         display: none;
         /* Hidden on mobile, to be toggled or replaced by a menu later */
+        position: fixed;
+        /* Reset for mobile overlay */
+        transform: none;
+        left: 0;
     }
 
     /* Premium Full-Screen Overlay */
