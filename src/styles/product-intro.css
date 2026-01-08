@@ -13,6 +13,17 @@
     overflow-x: hidden;
 }
 
+.desktop-philosophy-view {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.mobile-philosophy-view {
+    display: none;
+    width: 100%;
+}
+
 .immersive-book {
     width: 85vw;
     height: 80vh;
@@ -182,6 +193,7 @@
 
 .nav-arrow.left:hover {
     opacity: 1;
+    background: none;
 }
 
 .nav-arrow.right {
@@ -193,133 +205,89 @@
    MOBILE OPTIMIZATION (Max-Width 768px)
    ========================================= */
 @media (max-width: 768px) {
+
+    /* Hide Desktop View */
+    .desktop-philosophy-view {
+        display: none !important;
+    }
+
+    /* Show Mobile View */
+    .mobile-philosophy-view {
+        display: block !important;
+        padding-bottom: 60px;
+    }
+
     .intro-section-v5 {
-        min-height: auto;
+        display: block;
+        /* Remove flex centering */
         padding: 0;
         height: auto;
-        /* Allow scroll */
-        display: block;
-        padding-top: 60px;
-        /* Nav Height */
-    }
-
-    .immersive-book {
-        width: 100vw;
-        height: 75vh;
-        /* Fixed height for swipe view */
         min-height: auto;
-        /* Horizontal Layout */
-        flex-direction: row;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        scroll-behavior: smooth;
-        box-shadow: none;
-        border-radius: 0;
-        /* Hide scrollbar */
-        -ms-overflow-style: none;
-        scrollbar-width: none;
     }
 
-    .immersive-book::-webkit-scrollbar {
-        display: none;
+    /* Mobile Item Styling */
+    .mobile-story-item {
+        background: #fff;
+        margin-bottom: 2px;
+        /* Slight separator */
+        padding-bottom: 40px;
     }
 
-    /* Visual on Left (Slide 1) */
-    .book-visual {
-        flex: 0 0 100vw;
-        /* Full width slide */
-        width: 100vw;
+    .mobile-story-visual {
+        position: relative;
+        width: 100%;
+        height: 60vh;
+        /* Portrait immersive */
+        overflow: hidden;
+    }
+
+    .mobile-story-visual img {
+        width: 100%;
         height: 100%;
-        /* Full height */
-        scroll-snap-align: start;
+        object-fit: cover;
     }
 
-    .chapter-number {
-        font-size: 4rem;
+    .mobile-chapter-num {
+        position: absolute;
         top: 20px;
         left: 20px;
+        font-family: "Cinzel", serif;
+        font-size: 3rem;
+        color: rgba(255, 255, 255, 0.9);
+        z-index: 10;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     }
 
-    /* Content on Right (Slide 2) */
-    .book-content {
-        flex: 0 0 100vw;
-        /* Full width slide */
-        width: 100vw;
-        height: 100%;
-        scroll-snap-align: start;
+    .mobile-story-content {
         padding: 40px 24px;
-        justify-content: center;
-        overflow-y: auto;
-        /* Allow internal vertical scroll if text is long */
+        text-align: left;
     }
 
-    .content-title {
-        font-size: 1.5rem;
-        /* Reduced from 2rem */
-        /* Smaller title */
-        margin-bottom: 16px;
-        /* Reduced margin */
+    .mobile-title {
+        font-family: "Cinzel", serif;
+        font-size: 1.75rem;
+        margin-bottom: 20px;
+        color: #1a1a1a;
+        line-height: 1.2;
     }
 
-    .book-content {
-        padding: 30px 20px;
-        /* Tighter padding */
+    .mobile-body {
+        font-family: "Lato", sans-serif;
+        font-size: 0.95rem;
+        line-height: 1.7;
+        color: #444;
     }
 
-    .content-body,
-    .body-text {
-        font-size: 0.95rem !important;
-        /* Smaller body text */
-        line-height: 1.6 !important;
-    }
-
-    .content-subtitle {
-        margin-bottom: 12px;
-        font-size: 0.8rem;
-    }
-
-    /* Shift Cards Mobile */
-    .shift-card {
-        padding: 16px !important;
-        flex-direction: column;
-        /* Stack Icon and Text if narrow */
-        align-items: flex-start !important;
-        gap: 12px !important;
-        margin-bottom: 12px;
-    }
-
-    .shift-card img {
-        width: 40px !important;
-    }
-
-    /* Solution Formula Mobile */
+    /* Tweaks for inner components */
     .formula-item div {
-        width: 70px !important;
-        height: 70px !important;
-        padding: 8px !important;
+        width: 60px !important;
+        height: 60px !important;
     }
 
-    .formula-item h5 {
-        font-size: 0.8rem !important;
-    }
-
-    /* Navigation - Bottom Right Fixed or Inline? 
-       Let's keep it inline bottom right of content area */
-    .book-nav {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        position: relative;
-        bottom: auto;
-        right: auto;
-        margin-top: 40px;
-        padding-top: 20px;
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
-    }
-
-    .nav-arrow {
-        font-size: 2.5rem;
-        /* Bigger for touch */
-        padding: 10px;
+    .shift-card {
+        background: #f9f9f9 !important;
+        padding: 16px !important;
+        border: 1px solid #eee;
+        margin-bottom: 12px;
     }
 }

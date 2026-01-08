@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import '../styles/vogue-carousel.css';
 import { getAssetPath } from '../utils/assets';
 
 const IMAGES = [
@@ -33,13 +34,7 @@ const VogueCarousel = () => {
     };
 
     return (
-        <div style={{
-            position: 'relative',
-            width: '100%',
-            height: '600px', // Fixed height
-            overflow: 'hidden',
-            backgroundColor: '#000'
-        }}>
+        <div className="vogue-carousel-frame">
             {/* Slides Container */}
             <div style={{
                 whiteSpace: 'nowrap',

@@ -1,0 +1,16 @@
+/* Vogue Carousel Responsive Styles */
+.vogue-carousel-frame {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    /* Desktop Default */
+    overflow: hidden;
+    background-color: #000;
+}
+
+@media (max-width: 768px) {
+    .vogue-carousel-frame {
+        height: 300px;
+        /* Mobile Reduced Height */
+    }
+}

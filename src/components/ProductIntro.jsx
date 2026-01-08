@@ -187,148 +187,118 @@ const ProductIntro = () => {
       position: 'relative'
     }}>
 
-      {/* Immersive Container */}
-      <div className="immersive-book" style={{
-        width: '95vw',
-        height: '90vh',
-        display: 'flex',
-        boxShadow: '0 40px 100px rgba(0,0,0,0.2)',
-        background: '#fff',
-        overflow: 'hidden'
-      }}>
-
-        {/* LEFT: Visual */}
-        <div className="book-visual" style={{
-          flex: '0 0 45%',
-          position: 'relative',
-          overflow: 'hidden',
-          background: '#f0f0f0'
+      {/* Desktop View: Immersive Book */}
+      <div className="desktop-philosophy-view">
+        <div className="immersive-book" style={{
+          width: '85vw',
+          height: '80vh',
+          display: 'flex',
+          boxShadow: '0 40px 100px rgba(0,0,0,0.2)',
+          background: '#fff',
+          overflow: 'hidden'
         }}>
-          {PAGES.map((page, index) => (
-            <div
-              key={page.id}
-              style={{
-                position: 'absolute', inset: 0,
-                opacity: activePage === index ? 1 : 0,
-                transition: 'opacity 1s ease',
-                zIndex: activePage === index ? 2 : 1
-              }}
-            >
-              <img
-                src={getAssetPath(`/assets/${page.visual}`)}
-                alt=""
+
+          {/* LEFT: Visual */}
+          <div className="book-visual">
+            {PAGES.map((page, index) => (
+              <div
+                key={page.id}
                 style={{
-                  width: '100%', height: '100%', objectFit: 'cover',
-                  transform: activePage === index ? 'scale(1)' : 'scale(1.1)',
-                  transition: 'transform 1.2s ease',
-                  ...page.visualStyle
+                  position: 'absolute', inset: 0,
+                  opacity: activePage === index ? 1 : 0,
+                  transition: 'opacity 1s ease',
+                  zIndex: activePage === index ? 2 : 1
                 }}
-              />
-              {/* Chapter Number */}
-              <div style={{
-                position: 'absolute', top: '40px', left: '40px',
-                color: '#fff', fontFamily: '"Cinzel", serif', fontSize: '6rem',
-                opacity: 0.8, textShadow: '0 0 30px rgba(0,0,0,0.5)'
-              }}>
-                0{index + 1}
+              >
+                <img
+                  src={getAssetPath(`/assets/${page.visual}`)}
+                  alt=""
+                  style={{
+                    width: '100%', height: '100%', objectFit: 'cover',
+                    transform: activePage === index ? 'scale(1)' : 'scale(1.1)',
+                    transition: 'transform 1.2s ease',
+                    ...page.visualStyle
+                  }}
+                />
+                {/* Chapter Number */}
+                <div className="chapter-number">
+                  0{index + 1}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* RIGHT: Content */}
+          <div className="book-content" style={{ background: currentPage.bg }}>
+            <div key={activePage} className="content-wrapper">
+              <span className="content-subtitle" style={{ color: currentPage.accent }}>
+                {currentPage.subtitle}
+              </span>
+
+              <h1 className="content-title" style={{ color: currentPage.text }}>
+                {currentPage.title}
+              </h1>
+
+              <div className="content-body" style={{ color: currentPage.text }}>
+                {currentPage.content}
               </div>
             </div>
-          ))}
-        </div>
 
-        {/* RIGHT: Content */}
-        <div className="book-content" style={{
-          flex: '1',
-          background: currentPage.bg,
-          padding: '60px 80px', // Adjusted padding
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          position: 'relative',
-          transition: 'background-color 0.8s ease'
-        }}>
-
-          <div key={activePage} style={{
-            flex: 1,
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            animation: 'fadeInSlide 0.8s ease forwards'
-          }}>
-            <span style={{
-              display: 'block',
-              color: currentPage.accent,
-              fontSize: '0.9rem',
-              letterSpacing: '0.3em',
-              textTransform: 'uppercase',
-              marginBottom: '20px',
-              fontWeight: 600
-            }}>
-              {currentPage.subtitle}
-            </span>
-
-            <h1 style={{
-              color: currentPage.text,
-              fontSize: '3rem',
-              fontFamily: '"Cinzel", serif',
-              lineHeight: '1.2',
-              marginBottom: '32px'
-            }}>
-              {currentPage.title}
-            </h1>
-
-            <div style={{
-              color: currentPage.text,
-              fontSize: '1.1rem',
-              lineHeight: '1.8',
-              fontFamily: '"Lato", sans-serif',
-              fontWeight: 400
-            }}>
-              {currentPage.content}
+            {/* Simple Arrow Navigation */}
+            <div className="book-nav">
+              <button
+                onClick={() => changePage((activePage - 1 + PAGES.length) % PAGES.length)}
+                className="nav-arrow left"
+                style={{ color: currentPage.text }}
+              >
+                ←
+              </button>
+              <button
+                onClick={() => changePage((activePage + 1) % PAGES.length)}
+                className="nav-arrow right"
+                style={{ color: currentPage.text }}
+              >
+                →
+              </button>
             </div>
           </div>
-
-          {/* Simple Arrow Navigation */}
-          <div style={{
-            position: 'absolute',
-            bottom: '40px',
-            right: '60px',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '24px',
-          }}>
-            <button
-              onClick={() => changePage((activePage - 1 + PAGES.length) % PAGES.length)}
-              style={{
-                background: 'none',
-                border: 'none',
-                color: currentPage.text,
-                fontSize: '2rem', // Simple Arrow Size
-                cursor: 'pointer',
-                opacity: 0.6,
-                padding: '0'
-              }}
-            >
-              ←
-            </button>
-            <button
-              onClick={() => changePage((activePage + 1) % PAGES.length)}
-              style={{
-                background: 'none',
-                border: 'none',
-                color: currentPage.text,
-                fontSize: '2rem', // Simple Arrow Size
-                cursor: 'pointer',
-                opacity: 1,
-                padding: '0'
-              }}
-            >
-              →
-            </button>
-          </div>
-
         </div>
+      </div>
 
+      {/* Mobile View: Vertical Story Feed */}
+      <div className="mobile-philosophy-view">
+        {PAGES.map((page, index) => (
+          <div key={page.id} className="mobile-story-item">
+            {/* 1. Visual Top */}
+            <div className="mobile-story-visual">
+              <img src={getAssetPath(`/assets/${page.visual}`)} alt="" style={page.visualStyle} />
+              <div className="mobile-chapter-num">0{index + 1}</div>
+            </div>
+
+            {/* 2. Content Bottom */}
+            <div className="mobile-story-content">
+              <span style={{
+                display: 'block',
+                color: '#748B6F',
+                fontSize: '0.75rem',
+                letterSpacing: '0.2em',
+                textTransform: 'uppercase',
+                marginBottom: '12px',
+                fontWeight: 600
+              }}>
+                {page.subtitle}
+              </span>
+
+              <h2 className="mobile-title">
+                {page.title}
+              </h2>
+
+              <div className="mobile-body">
+                {page.content}
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
 
       <style>{`
