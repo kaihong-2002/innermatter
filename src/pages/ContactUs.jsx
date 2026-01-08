@@ -4,7 +4,7 @@ import Footer from '../components/Footer';
 
 const ContactUs = () => {
     return (
-        <div className="page-contact">
+        <div className="page-contact" style={{ backgroundColor: '#fff', minHeight: '100vh' }}>
             <Navbar />
 
             <div style={{ padding: '160px 20px 80px', maxWidth: '1200px', margin: '0 auto' }}>

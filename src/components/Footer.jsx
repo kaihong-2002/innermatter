@@ -1,7 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Footer = () => {
+    const navigate = useNavigate();
+
+    const handleMenuClick = (seriesName) => {
+        const targetId = `series-${seriesName.replace(/\s+/g, '-')}`;
+        // Verify current path. If Home, check if we need to force reload or just scroll
+        // But our Home.jsx listens to location state.
+        navigate('/', { state: { scrollTo: targetId } });
+    };
+
     return (
         <footer style={{ backgroundColor: '#0F0F0F', color: 'var(--color-clinical-white)', padding: '100px 0 40px' }}>
             <div className="container" style={{ maxWidth: '1440px', padding: '0 40px' }}>
@@ -19,13 +28,20 @@ const Footer = () => {
                         <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', marginBottom: '24px', letterSpacing: '0.15em', color: '#888' }}>Menu</h4>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                             {['Reset Power', 'Urban Light', 'Daily Balance', 'Complete Reset'].map(item => (
-                                <a key={item}
-                                    href={`/#series-${item.replace(/\s+/g, '-')}`}
-                                    style={{ fontFamily: 'var(--font-body)', fontSize: '0.9rem', color: '#bbb', transition: 'color 0.2s', textDecoration: 'none' }}
+                                <span
+                                    key={item}
+                                    onClick={() => handleMenuClick(item)}
+                                    style={{
+                                        fontFamily: 'var(--font-body)',
+                                        fontSize: '0.9rem',
+                                        color: '#bbb',
+                                        transition: 'color 0.2s',
+                                        cursor: 'pointer'
+                                    }}
                                     onMouseEnter={(e) => e.target.style.color = 'var(--color-parakeet-green)'}
                                     onMouseLeave={(e) => e.target.style.color = '#bbb'}>
                                     {item}
-                                </a>
+                                </span>
                             ))}
                         </div>
                     </div>
