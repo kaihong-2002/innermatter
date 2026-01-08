@@ -27,28 +27,31 @@
 /* Mobile Optimization */
 @media (max-width: 768px) {
     .location-section {
-        padding: 60px 0;
+        padding: 40px 0 20px;
+        /* Reduced vertical padding */
     }
 
     .location-grid {
         grid-template-columns: 1fr;
         /* Stack vertically */
-        gap: 40px;
+        gap: 24px;
+        /* Reduced gap */
     }
 
     .location-visual-height {
-        height: 400px;
-        /* Reduced visual height */
+        height: 280px;
+        /* Significantly reduced visual height for one-block feel */
     }
 
     .location-title {
-        font-size: 2rem;
-        /* Significantly reduced from 3.5rem */
-        margin-bottom: 20px;
+        font-size: 1.75rem;
+        /* Reduced from 3.5rem */
+        margin-bottom: 16px;
     }
 
     .location-description {
         font-size: 0.95rem !important;
         max-width: 100% !important;
+        margin-bottom: 24px !important;
     }
 }

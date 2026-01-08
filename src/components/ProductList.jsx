@@ -87,7 +87,7 @@ const ProductList = () => {
     const mappedProductIds = new Set();
 
     return (
-        <section className="product-section" id="shop" style={{ paddingTop: '100px' }}>
+        <section className="product-section" id="shop">
             <div className="product-header">
                 <h2 className="section-title">Menu</h2>
             </div>

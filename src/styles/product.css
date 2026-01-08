@@ -255,6 +255,16 @@
 /* Responsive */
 /* Mobile: Compact Horizontal List Layout (Like Food Delivery Apps) */
 @media (max-width: 900px) {
+    .product-section {
+        padding: 40px 16px;
+        /* Reduced from global default */
+    }
+
+    .product-header {
+        margin-bottom: 20px;
+        /* Tighter header */
+    }
+
     .product-grid {
         gap: 16px;
         /* Tighter gap between products */
