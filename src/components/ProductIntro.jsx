@@ -261,80 +261,94 @@ const ProductIntro = () => {
               >
                 →
               </button>
-            >
-              <h3 style={{
-                fontFamily: '"Cinzel", serif',
-                fontSize: '1.1rem',
-                color: '#1a1a1a',
-                letterSpacing: '0.1em',
-                margin: '0 0 8px'
-              }}>
-                OUR PHILOSOPHY
-              </h3>
-              <span style={{
-                display: 'inline-block',
-                fontSize: '1.5rem',
-                color: '#748B6F',
-                fontWeight: 300,
-                lineHeight: 1
-              }}>+</span>
             </div>
-            ) : (
-            <>
-              {PAGES.map((page, index) => (
-                <div key={page.id} className="mobile-story-item">
-                  {/* 1. Visual Top */}
-                  <div className="mobile-story-visual">
-                    <img src={getAssetPath(`/assets/${page.visual}`)} alt="" style={page.visualStyle} />
-                    <div className="mobile-chapter-num">0{index + 1}</div>
-                  </div>
+          </div>
+        </div>
+      </div>
 
-                  {/* 2. Content Bottom */}
-                  <div className="mobile-story-content">
-                    <span style={{
-                      display: 'block',
-                      color: '#748B6F',
-                      fontSize: '0.75rem',
-                      letterSpacing: '0.2em',
-                      textTransform: 'uppercase',
-                      marginBottom: '12px',
-                      fontWeight: 600
-                    }}>
-                      {page.subtitle}
-                    </span>
+      {/* Mobile View: Vertical Story Feed (Collapsible) */}
+      <div className="mobile-philosophy-view">
+        {!isExpanded ? (
+          <div
+            onClick={() => setIsExpanded(true)}
+            style={{
+              padding: '30px 20px',
+              textAlign: 'center',
+              background: '#FDFCF8',
+              cursor: 'pointer',
+              borderBottom: '1px solid #eaeaea'
+            }}
+          >
+            <h3 style={{
+              fontFamily: '"Cinzel", serif',
+              fontSize: '1.1rem',
+              color: '#1a1a1a',
+              letterSpacing: '0.1em',
+              margin: '0 0 8px'
+            }}>
+              OUR PHILOSOPHY
+            </h3>
+            <span style={{
+              display: 'inline-block',
+              fontSize: '1.5rem',
+              color: '#748B6F',
+              fontWeight: 300,
+              lineHeight: 1
+            }}>+</span>
+          </div>
+        ) : (
+          <>
+            {PAGES.map((page, index) => (
+              <div key={page.id} className="mobile-story-item">
+                <div className="mobile-story-visual">
+                  <img src={getAssetPath(`/assets/${page.visual}`)} alt="" style={page.visualStyle} />
+                  <div className="mobile-chapter-num">0{index + 1}</div>
+                </div>
 
-                    <h2 className="mobile-title">
-                      {page.title}
-                    </h2>
+                <div className="mobile-story-content">
+                  <span style={{
+                    display: 'block',
+                    color: '#748B6F',
+                    fontSize: '0.75rem',
+                    letterSpacing: '0.2em',
+                    textTransform: 'uppercase',
+                    marginBottom: '12px',
+                    fontWeight: 600
+                  }}>
+                    {page.subtitle}
+                  </span>
 
-                    <div className="mobile-body">
-                      {page.content}
-                    </div>
+                  <h2 className="mobile-title">
+                    {page.title}
+                  </h2>
+
+                  <div className="mobile-body">
+                    {page.content}
                   </div>
                 </div>
-              ))}
-
-              {/* Collapse Button */}
-              <div
-                onClick={() => setIsExpanded(false)}
-                style={{
-                  padding: '24px',
-                  textAlign: 'center',
-                  background: '#f4f4f4',
-                  cursor: 'pointer',
-                  color: '#666',
-                  fontFamily: '"Lato", sans-serif',
-                  fontSize: '0.9rem',
-                  letterSpacing: '0.1em'
-                }}
-              >
-                CLOSE PHILOSOPHY [ - ]
               </div>
-            </>
-        )}
-          </div>
+            ))}
 
-          <style>{`
+            <div
+              onClick={() => setIsExpanded(false)}
+              style={{
+                padding: '24px',
+                textAlign: 'center',
+                background: '#f4f4f4',
+                cursor: 'pointer',
+                color: '#666',
+                fontFamily: '"Lato", sans-serif',
+                fontSize: '0.9rem',
+                letterSpacing: '0.1em'
+              }}
+            >
+              CLOSE PHILOSOPHY [ - ]
+            </div>
+          </>
+        )}
+      </div>
+
+      <style>{`
         @keyframes fadeInSlide {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -352,9 +366,8 @@ const ProductIntro = () => {
             transition: all 0.3s ease;
         }
       `}</style>
-
-        </section>
-        );
+    </section>
+  );
 };
 
-        export default ProductIntro;
+export default ProductIntro;
