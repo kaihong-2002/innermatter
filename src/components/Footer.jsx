@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -34,17 +35,17 @@ const Footer = () => {
                         <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', marginBottom: '24px', letterSpacing: '0.15em', color: '#888' }}>Support</h4>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                             {['FAQ', 'Shipping & Returns', 'Privacy Policy'].map(item => (
-                                <a key={item} href="/contact" style={{ fontFamily: 'var(--font-body)', fontSize: '0.9rem', color: '#bbb', transition: 'color 0.2s', textDecoration: 'none' }}
+                                <Link key={item} to="/contact" style={{ fontFamily: 'var(--font-body)', fontSize: '0.9rem', color: '#bbb', transition: 'color 0.2s', textDecoration: 'none' }}
                                     onMouseEnter={(e) => e.target.style.color = 'var(--color-parakeet-green)'}
                                     onMouseLeave={(e) => e.target.style.color = '#bbb'}>
                                     {item}
-                                </a>
+                                </Link>
                             ))}
-                            <a href="/contact" style={{ fontFamily: 'var(--font-body)', fontSize: '0.9rem', color: '#bbb', transition: 'color 0.2s', textDecoration: 'none' }}
+                            <Link to="/contact" style={{ fontFamily: 'var(--font-body)', fontSize: '0.9rem', color: '#bbb', transition: 'color 0.2s', textDecoration: 'none' }}
                                 onMouseEnter={(e) => e.target.style.color = 'var(--color-parakeet-green)'}
                                 onMouseLeave={(e) => e.target.style.color = '#bbb'}>
                                 Contact Us
-                            </a>
+                            </Link>
                         </div>
                     </div>
 
