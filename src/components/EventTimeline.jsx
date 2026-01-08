@@ -7,12 +7,12 @@ const EventTimeline = () => {
     const navigate = useNavigate();
 
     return (
-        <section className="section" id="health-club" style={{ backgroundColor: '#fff', paddingBottom: '120px' }}>
+        <section className="section" id="health-club" style={{ backgroundColor: '#fff', paddingBottom: '120px', paddingTop: '100px' }}>
             <div style={{ maxWidth: '1440px', margin: '0 auto 60px', padding: '0 24px', textAlign: 'center' }}>
                 <h2 style={{
                     fontFamily: '"Cinzel", serif',
                     fontSize: '3rem',
-                    fontWeight: 400,
+                    fontWeight: 700,
                     letterSpacing: '0.05em',
                     textTransform: 'uppercase',
                     color: '#1a1a1a',
