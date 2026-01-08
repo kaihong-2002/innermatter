@@ -1,3 +1,5 @@
+import React from 'react';
+import { getAssetPath } from '../utils/assets';
 import '../styles/location.css';
 
 const LocationSection = () => {
