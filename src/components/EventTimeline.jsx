@@ -11,17 +11,37 @@ const EventTimeline = () => {
             <div style={{ maxWidth: '1440px', margin: '0 auto 60px', padding: '0 24px', textAlign: 'center' }}>
                 <h2 style={{
                     fontFamily: '"Cinzel", serif',
-                    fontSize: '2.5rem',
+                    fontSize: '3rem',
                     fontWeight: 400,
+                    letterSpacing: '0.05em',
                     textTransform: 'uppercase',
-                    color: 'var(--color-midnight-black)',
-                    marginBottom: '16px'
+                    color: '#1a1a1a',
+                    marginBottom: '24px'
                 }}>Health Club</h2>
-                <p style={{ fontFamily: '"Noto Sans TC", sans-serif', maxWidth: '800px', margin: '0 auto', lineHeight: '2', fontSize: '1.1rem', color: '#666' }}>
-                    <strong style={{ display: 'block', fontSize: '1.25rem', marginBottom: '16px', color: '#2c2c2c', fontWeight: 500 }}>打造健康理想生活。</strong>
-                    InnerMatter 深知都會靈魂對健康的渴望，因此我們策劃了一系列專屬活動——從晨間跑團到週末騎行及健身聚會。<br />
-                    透過汗水與連結，讓健康不再只是口號，而是你每天實踐的理想生活風格。
-                </p>
+
+                <div style={{ maxWidth: '680px', margin: '0 auto' }}>
+                    <h3 style={{
+                        fontFamily: '"Noto Serif TC", serif',
+                        fontSize: '1.5rem',
+                        fontWeight: 600,
+                        color: '#2c2c2c',
+                        marginBottom: '20px',
+                        letterSpacing: '0.05em'
+                    }}>
+                        打造健康理想生活。
+                    </h3>
+                    <p style={{
+                        fontFamily: '"Noto Sans TC", sans-serif',
+                        fontSize: '1.05rem',
+                        lineHeight: '1.9',
+                        color: '#555',
+                        textAlign: 'justify',
+                        textAlignLast: 'center'
+                    }}>
+                        InnerMatter 深知都會靈魂對健康的渴望，因此我們策劃了一系列專屬活動——從晨間跑團到週末騎行及健身聚會。<br />
+                        <span style={{ display: 'block', marginTop: '12px' }}>透過汗水與連結，讓健康不再只是口號，而是你每天實踐的理想生活風格。</span>
+                    </p>
+                </div>
             </div>
 
             <div className="container" style={{ maxWidth: '1200px', padding: '0 24px', margin: '0 auto' }}>
