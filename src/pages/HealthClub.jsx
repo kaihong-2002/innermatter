@@ -59,9 +59,10 @@ const HealthClub = () => {
             `}</style>
             <Navbar />
             <div className="club-hero">
-                <h1>Health Club</h1>
-                <p>
-                    More than a gym. A community of like-minded individuals redefined by sweat and discipline.
+                <h1 style={{ fontFamily: '"Cinzel", serif', letterSpacing: '0.05em' }}>Health Club</h1>
+                <p style={{ fontFamily: '"Noto Sans TC", sans-serif', maxWidth: '600px', margin: '0 auto', lineHeight: '1.8', fontSize: '1.1rem', color: '#555' }}>
+                    打造健康理想生活。<br />
+                    InnerMatter 設計了一連串專屬活動，只為回應都會人對健康的深層嚮往。
                 </p>
             </div>
 
