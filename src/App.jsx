@@ -3,6 +3,8 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Philosophy from './pages/Philosophy';
 import HealthClub from './pages/HealthClub';
+import PhilosophyPage from './pages/PhilosophyPage';
+import HealthClubPage from './pages/HealthClubPage';
 import ContactUs from './pages/ContactUs';
 import Checkout from './pages/Checkout';
 
@@ -28,9 +30,10 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/history" element={<OrderHistory />} />
             <Route path="/order-success" element={<OrderSuccess />} />
-            <Route path="/philosophy" element={<Philosophy />} />
-            {/* ... other routes ... */}
-            <Route path="/health-club" element={<HealthClub />} />
+            <Route path="/series-nutrients" element={<ProductDetailNutrient />} />
+            <Route path="/series-lifestyle" element={<ProductDetailLifestyle />} />
+            <Route path="/philosophy" element={<PhilosophyPage />} />
+            <Route path="/health-club" element={<HealthClubPage />} />
             <Route path="/club-running" element={<ClubRunning />} />
             <Route path="/club-cycling" element={<ClubCycling />} />
             <Route path="/club-training" element={<ClubTraining />} />

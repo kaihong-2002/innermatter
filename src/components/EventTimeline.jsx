@@ -4,7 +4,7 @@ import '../styles/global.css';
 import '../styles/health-club-mobile.css';
 import { getAssetPath } from '../utils/assets';
 
-const EventTimeline = () => {
+const EventTimeline = ({ forceExpanded = false }) => {
     const navigate = useNavigate();
     const [isMobile, setIsMobile] = useState(false);
     const [isExpanded, setIsExpanded] = useState(false);
@@ -66,42 +66,64 @@ const EventTimeline = () => {
                 )}
             </div>
 
-            {/* Mobile Toggle Button */}
-            {isMobile && !isExpanded && (
+            {/* Mobile Teaser (Home Page Only) */}
+            {isMobile && !forceExpanded && (
                 <div
-                    onClick={() => setIsExpanded(true)}
+                    className="club-teaser"
                     style={{
                         textAlign: 'center',
-                        marginTop: '-40px',
-                        marginBottom: '40px',
-                        cursor: 'pointer'
+                        padding: '0 24px 60px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        gap: '24px'
                     }}
                 >
-                    <span style={{
-                        display: 'inline-block',
-                        padding: '10px 24px',
-                        border: '1px solid #748B6F',
-                        color: '#748B6F',
-                        borderRadius: '30px',
-                        fontSize: '0.9rem',
-                        fontWeight: 600,
-                        letterSpacing: '0.1em',
-                        background: 'rgba(116, 139, 111, 0.05)'
+                    <p style={{
+                        fontFamily: '"Noto Serif TC", serif',
+                        fontSize: '1.1rem',
+                        color: '#444',
+                        lineHeight: '1.8',
+                        maxWidth: '280px'
                     }}>
-                        JOIN THE CLUB +
-                    </span>
+                        打造健康理想生活。<br />
+                        透過汗水與連結，讓健康不再只是口號，而是你每天實踐的理想生活風格。
+                    </p>
+
+                    <button
+                        onClick={() => navigate('/health-club')}
+                        style={{
+                            background: '#748B6F',
+                            color: '#fff',
+                            border: 'none',
+                            padding: '12px 32px',
+                            borderRadius: '30px',
+                            fontSize: '0.9rem',
+                            fontWeight: 600,
+                            letterSpacing: '0.1em',
+                            cursor: 'pointer',
+                            boxShadow: '0 4px 12px rgba(116, 139, 111, 0.3)'
+                        }}
+                    >
+                        ENTER CLUB
+                    </button>
                 </div>
             )}
 
-            {/* Club Cards Container - Conditional Render on Mobile */}
-            {(!isMobile || isExpanded) && (
+            {/* Club Cards Container (Desktop OR Mobile Page) */}
+            {(!isMobile || forceExpanded) && (
                 <div className="container" style={{ maxWidth: '1200px', padding: '0 24px', margin: '0 auto' }}>
 
-                    {/* Mobile Intro when expanded */}
-                    {isMobile && (
-                        <div style={{ marginBottom: '32px', textAlign: 'center' }}>
-                            <p style={{ fontSize: '0.9rem', color: '#666', marginBottom: '20px' }}>
-                                打造健康理想生活。<br />探索專屬活動。
+                    {/* Intro Text for Mobile Page View */}
+                    {isMobile && forceExpanded && (
+                        <div style={{ maxWidth: '680px', margin: '0 auto 40px', textAlign: 'center' }}>
+                            <p style={{
+                                fontFamily: '"Noto Sans TC", sans-serif',
+                                fontSize: '1rem',
+                                lineHeight: '1.8',
+                                color: '#555'
+                            }}>
+                                InnerMatter 深知都會靈魂對健康的渴望，<br />因此我們策劃了一系列專屬活動。
                             </p>
                         </div>
                     )}
@@ -202,23 +224,6 @@ const EventTimeline = () => {
                         </div>
 
                     </div>
-
-                    {isMobile && (
-                        <div
-                            onClick={() => setIsExpanded(false)}
-                            style={{
-                                textAlign: 'center',
-                                marginTop: '40px',
-                                cursor: 'pointer',
-                                color: '#748B6F',
-                                fontSize: '0.9rem',
-                                fontWeight: 600,
-                                letterSpacing: '0.1em'
-                            }}
-                        >
-                            [ CLOSE CLUB ]
-                        </div>
-                    )}
                 </div>
             )}
         </section>

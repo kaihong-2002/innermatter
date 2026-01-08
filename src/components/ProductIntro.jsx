@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/product-intro.css';
 import { getAssetPath } from '../utils/assets';
 
-const ProductIntro = () => {
+const ProductIntro = ({ forceExpanded = false }) => {
+  const navigate = useNavigate();
   // Pre-load assets
   useEffect(() => {
     ['v5_page1_mission_architecture.png', 'v5_page2_evolution_lifestyle.png', 'v5_page3_solution_smoothie.png',
@@ -266,35 +268,67 @@ const ProductIntro = () => {
         </div>
       </div>
 
-      {/* Mobile View: Vertical Story Feed (Collapsible) */}
+      {/* Mobile View: Vertical Story Feed (Collapsible / Page) */}
       <div className="mobile-philosophy-view">
-        {!isExpanded ? (
+        {!forceExpanded ? (
           <div
-            onClick={() => setIsExpanded(true)}
+            className="philosophy-teaser"
             style={{
-              padding: '30px 20px',
+              padding: '60px 24px',
               textAlign: 'center',
               background: '#FDFCF8',
-              cursor: 'pointer',
               borderBottom: '1px solid #eaeaea'
             }}
           >
+            <span style={{
+              display: 'block',
+              color: '#748B6F',
+              fontSize: '0.75rem',
+              letterSpacing: '0.2em',
+              textTransform: 'uppercase',
+              marginBottom: '16px',
+              fontWeight: 600
+            }}>
+              I. OUR MISSION
+            </span>
             <h3 style={{
               fontFamily: '"Cinzel", serif',
-              fontSize: '1.1rem',
+              fontSize: '2rem',
               color: '#1a1a1a',
-              letterSpacing: '0.1em',
-              margin: '0 0 8px'
+              letterSpacing: '0.05em',
+              margin: '0 0 16px',
+              lineHeight: '1.2'
             }}>
               OUR PHILOSOPHY
             </h3>
-            <span style={{
-              display: 'inline-block',
-              fontSize: '1.5rem',
-              color: '#748B6F',
-              fontWeight: 300,
-              lineHeight: 1
-            }}>+</span>
+            <p style={{
+              fontFamily: '"Lato", sans-serif',
+              fontSize: '1rem',
+              color: '#555',
+              lineHeight: '1.8',
+              maxWidth: '300px',
+              margin: '0 auto 32px'
+            }}>
+              Where Precision Meets Aesthetics.<br />
+              InnerMatter 旨在成為亞洲首個全方位健康品牌，兼顧「精準營養」與「生活風格」。
+            </p>
+
+            <button
+              onClick={() => navigate('/philosophy')}
+              style={{
+                background: 'transparent',
+                border: '1px solid #1a1a1a',
+                padding: '12px 30px',
+                fontSize: '0.85rem',
+                letterSpacing: '0.15em',
+                textTransform: 'uppercase',
+                cursor: 'pointer',
+                color: '#1a1a1a',
+                transition: 'all 0.3s'
+              }}
+            >
+              Read More
+            </button>
           </div>
         ) : (
           <>
@@ -328,22 +362,6 @@ const ProductIntro = () => {
                 </div>
               </div>
             ))}
-
-            <div
-              onClick={() => setIsExpanded(false)}
-              style={{
-                padding: '24px',
-                textAlign: 'center',
-                background: '#f4f4f4',
-                cursor: 'pointer',
-                color: '#666',
-                fontFamily: '"Lato", sans-serif',
-                fontSize: '0.9rem',
-                letterSpacing: '0.1em'
-              }}
-            >
-              CLOSE PHILOSOPHY [ - ]
-            </div>
           </>
         )}
       </div>
