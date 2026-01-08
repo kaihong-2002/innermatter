@@ -2,16 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import '../styles/navbar.css';
 
-import { useCart } from '../context/CartContext';
-import { useAuth } from '../context/AuthContext';
-
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // Mobile Menu State
     const location = useLocation();
     const navigate = useNavigate();
-    const { toggleCart, cartCount } = useCart();
-    const { user } = useAuth(); // Create this link
+    // No Cart/Auth logic needed anymore
 
     useEffect(() => {
         const handleScroll = () => {
@@ -83,31 +79,6 @@ const Navbar = () => {
             </div>
 
             <div className="navbar-actions">
-                <div
-                    className="cart-icon"
-                    onClick={toggleCart}
-                    style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.875rem', fontWeight: 700 }}
-                >
-                    {/* Cart SVG */}
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <circle cx="9" cy="21" r="1"></circle>
-                        <circle cx="20" cy="21" r="1"></circle>
-                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                    </svg>
-                    <span className="cart-text">CART ({cartCount})</span>
-                </div>
-
-                {user ? (
-                    <Link to="/checkout" className="user-icon" style={{ display: 'flex', alignItems: 'center', marginLeft: '16px' }}>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
-                    </Link>
-                ) : (
-                    <button className="btn-order" onClick={() => navigate('/checkout')}>Login</button>
-                )}
-
                 {/* Mobile Menu Toggle */}
                 <button
                     className="mobile-menu-toggle"

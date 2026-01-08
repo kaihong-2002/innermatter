@@ -2,14 +2,11 @@ import React, { useState, useEffect } from 'react';
 
 import { fetchProducts } from '../services/googleSheets';
 import '../styles/product.css';
+import ProductDetailModal from './ProductDetailModal';
 
-import { useCart } from '../context/CartContext';
-
-const ProductCard = ({ product }) => {
-    const { addToCart } = useCart();
-
+const ProductCard = ({ product, onSelect }) => {
     return (
-        <div className="product-card">
+        <div className="product-card" onClick={() => onSelect(product)} style={{ cursor: 'pointer' }}>
             <div className="product-image-container">
                 <img src={product.image} alt={product.name_en} className="product-image" />
             </div>
@@ -26,9 +23,12 @@ const ProductCard = ({ product }) => {
                     <span className="product-price">NT$ {product.price}</span>
                     <button
                         className="btn-add"
-                        onClick={() => addToCart(product)}
+                        onClick={(e) => {
+                            e.stopPropagation(); // Prevent double trigger if card is clickable
+                            onSelect(product);
+                        }}
                     >
-                        Add to Cart
+                        VIEW DETAILS
                     </button>
                 </div>
             </div>
@@ -67,6 +67,7 @@ const SERIES_ORDER = [
 const ProductList = () => {
     const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [selectedProduct, setSelectedProduct] = useState(null);
 
     useEffect(() => {
         setIsLoading(true);
@@ -137,7 +138,11 @@ const ProductList = () => {
 
                             <div className="product-grid">
                                 {seriesProducts.map(p => (
-                                    <ProductCard key={p.slug || p.id} product={p} />
+                                    <ProductCard
+                                        key={p.slug || p.id}
+                                        product={p}
+                                        onSelect={setSelectedProduct}
+                                    />
                                 ))}
                             </div>
                         </div>
@@ -154,12 +159,23 @@ const ProductList = () => {
                         </div>
                         <div className="product-grid">
                             {products.filter(p => !mappedProductIds.has(p.id)).map(p => (
-                                <ProductCard key={p.slug || p.id} product={p} />
+                                <ProductCard
+                                    key={p.slug || p.id}
+                                    product={p}
+                                    onSelect={setSelectedProduct}
+                                />
                             ))}
                         </div>
                     </div>
                 )}
             </div>
+
+            {/* PRODUCT DETAIL MODAL */}
+            <ProductDetailModal
+                product={selectedProduct}
+                isOpen={!!selectedProduct}
+                onClose={() => setSelectedProduct(null)}
+            />
         </section>
     );
 };
