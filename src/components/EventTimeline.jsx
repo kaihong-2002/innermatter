@@ -16,12 +16,16 @@ const EventTimeline = () => {
             <div style={{ maxWidth: '1440px', margin: '0 auto 60px', padding: '0 24px', textAlign: 'center' }}>
                 <h2 style={{
                     fontFamily: '"Cinzel", serif',
-                    fontSize: '3rem',
+                    fontSize: '2.5rem',
                     fontWeight: 700,
-                    letterSpacing: '0.05em',
+                    letterSpacing: '0.1em',
                     textTransform: 'uppercase',
-                    color: '#1a1a1a',
-                    marginBottom: '24px'
+                    color: '#FFFFFF',
+                    background: '#748B6F', // Sage Green Block
+                    display: 'inline-block',
+                    padding: '12px 40px',
+                    marginBottom: '32px',
+                    boxShadow: '0 4px 12px rgba(116, 139, 111, 0.2)'
                 }}>Health Club</h2>
 
                 <div style={{ maxWidth: '680px', margin: '0 auto' }}>
