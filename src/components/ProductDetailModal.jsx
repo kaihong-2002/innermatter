@@ -4,24 +4,41 @@ import '../styles/global.css'; // Ensure variables are available if not globally
 
 const ProductDetailModal = ({ product, isOpen, onClose }) => {
     const [isVisible, setIsVisible] = useState(false);
+    const [displayProduct, setDisplayProduct] = useState(product);
+
+    // Cache product data so it persists during exit animation
+    useEffect(() => {
+        if (product) {
+            setDisplayProduct(product);
+        }
+    }, [product]);
 
     useEffect(() => {
         if (isOpen) {
             setIsVisible(true);
             document.body.style.overflow = 'hidden'; // Prevent background scroll
         } else {
-            setIsVisible(false);
+            // Wait for animation to finish before hiding (optional, or just rely on CSS opacity)
+            // But we need isVisible to stay true for a bit to allow render.
+            // Actually, simply relying on isOpen for the class is enough for CSS,
+            // but for the "return null" logic, we need to know when animation terminates.
+            // For simplicity in this crash fix, we'll keep isVisible logic but ensure data exists.
+            const timer = setTimeout(() => setIsVisible(false), 400); // Match CSS transition
             document.body.style.overflow = 'unset';
-            // Delay removing from DOM handled by parent or CSS animation matching timeout
+            return () => clearTimeout(timer);
         }
-        return () => { document.body.style.overflow = 'unset'; };
     }, [isOpen]);
 
-    if (!isOpen && !isVisible) return null;
+    // If we have no data to show (and not even a cached one), or if we are fully closed/hidden
+    if ((!isOpen && !isVisible) || !displayProduct) return null;
+
+    // Use cached data
+    const activeProduct = displayProduct;
 
     // Hardcoded Benefits/Ingredients based on Series/Product for prototype
     // Ideally this comes from the sheet/product object
     const getIngredients = (p) => {
+        if (!p) return []; // Extra safety
         if (p.ingredients && p.ingredients.length > 0) return p.ingredients;
         if (p.series === 'Reset Power') return ['Hydrolyzed Pea Protein', 'Mixed Berry Extract', 'Tart Cherry', 'Vitamin C'];
         if (p.series === 'Urban Light') return ['Pea Protein Isolate', 'Cucumber Extract', 'Celery Powder', 'Lemon Zest', 'Spinach'];
@@ -31,6 +48,7 @@ const ProductDetailModal = ({ product, isOpen, onClose }) => {
     };
 
     const getBenefits = (p) => {
+        if (!p) return []; // Extra safety
         if (p.benefits && p.benefits.length > 0) return p.benefits;
         if (p.series === 'Reset Power') return ['Accelerates Muscle Recovery', 'Reduces Inflammation', 'Antioxidant Support'];
         if (p.series === 'Urban Light') return ['Digestive Aid', 'Heavy Metal Detox', 'Hydration Support'];
@@ -39,8 +57,8 @@ const ProductDetailModal = ({ product, isOpen, onClose }) => {
         return ['Complete Amino Acid Profile', 'Easy Digestion'];
     };
 
-    const ingredients = getIngredients(product);
-    const benefits = getBenefits(product);
+    const ingredients = getIngredients(activeProduct);
+    const benefits = getBenefits(activeProduct);
 
     return (
         <div
@@ -108,8 +126,8 @@ const ProductDetailModal = ({ product, isOpen, onClose }) => {
                 {/* Left: Image */}
                 <div className="modal-image-col" style={{ flex: '0 0 45%', position: 'relative', overflow: 'hidden', backgroundColor: '#f4f4f4' }}>
                     <img
-                        src={product.image}
-                        alt={product.name_en}
+                        src={activeProduct.image}
+                        alt={activeProduct.name_en}
                         style={{
                             width: '100%',
                             height: '100%',
@@ -130,7 +148,7 @@ const ProductDetailModal = ({ product, isOpen, onClose }) => {
                         textTransform: 'uppercase',
                         letterSpacing: '0.1em'
                     }}>
-                        {product.series}
+                        {activeProduct.series}
                     </div>
                 </div>
 
@@ -146,14 +164,14 @@ const ProductDetailModal = ({ product, isOpen, onClose }) => {
                     }}
                 >
                     <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.5rem', marginBottom: '8px', lineHeight: 1.1 }}>
-                        {product.name_en}
+                        {activeProduct.name_en}
                     </h2>
                     <h3 style={{ fontFamily: 'var(--font-body)', fontSize: '1.25rem', color: '#888', marginBottom: '32px', fontWeight: 300 }}>
-                        {product.name_tc}
+                        {activeProduct.name_tc}
                     </h3>
 
                     <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.1rem', lineHeight: 1.8, color: '#444', marginBottom: '40px' }}>
-                        {product.desc_long}
+                        {activeProduct.desc_long}
                     </p>
 
                     <div style={{ width: '100%', height: '1px', background: '#eee', marginBottom: '40px' }}></div>
@@ -174,11 +192,11 @@ const ProductDetailModal = ({ product, isOpen, onClose }) => {
                             <h4 style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: '#999', marginBottom: '16px' }}>Nutrients / Serv.</h4>
                             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px' }}>
                                 <div className="stat-box">
-                                    <span style={{ fontSize: '1.5rem', fontWeight: 700, color: '#1a1a1a' }}>{product.macros.protein}g</span>
+                                    <span style={{ fontSize: '1.5rem', fontWeight: 700, color: '#1a1a1a' }}>{activeProduct.macros.protein}g</span>
                                     <span style={{ fontSize: '0.7rem', color: '#888', textTransform: 'uppercase' }}>Protein</span>
                                 </div>
                                 <div className="stat-box">
-                                    <span style={{ fontSize: '1.5rem', fontWeight: 700, color: '#1a1a1a' }}>{product.calories}</span>
+                                    <span style={{ fontSize: '1.5rem', fontWeight: 700, color: '#1a1a1a' }}>{activeProduct.calories}</span>
                                     <span style={{ fontSize: '0.7rem', color: '#888', textTransform: 'uppercase' }}>Cal</span>
                                 </div>
                             </div>
