@@ -10,15 +10,17 @@ const EventTimeline = () => {
         <section className="section" id="health-club" style={{ backgroundColor: '#fff', paddingBottom: '120px' }}>
             <div style={{ maxWidth: '1440px', margin: '0 auto 60px', padding: '0 24px', textAlign: 'center' }}>
                 <h2 style={{
-                    fontFamily: '"Didot", serif',
-                    fontSize: '3rem',
+                    fontFamily: '"Cinzel", serif',
+                    fontSize: '2.5rem',
                     fontWeight: 400,
                     textTransform: 'uppercase',
                     color: 'var(--color-midnight-black)',
                     marginBottom: '16px'
                 }}>Health Club</h2>
-                <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.2rem', color: '#666' }}>
-                    Join the movement. Find your tribe.
+                <p style={{ fontFamily: '"Noto Sans TC", sans-serif', maxWidth: '800px', margin: '0 auto', lineHeight: '2', fontSize: '1.1rem', color: '#666' }}>
+                    <strong style={{ display: 'block', fontSize: '1.25rem', marginBottom: '16px', color: '#2c2c2c', fontWeight: 500 }}>打造健康理想生活。</strong>
+                    InnerMatter 深知都會靈魂對健康的渴望，因此我們策劃了一系列專屬活動——從晨間跑團到週末騎行及健身聚會。<br />
+                    透過汗水與連結，讓健康不再只是口號，而是你每天實踐的理想生活風格。
                 </p>
             </div>
 
