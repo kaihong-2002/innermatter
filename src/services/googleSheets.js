@@ -51,14 +51,6 @@ const MOCK_PRODUCTS = [
     }
 ];
 
-// Content Mock (Still keeping this local for now or could move to Sheet too)
-const CONTENT = {
-    home: {
-        hero: { headline: 'Drink the Discipline.', subhead: '亞洲首創生活風格蛋白飲', cta: 'Order Now' },
-        belief: { quote: '選擇蛋白飲，就是選擇自律。' }
-    }
-};
-
 /**
  * Fetch products from Google Sheet.
  * Maps the flat sheet columns back to the application's nested structure.
@@ -89,108 +81,29 @@ export const fetchProducts = async () => {
 };
 
 /**
- * Creates an order in the Google Sheet.
+ * Submit Contact Form to Google Sheet
  */
-export const createOrder = async (orderData) => {
+export const submitContact = async (formData) => {
+    // formData: { name, email, message }
     if (!API_URL) {
-        console.log('Mock Create Order:', orderData);
-        return { success: true, orderId: 'MOCK-' + Date.now() };
+        console.log('Mock Submit Contact:', formData);
+        return new Promise(resolve => setTimeout(() => resolve({ success: true }), 800));
     }
 
     try {
         const response = await fetch(API_URL, {
             method: 'POST',
-            mode: 'no-cors', // Google Apps Script Web App requirement mostly
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ action: 'createOrder', payload: orderData })
-        });
-        // Note: 'no-cors' mode means we get an opaque response, we assume success if no network error.
-        // For real error handling with GAS, we typically need a redirect trick or JSONP, 
-        // but for this simple setup, we'll assume fire-and-forget works or simple text response.
-
-        // Actually, normal CORS works if the script returns correct headers.
-        // If my script uses ContentService properly and "Anyone", it should return a readable response.
-        // Let's try standard request first.
-    } catch (error) {
-        console.error('Order creation failed:', error);
-        return { success: false };
-    }
-
-    // GAS POST requests often have CORS issues. 
-    // The standard workaround is using 'no-cors' and assuming it worked,
-    // OR ensuring the script returns strictly JSON.
-    // We'll return a simulated success here to not block UI.
-    return { success: true, orderId: 'ORD-' + Date.now() };
-};
-
-/**
- * Syncs user data to the Google Sheet (Worksheet: Consumers).
- */
-export const syncUser = async (userData) => {
-    if (!API_URL) return;
-
-    try {
-        await fetch(API_URL, {
-            method: 'POST',
             mode: 'no-cors',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ action: 'syncUser', payload: userData })
+            body: JSON.stringify({ action: 'submitContact', payload: formData })
         });
+
+        // Assume success due to no-cors opacity
+        return { success: true };
     } catch (error) {
-        console.error('User sync failed:', error);
+        console.error('Contact submit failed:', error);
+        return { success: false };
     }
-};
-
-/**
- * Fetch order history for a specific user.
- */
-export const fetchOrders = async (email) => {
-    if (!API_URL) {
-        // Mock Response
-        return new Promise(resolve => setTimeout(() => resolve([
-            { orderId: 'MOCK-001', products: 'Berry Recovery x2', total: 320, status: 'Completed', date: new Date().toISOString() }
-        ]), 500));
-    }
-
-    try {
-        const params = new URLSearchParams({
-            action: 'getOrders',
-            email: email
-        });
-        const url = `${API_URL}?${params.toString()}`;
-        console.log('Fetching Orders from:', url);
-
-        const response = await fetch(url, {
-            method: 'GET',
-            redirect: 'follow'
-        });
-
-        // Google Apps Script HTML Service redirects to a content URL.
-        // If content-type is text/plain or application/json, it should work.
-        const text = await response.text();
-        console.log('Raw Orders Response:', text);
-
-        try {
-            const result = JSON.parse(text);
-            if (result.status === 'success') {
-                console.log('Parsed Orders:', result.data);
-                return result.data;
-            } else {
-                console.error('API Error:', result);
-                return [];
-            }
-        } catch (e) {
-            console.error('JSON Parse Error:', e);
-            return [];
-        }
-    } catch (error) {
-        console.error('Fetch Orders Error:', error);
-        return [];
-    }
-};
-
-export const fetchContent = async () => {
-    return new Promise(resolve => setTimeout(() => resolve(CONTENT), 0));
 };
 
 // Helper to transform flat sheet row to nested object
@@ -214,9 +127,7 @@ const transformProduct = (row) => {
             desc_long: row.desc_long || '',
             price: safeNum(row.price),
             calories: safeNum(row.calories),
-            calories: safeNum(row.calories),
             image: getAssetPath(row.image) || '',
-            is_sold_out: row.is_sold_out === true || row.is_sold_out === 'TRUE',
             is_sold_out: row.is_sold_out === true || row.is_sold_out === 'TRUE',
             macros: {
                 protein: safeNum(row.protein),
@@ -227,10 +138,10 @@ const transformProduct = (row) => {
             },
             ingredients: row.ingredients
                 ? row.ingredients.toString().split(',').map(s => s.trim())
-                : ['Premium Plant Protein', 'Natural Flavorings'], // Basic Fallback
+                : ['Premium Plant Protein', 'Natural Flavorings'],
             benefits: row.benefits
                 ? row.benefits.toString().split(',').map(s => s.trim())
-                : ['Muscle Repair', 'Antioxidants'] // Basic Fallback
+                : ['Muscle Repair', 'Antioxidants']
         };
     } catch (err) {
         console.error('Error transforming product row:', row, err);

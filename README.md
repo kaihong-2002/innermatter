@@ -11,8 +11,8 @@
 2.  建立以下三個 **工作表 (Worksheets)**，名稱請完全一致：
 
 #### **1. Products (產品工作表)**
-這裡存放您要在網站上顯示的商品資訊。
-*   **用途**：讓您管理系列、名稱、描述與營養標示。
+這裡存放您要在網站上使用顯示的商品資訊。
+*   **用途**：讓您管理系列、名稱、描述、營養標示。
 *   **必要欄位 (第一列標題)**：
     *   `series` (系列名稱)
     *   `name_tc` (產品名字)
@@ -21,29 +21,25 @@
     *   `carbs` (營養素：碳水)
     *   `fats` (營養素：脂肪)
     *   `calories` (營養素：熱量)
-    *   `ingredients` (成分，以逗號分隔，例如：豌豆蛋白, 綜合莓果, 櫻桃萃取)
+    *   `ingredients` (成分)
+    *   `benefits` (效益)
     *   以及系統需要的：`id`, `name_en`, `desc_short`, `price`, `image`, `is_sold_out`。
     
-#### **2. Consumers (消費者工作表)**
-這裡存放會員登入與註冊的資料。
-*   **用途**：記錄消費者登入時填寫的所有資料。
-*   **必要欄位**：`UserID`, `Email`, `Name`, `Phone`, `Address`, `LastLogin`。
-
-#### **3. Orders (消費工作表)**
-這裡存放實際的訂單交易紀錄。
-*   **用途**：讓您清楚知道「誰 (消費者)」買了「什麼 (產品名稱)」以及「多少錢 (價格)」。
-*   **必要欄位**：`OrderID`, `Customer (Who)`, `Products (What)`, `Price (Total)`, `Date`。
+#### **2. Contacts (聯絡清單工作表)**
+這裡存放來自「Contact Us」頁面的訪客留言。
+*   **用途**：收集潛在客戶的訊息。
+*   **欄位 (系統自動寫入)**：`Date`, `Name`, `Email`, `Message`, `Status`。
 
 ---
 
 ### 步驟 2：部署 Apps Script (橋接器)
 
 1.  在試算表中點擊 **擴充功能 (Extensions) > Apps Script**。
-2.  將 `google_apps_script.js` (請見專案檔案) 的內容貼入編輯器。
-3.  **執行 `setupSheet` 函式**：它會幫您自動檢查並補上缺少的標題列。
+2.  將 `scripts/google_apps_script.js` (請見專案檔案) 的內容**全選複製**並貼入編輯器（取代原本的內容）。
+3.  **執行 `setupSheet` 函式**：它會幫您自動建立缺少的 `Contacts` 工作表。
 4.  點擊 **部署 (Deploy) > 新增部署 > 網頁應用程式 (Web App)**。
     *   **權限**：Who has access 務必設為 **Anyone (任何人)**。
-5.  複製 **Web App URL**。
+5.  複製 **Web App URL** 並更新到 `.env` 檔案中。
 
 ---
 
