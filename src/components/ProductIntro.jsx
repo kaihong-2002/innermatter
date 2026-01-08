@@ -274,7 +274,7 @@ const ProductIntro = ({ forceExpanded = false }) => {
           <div
             className="philosophy-teaser"
             style={{
-              padding: '60px 24px',
+              padding: '30px 24px',
               textAlign: 'center',
               background: '#FDFCF8',
               borderBottom: '1px solid #eaeaea'
@@ -362,6 +362,27 @@ const ProductIntro = ({ forceExpanded = false }) => {
                 </div>
               </div>
             ))}
+
+            {/* Back Button for Mobile Page */}
+            {forceExpanded && (
+              <div
+                onClick={() => navigate('/', { state: { scrollTo: 'philosophy' } })}
+                style={{
+                  padding: '30px',
+                  textAlign: 'center',
+                  background: '#f4f4f4',
+                  cursor: 'pointer',
+                  color: '#1a1a1a',
+                  fontFamily: '"Lato", sans-serif',
+                  fontSize: '0.9rem',
+                  letterSpacing: '0.1em',
+                  borderTop: '1px solid #ddd',
+                  marginTop: '-2px' // Overlap margin
+                }}
+              >
+                Create Your Ritual →
+              </div>
+            )}
           </>
         )}
       </div>

@@ -224,6 +224,33 @@ const EventTimeline = ({ forceExpanded = false }) => {
                         </div>
 
                     </div>
+
+                    {/* Back Button for Page View */}
+                    {forceExpanded && (
+                        <div
+                            onClick={() => navigate('/', { state: { scrollTo: 'health-club' } })}
+                            style={{
+                                textAlign: 'center',
+                                marginTop: '60px',
+                                cursor: 'pointer'
+                            }}
+                        >
+                            <span style={{
+                                display: 'inline-block',
+                                padding: '12px 32px',
+                                border: '1px solid #1a1a1a',
+                                color: '#1a1a1a',
+                                borderRadius: '30px',
+                                fontSize: '0.9rem',
+                                fontWeight: 600,
+                                letterSpacing: '0.1em',
+                                background: 'transparent',
+                                transition: 'all 0.3s'
+                            }}>
+                                ← BACK TO HOME
+                            </span>
+                        </div>
+                    )}
                 </div>
             )}
         </section>
