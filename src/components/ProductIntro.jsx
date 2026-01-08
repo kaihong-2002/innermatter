@@ -275,17 +275,7 @@ const ProductIntro = ({ forceExpanded = false }) => {
               borderBottom: '1px solid #eaeaea'
             }}
           >
-            <span style={{
-              display: 'block',
-              color: '#748B6F',
-              fontSize: '0.75rem',
-              letterSpacing: '0.2em',
-              textTransform: 'uppercase',
-              marginBottom: '16px',
-              fontWeight: 600
-            }}>
-              I. OUR MISSION
-            </span>
+
             <h3 style={{
               fontFamily: '"Cinzel", serif',
               fontSize: '2rem',

@@ -116,14 +116,37 @@ const EventTimeline = ({ forceExpanded = false }) => {
 
                     {/* Intro Text for Mobile Page View */}
                     {isMobile && forceExpanded && (
-                        <div style={{ maxWidth: '680px', margin: '0 auto 40px', textAlign: 'center' }}>
+                        <div style={{ maxWidth: '800px', margin: '0 auto 50px', textAlign: 'left', padding: '0 8px' }}>
+                            <h4 style={{
+                                fontFamily: '"Cinzel", serif',
+                                fontSize: '1.2rem',
+                                color: '#1a1a1a',
+                                marginBottom: '16px',
+                                borderLeft: '3px solid #748B6F',
+                                paddingLeft: '12px',
+                                lineHeight: '1.4'
+                            }}>
+                                BEYOND THE SHAKE.<br />
+                                健康，不只是一杯果昔。
+                            </h4>
                             <p style={{
                                 fontFamily: '"Noto Sans TC", sans-serif',
-                                fontSize: '1rem',
+                                fontSize: '0.95rem',
+                                lineHeight: '1.8',
+                                color: '#555',
+                                marginBottom: '24px'
+                            }}>
+                                InnerMatter 深信，真正的健康來自於生活風格的全面實踐。我們打造的不僅是營養補給，更是一個凝聚都會靈魂的社群。
+                                這裡聚集了渴望突破的跑者、熱愛探索的騎行者，以及追求身心強健的訓練者。
+                            </p>
+                            <p style={{
+                                fontFamily: '"Noto Sans TC", sans-serif',
+                                fontSize: '0.95rem',
                                 lineHeight: '1.8',
                                 color: '#555'
                             }}>
-                                InnerMatter 深知都會靈魂對健康的渴望，<br />因此我們策劃了一系列專屬活動。
+                                透過每週固定的城市跑團、週末的長距離騎行與專屬肌力課程，我們在汗水中建立連結，在挑戰中找到歸屬。
+                                加入 InnerMatter Health Club，讓運動不再是孤獨的修行，而是我們共同慶祝生命的方式。
                             </p>
                         </div>
                     )}
