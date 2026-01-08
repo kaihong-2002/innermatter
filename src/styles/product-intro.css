@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lato:wght@300;400;700&display=swap');
 
+/* Main Section Layout (Moved from Inline) */
+.intro-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    /* transition is inline for color */
+}
+
 /* V5 Core Layout - Immersive Book */
 .intro-section-v5 {
     padding: 0;
@@ -207,6 +217,14 @@
    ========================================= */
 @media (max-width: 768px) {
 
+    /* Overwrite Main Section - Force Compact */
+    .intro-section {
+        min-height: auto !important;
+        height: auto !important;
+        display: block !important;
+        padding-bottom: 0 !important;
+    }
+
     /* Hide Desktop View */
     .desktop-philosophy-view {
         display: none !important;
@@ -215,7 +233,8 @@
     /* Show Mobile View */
     .mobile-philosophy-view {
         display: block !important;
-        padding-bottom: 60px;
+        padding-bottom: 0px;
+        /* Ensure 0 */
     }
 
     .intro-section-v5 {

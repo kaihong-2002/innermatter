@@ -182,12 +182,7 @@ const ProductIntro = ({ forceExpanded = false }) => {
     <section className="intro-section" style={{
       padding: '0',
       background: currentPage.bg,
-      transition: 'background-color 0.8s ease',
-      minHeight: '100vh',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      position: 'relative'
+      transition: 'background-color 0.8s ease'
     }}>
 
       {/* Desktop View: Immersive Book */}
